@@ -16,7 +16,6 @@ export interface ProductImageMetadata {
 function apiBaseUrl() {
   return String(
     import.meta.env.VITE_PRODUCT_IMAGE_API_URL
-      || import.meta.env.VITE_SALES_AI_PROXY_URL
       || '',
   ).trim().replace(/\/+$/u, '');
 }
