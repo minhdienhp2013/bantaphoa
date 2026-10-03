@@ -30,3 +30,8 @@ pnpm-debug.log*
 
 # TypeScript build cache
 *.tsbuildinfo
+
+# Cloudflare local state
+.wrangler/
+.dev.vars
+.dev.vars.*

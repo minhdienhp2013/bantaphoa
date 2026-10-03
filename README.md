@@ -28,7 +28,9 @@ Tạo Firebase Project mới, bật Authentication và Realtime Database. Copy `
 
 Owner đầu tiên được tạo bằng Firebase Console/Admin trong **project mới**: tạo tài khoản Authentication, lấy UID rồi tạo `/users/<UID mới>` trong Realtime Database với `uid` đúng UID đó, `displayName` là tên chủ cửa hàng, `role: "owner"`, `active: true`, `createdAt` và `updatedAt` là thời gian mili giây (giá trị `Date.now()`). Có thể thêm `email`. Console/Admin bỏ qua client Rules; không mở quyền database để bootstrap. Sau đó đăng nhập Owner và tạo Staff trong ứng dụng. Client không thể tự tạo Owner hoặc nâng Staff thành Owner; Owner hiện có không thể tự hạ vai trò/khóa mình qua ứng dụng.
 
-Cloudflare Pages dùng project mới, repo này, lệnh `npm run build`, thư mục output `dist`. Chỉ cấu hình dịch vụ ảnh Worker/R2 riêng nếu cần.
+Cloudflare Workers có thể triển khai repo này bằng Workers Builds: tên Worker `bantaphoa` (khớp `wrangler.jsonc`), nhánh `main`, build `npm run build`, deploy `npx wrangler deploy`. Static Assets phục vụ `dist` với fallback SPA cho các route của React Router. Đặt `NODE_VERSION=24` và các biến `VITE_FIREBASE_*` của Firebase tạp hóa trong **Build variables** trước khi build; biến runtime/bindings không thay thế được biến Vite lúc build. Không có `.env.local` trên GitHub. Cấu hình Firebase không đầy đủ sẽ hiện trang hướng dẫn. Worker này chỉ phục vụ frontend; Auth/Rules của Firebase tiếp tục bảo vệ dữ liệu.
+
+Cloudflare Pages vẫn dùng được nếu chọn project mới, repo này, lệnh `npm run build`, thư mục output `dist`. Chỉ cấu hình dịch vụ ảnh Worker/R2 riêng nếu cần.
 
 Không dùng Firebase, Pages, Worker/R2 hoặc dữ liệu production của Minh Điến. Bản này không thay đổi repo cũ.
 
@@ -40,4 +42,4 @@ POS chỉ bán sản phẩm: tìm/quét mã → giỏ hàng → số lượng/gi
 
 Đã bỏ AI, dịch vụ nhanh, các nhánh dữ liệu liên quan khỏi POS, báo cáo, Dashboard, sao lưu/reset và Rules. Backup có node ngoài schema sẽ bị từ chối; không nhập backup Minh Điến vào project mới. Dữ liệu báo cáo dùng giá vốn được lưu lúc bán. Tồn kho CAS được giữ nguyên.
 
-Chưa bổ sung quy đổi lon/lốc/thùng, barcode đa đơn vị, giá theo đơn vị, giá sỉ/lẻ hoặc lô/hạn sử dụng. Chưa kết nối Firebase/Cloudflare thật và chưa kiểm tra máy in/két thực tế. Icon Electron đang dùng mặc định.
+Chưa bổ sung quy đổi lon/lốc/thùng, barcode đa đơn vị, giá theo đơn vị, giá sỉ/lẻ hoặc lô/hạn sử dụng. Cần kiểm tra đăng nhập/đọc ghi trên Firebase riêng sau khi triển khai; chưa kiểm tra máy in/két thực tế. Icon Electron đang dùng mặc định.
