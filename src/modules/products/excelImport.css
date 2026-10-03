@@ -1,0 +1,214 @@
+.excel-import-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  background:
+    linear-gradient(135deg, #fffdfa, #fff8ee);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.excel-import-entry > div {
+  display: grid;
+  gap: 4px;
+}
+
+.excel-import-entry strong {
+  color: var(--brand-red-deep);
+}
+
+.excel-import-entry span,
+.excel-import-help span,
+.excel-file-picker span {
+  color: var(--ui-text-muted);
+  line-height: 1.5;
+}
+
+.excel-import-panel {
+  margin-bottom: 24px;
+  border-color: var(--ui-border);
+  background: var(--ui-surface);
+}
+
+.excel-import-help {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid #eadfce;
+  border-radius: var(--ui-radius-md);
+  background: #faf5ef;
+}
+
+.excel-file-picker {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: #51413a;
+  font-weight: 700;
+}
+
+.excel-file-picker input {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed #d5b978;
+  border-radius: var(--ui-radius-md);
+  color: var(--ui-text);
+  background: #fffdfa;
+}
+
+.excel-file-picker input:focus-visible {
+  outline: 3px solid var(--ui-focus-ring);
+  outline-offset: 2px;
+}
+
+.excel-import-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 16px 0 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  background: #fffdfa;
+}
+
+.excel-import-options legend {
+  padding: 0 6px;
+  color: #5a473f;
+  font-weight: 760;
+}
+
+.excel-import-options label,
+.excel-stock-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.excel-import-options input,
+.excel-stock-option input {
+  margin-top: 3px;
+  accent-color: var(--ui-primary);
+}
+
+.excel-stock-option {
+  margin: 12px 0 16px;
+  padding: 14px 16px;
+  border: 1px solid #e4cc94;
+  border-radius: var(--ui-radius-md);
+  background: #fff8e7;
+}
+
+.excel-stock-option span {
+  display: grid;
+  gap: 4px;
+}
+
+.excel-stock-option small {
+  color: #796952;
+  line-height: 1.45;
+}
+
+.import-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.import-summary div {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  background: #fffdfa;
+}
+
+.import-summary div::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(var(--brand-red), var(--brand-gold));
+}
+
+.import-summary span {
+  color: var(--ui-text-muted);
+  font-size: .82rem;
+}
+
+.import-summary strong {
+  color: var(--brand-red-deep);
+  font-size: 1.35rem;
+}
+
+.form-success,
+.form-warning {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border-radius: var(--ui-radius-md);
+  line-height: 1.5;
+}
+
+.form-success {
+  color: #236044;
+  border: 1px solid #b9ddca;
+  background: #e9f5ef;
+}
+
+.form-warning {
+  color: #795515;
+  border: 1px solid #ead59f;
+  background: #fff5d8;
+}
+
+.import-preview-table-wrap {
+  max-height: 460px;
+  overflow: auto;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  scrollbar-width: thin;
+  scrollbar-color: #d7c8ba transparent;
+}
+
+.import-preview-table-wrap .data-table th {
+  background: #faf5ef;
+}
+
+.import-status {
+  display: inline-block;
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+.import-status--ready { color: var(--ui-success); }
+.import-status--duplicate { color: #795515; }
+.import-status--conflict,
+.import-status--error { color: var(--ui-danger); }
+
+@media (max-width: 760px) {
+  .excel-import-entry {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .excel-import-entry .button {
+    width: 100%;
+  }
+
+  .import-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .excel-import-options {
+    flex-direction: column;
+  }
+}
