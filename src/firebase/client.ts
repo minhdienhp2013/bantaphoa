@@ -1,6 +1,7 @@
 import { getApps, initializeApp } from 'firebase/app';
 import { browserLocalPersistence, getAuth, initializeAuth, type Auth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
+import { firebaseConfig, firebaseReady } from './config';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -39,6 +40,8 @@ function createAuth(): Auth {
 }
 
 export const auth = createAuth();
+
+export { firebaseReady };
 
 export const realtimeDatabaseReady = Boolean(firebaseConfig.databaseURL);
 export const db = realtimeDatabaseReady
