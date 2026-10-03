@@ -1,13 +1,7 @@
 import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
+import { firebaseReady } from './firebase/config';
 const App = lazy(() => import('./App'));
-const firebaseReady = [
-  import.meta.env.VITE_FIREBASE_API_KEY,
-  import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  import.meta.env.VITE_FIREBASE_DATABASE_URL,
-  import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  import.meta.env.VITE_FIREBASE_APP_ID,
-].every((value) => typeof value === 'string' && value.trim().length > 0);
 import { installCapacitorRuntimeShell } from './platform/runtime';
 import { installSalesMobileTopbarShortcuts } from './modules/sales/salesMobileTopbarShortcuts';
 import { installSalesQuickCheckoutScrollSpeed } from './modules/sales/salesQuickCheckoutScrollSpeed';
