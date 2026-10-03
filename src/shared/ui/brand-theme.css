@@ -1,0 +1,149 @@
+/* Minh Điến brand layer: warm red + gold, softened for long POS use. */
+body {
+  color: var(--ui-text);
+  background: var(--ui-background);
+}
+
+.eyebrow,
+.sidebar__eyebrow {
+  color: var(--ui-primary);
+}
+
+.button--primary {
+  color: var(--ui-primary-contrast);
+  background: var(--ui-primary);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--ui-primary-hover);
+}
+
+.button--secondary {
+  color: #594338;
+  background: #f3e9df;
+  border: 1px solid #e7d8c8;
+}
+
+.login-screen,
+.center-screen {
+  background:
+    radial-gradient(circle at 18% 12%, rgb(163 59 50 / 0.10), transparent 34%),
+    radial-gradient(circle at 82% 84%, rgb(211 161 59 / 0.12), transparent 32%),
+    var(--ui-background);
+}
+
+.auth-card,
+.loading-card {
+  border-color: var(--ui-border);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow-md);
+}
+
+.auth-form label {
+  color: var(--ui-text);
+}
+
+.auth-form input {
+  border-color: var(--ui-border);
+  color: var(--ui-text);
+  background: var(--ui-surface);
+}
+
+.auth-form input:focus {
+  border-color: var(--ui-primary);
+  box-shadow: 0 0 0 3px rgb(211 161 59 / 0.18);
+}
+
+.form-error {
+  color: #8f251f;
+  background: #fff2f0;
+  border: 1px solid #f0c8c3;
+}
+
+.sidebar--desktop,
+.mobile-drawer {
+  background: #fffdfa;
+}
+
+.sidebar__brand-logo {
+  width: 58px;
+  min-width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: cover;
+  border: 1px solid #ecd9c3;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgb(125 44 40 / 0.12);
+}
+
+.sidebar__title,
+.mobile-drawer__header strong {
+  color: var(--brand-red-deep);
+}
+
+.nav-link--active {
+  color: var(--brand-red-deep);
+  background: var(--brand-gold-soft);
+}
+
+.nav-link--active .nav-link__icon {
+  color: #fff;
+  border-color: var(--brand-red-deep);
+  background: var(--brand-red-deep);
+  box-shadow: 0 4px 12px rgb(163 59 50 / .2), 0 0 0 2px rgb(211 161 59 / .18);
+}
+
+.topbar {
+  border-bottom-color: var(--ui-border);
+  background: rgb(255 253 250 / 0.95);
+}
+
+.page-content {
+  color: var(--ui-text);
+}
+
+.brand-login {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.brand-login__logo {
+  width: 136px;
+  height: 136px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgb(125 44 40 / 0.10);
+}
+
+.brand-login__name {
+  margin: 0;
+  color: var(--brand-red-deep);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.brand-login__tagline {
+  margin: 0;
+  color: #9a6f21;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+@media (max-width: 430px) {
+  .sidebar__brand-logo {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+  }
+
+  .brand-login__logo {
+    width: 112px;
+    height: 112px;
+  }
+}

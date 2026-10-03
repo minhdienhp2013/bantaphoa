@@ -1,0 +1,85 @@
+/*
+ * TABLET UI LOCK
+ * ------------------------------------------------------------
+ * Mobile (<= 760px): LOCKED — do not place overrides here.
+ * Tablet (761px–1024px): the only allowed scope for tablet refinements.
+ * Desktop (>= 1025px): LOCKED — do not place overrides here.
+ *
+ * Keep every tablet-only visual override inside the media query below.
+ */
+@media (min-width: 761px) and (max-width: 1024px) {
+  :root {
+    --tablet-ui-scope-active: 1;
+  }
+
+  /*
+   * iPad / tablet shell
+   * Use the drawer navigation instead of the fixed desktop sidebar.
+   * This avoids landscape iPads (1024 CSS px) inheriting the desktop shell.
+   */
+  .workspace {
+    display: block;
+  }
+
+  .sidebar--desktop {
+    display: none;
+  }
+
+  .shell-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topbar {
+    min-height: 62px;
+    padding: 9px 16px;
+    gap: 12px;
+  }
+
+  .topbar__context {
+    flex: 1;
+  }
+
+  .mobile-drawer-backdrop {
+    display: block;
+  }
+
+  .mobile-drawer {
+    width: min(360px, calc(100vw - 72px));
+  }
+
+  .page-content {
+    padding: 20px 20px 38px;
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /*
+   * Settings already uses a launcher/card layout. On tablet keep two
+   * columns and use a centered window rather than desktop full-page sections.
+   */
+  .settings-launcher-grid,
+  .settings-launcher-grid--danger {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .settings-launcher-card {
+    min-height: 100px;
+  }
+
+  .settings-page .ui-dialog {
+    width: min(920px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+  }
+
+  .settings-page .ui-dialog__body {
+    padding: 16px;
+  }
+
+  .settings-window-rates .settings-rate-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,166 @@
+/* Final cross-app mobile polish. Presentation only. */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Keep normal one-finger panning, but do not advertise pinch-zoom to touch browsers. */
+@media (pointer: coarse) {
+  html,
+  body,
+  #root {
+    touch-action: pan-x pan-y;
+  }
+}
+
+img,
+picture,
+svg,
+canvas,
+video {
+  max-width: 100%;
+}
+
+.page-content,
+.page-content > *,
+.workspace__main,
+.workspace__main > * {
+  min-width: 0;
+}
+
+.page-heading,
+.page-heading > * {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+label,
+strong,
+span {
+  overflow-wrap: break-word;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 859px) {
+  .page-heading {
+    flex-wrap: wrap;
+  }
+
+  .page-content {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
+  }
+
+  .topbar {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+
+  .mobile-drawer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Cross-app compact mobile header: same ~40% visual reduction on every module/tab. */
+@media (max-width: 760px) {
+  .topbar {
+    min-height: 48px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    padding-left: max(8px, env(safe-area-inset-left)) !important;
+    padding-right: max(8px, env(safe-area-inset-right)) !important;
+    gap: 7px !important;
+  }
+
+  /* Keep a 44px touch target, while shrinking only the visible menu frame. */
+  .shell-menu-button {
+    position: relative;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    border: 0 !important;
+    background: transparent !important;
+    font-size: .92rem !important;
+  }
+
+  .shell-menu-button::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid var(--ui-border, #cbd5e1);
+    border-radius: 8px;
+    background: var(--ui-surface, #fff);
+  }
+
+  .shell-menu-button > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .topbar__context {
+    gap: 0 !important;
+  }
+
+  .topbar__context strong {
+    font-size: .78rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .topbar__sub {
+    display: none !important;
+  }
+
+  .role-badge {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+    font-size: .54rem !important;
+    line-height: 1 !important;
+    letter-spacing: .04em !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-heading {
+    gap: 14px;
+  }
+
+  .page-content {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-bottom: max(34px, env(safe-area-inset-bottom));
+  }
+
+  .auth-card,
+  .loading-card,
+  .module-card,
+  .empty-state {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

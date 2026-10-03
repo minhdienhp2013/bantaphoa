@@ -1,0 +1,35 @@
+/*
+ * Native Capacitor shell only.
+ * Web/PWA and Electron keep their existing spacing.
+ */
+@media (max-width: 859px) {
+  html.capacitor-ios .topbar {
+    min-height: calc(50px + env(safe-area-inset-top, 0px)) !important;
+    padding-top: max(10px, env(safe-area-inset-top, 0px)) !important;
+    padding-bottom: 4px !important;
+    padding-left: max(10px, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(10px, env(safe-area-inset-right, 0px)) !important;
+  }
+
+  html.capacitor-ios .mobile-drawer__header {
+    min-height: calc(68px + env(safe-area-inset-top, 0px));
+    padding-top: max(12px, env(safe-area-inset-top, 0px));
+    padding-left: max(14px, env(safe-area-inset-left, 0px));
+    padding-right: max(14px, env(safe-area-inset-right, 0px));
+  }
+
+  html.capacitor-ios .page-content {
+    padding-bottom: max(40px, env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Sales has a stronger compact-topbar rule, so keep the native safe area explicit. */
+@media (max-width: 760px) {
+  html.capacitor-ios body:has(.sales-shell) .topbar {
+    min-height: calc(50px + env(safe-area-inset-top, 0px)) !important;
+    padding-top: max(10px, env(safe-area-inset-top, 0px)) !important;
+    padding-bottom: 4px !important;
+    padding-left: max(8px, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(8px, env(safe-area-inset-right, 0px)) !important;
+  }
+}

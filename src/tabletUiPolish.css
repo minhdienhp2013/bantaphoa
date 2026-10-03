@@ -1,0 +1,801 @@
+/*
+ * IPAD / TABLET UI POLISH
+ * Target: 761px–1180px, especially 1024×768 landscape.
+ * Sales is intentionally excluded. This file is presentation-only.
+ */
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .workspace__main:not(.workspace__main--sales) {
+    min-width: 0;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .topbar {
+    min-height: 56px;
+    padding: 7px 14px;
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .shell-menu-button {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .topbar__context {
+    min-width: 0;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .topbar__context strong {
+    font-size: .96rem;
+    line-height: 1.08;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .topbar__sub {
+    font-size: .7rem;
+    line-height: 1.1;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .role-badge {
+    min-height: 26px;
+    padding: 4px 8px;
+    font-size: .64rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .page-content {
+    width: 100%;
+    max-width: none;
+    padding: 14px 16px 26px;
+    overflow-x: hidden;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .dashboard-shell,
+    .products-page,
+    .crm-page,
+    .purchase-page,
+    .debts-page,
+    .inv-shell,
+    .qr-page,
+    .reports-shell,
+    .users-page,
+    .settings-page
+  ) {
+    min-width: 0;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .dashboard-header,
+    .goods-heading,
+    .crm-heading,
+    .purchase-page-header,
+    .debts-header,
+    .inv-page-header,
+    .qr-page-header,
+    .report-page-header,
+    .settings-header
+  ) {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .dashboard-header,
+    .goods-heading,
+    .crm-heading,
+    .purchase-page-header,
+    .debts-header,
+    .inv-page-header,
+    .qr-page-header,
+    .report-page-header,
+    .settings-header
+  ) h1 {
+    margin-bottom: 4px;
+    font-size: 1.42rem;
+    line-height: 1.12;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .dashboard-subtitle,
+    .goods-heading .muted,
+    .crm-heading .muted,
+    .purchase-page-header .muted,
+    .debts-header .muted,
+    .inv-page-header .muted,
+    .qr-page-header .muted,
+    .report-page-header .muted,
+    .settings-header .muted
+  ) {
+    margin-bottom: 0;
+    font-size: .74rem;
+    line-height: 1.35;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .button,
+    button,
+    input,
+    select,
+    textarea
+  ) {
+    touch-action: manipulation;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .button,
+    .crm-touch,
+    .purchase-touch,
+    .report-touch
+  ) {
+    min-height: 42px;
+  }
+
+  /* Dashboard */
+  .workspace__main:not(.workspace__main--sales) .dashboard-shell {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-header {
+    align-items: center;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-header-actions {
+    flex: 0 0 auto;
+    gap: 7px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-header-actions button {
+    min-height: 42px;
+    padding: 8px 11px;
+    font-size: .76rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-period-bar {
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-period-chips {
+    gap: 5px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-period-chip {
+    min-height: 38px;
+    padding: 7px 10px;
+    font-size: .72rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-range-label {
+    font-size: .68rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-card {
+    min-height: 100px;
+    padding: 11px 12px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-card > span {
+    font-size: .7rem;
+    line-height: 1.2;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-card > strong {
+    font-size: 1.2rem;
+    line-height: 1.08;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-card small,
+  .workspace__main:not(.workspace__main--sales) .dashboard-comparison {
+    font-size: .63rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-primary-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+    gap: 9px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-lower-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-card {
+    padding: 11px 12px;
+    border-radius: 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-mini-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-mini-stats > div {
+    min-height: 54px;
+    padding: 7px 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-activity-list,
+  .workspace__main:not(.workspace__main--sales) .dashboard-ranking-list {
+    max-height: 230px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Products */
+  .workspace__main:not(.workspace__main--sales) .products-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-heading {
+    align-items: center;
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-heading .goods-touch {
+    min-height: 42px;
+    white-space: nowrap;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-toolbar {
+    gap: 8px;
+    padding: 9px 10px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-search input {
+    min-height: 44px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-toolbar-actions {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-toolbar-actions .button {
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .76rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-kpis {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-kpi {
+    min-height: 72px;
+    padding: 9px 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-kpi span {
+    font-size: .66rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-kpi strong {
+    font-size: 1.1rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-catalog-layout {
+    grid-template-columns: 172px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-table {
+    min-width: 900px;
+    font-size: .78rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-table th,
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-table td {
+    padding: 7px 8px;
+  }
+
+  /* Customers, suppliers, expenses */
+  .workspace__main:not(.workspace__main--sales) .crm-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-heading {
+    align-items: center;
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-heading .button {
+    flex: 0 0 auto;
+    min-width: 136px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-stat {
+    min-height: 72px;
+    padding: 10px 12px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-stat strong {
+    font-size: 1.25rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-editor,
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-panel {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-toolbar {
+    gap: 8px;
+    padding: 9px 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-search {
+    flex: 1 1 360px;
+    min-width: 260px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-table {
+    min-width: 860px;
+    font-size: .78rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-table th,
+  .workspace__main:not(.workspace__main--sales) .crm-page .crm-table td {
+    padding: 8px;
+  }
+
+  /* Purchases */
+  .workspace__main:not(.workspace__main--sales) .purchase-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .purchase-page-header {
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .purchase-workspace {
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .purchase-main,
+  .workspace__main:not(.workspace__main--sales) .purchase-list-panel {
+    min-width: 0;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .purchase-list-panel {
+    max-height: calc(100dvh - 132px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Debts */
+  .workspace__main:not(.workspace__main--sales) .debts-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-summary-card {
+    min-height: 84px;
+    padding: 10px 11px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-tabs {
+    gap: 6px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-tabs button {
+    min-height: 40px;
+    padding: 7px 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-workspace {
+    grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-card {
+    min-width: 0;
+    padding: 12px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-list {
+    max-height: 420px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .debt-detail-grid,
+  .workspace__main:not(.workspace__main--sales) .debt-detail-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .loan-schedule {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Inventory / stock out / stocktake */
+  .workspace__main:not(.workspace__main--sales) .inv-shell {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-page-header {
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-summary-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-stat {
+    min-height: 74px;
+    padding: 10px 11px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-card {
+    min-width: 0;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-table {
+    min-width: 760px;
+    font-size: .78rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-table th,
+  .workspace__main:not(.workspace__main--sales) .inv-table td {
+    padding: 7px 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stockout-workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
+    gap: 10px;
+    align-items: start;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .inv-list {
+    max-height: 500px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-workspace-tabs {
+    gap: 6px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-workspace-tabs .button {
+    min-height: 40px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-entry-modal {
+    width: min(900px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-entry-modal__header {
+    min-height: 56px;
+    padding: 9px 12px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-entry-modal__body {
+    min-height: 0;
+    padding: 10px 12px;
+    overflow-y: auto;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .stk-scan-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr);
+    gap: 10px;
+  }
+
+  /* QR / Printing */
+  .workspace__main:not(.workspace__main--sales) .qr-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .qr-page-header {
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .printing-workspace,
+  .workspace__main:not(.workspace__main--sales) .qr-generator {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .printing-grid {
+    grid-template-columns: minmax(300px, .86fr) minmax(0, 1.14fr);
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .printing-panel {
+    min-width: 0;
+    padding: 11px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .print-product-list {
+    max-height: 360px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .label-preview-shell {
+    max-height: 430px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .qr-code-previews {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .qr-code-preview-card {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  /* Reports */
+  .workspace__main:not(.workspace__main--sales) .reports-shell {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-card {
+    padding: 12px 13px;
+    border-radius: 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-filters {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-preset-row {
+    gap: 5px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-chip {
+    min-height: 38px;
+    padding: 7px 10px;
+    font-size: .72rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-stat {
+    min-height: 88px;
+    gap: 5px;
+    padding: 11px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-stat span {
+    font-size: .7rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-stat strong {
+    font-size: 1.15rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-stat small {
+    font-size: .64rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-table {
+    font-size: .76rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-table th,
+  .workspace__main:not(.workspace__main--sales) .report-table td {
+    padding: 7px 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .report-two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  /* Users */
+  .workspace__main:not(.workspace__main--sales) .users-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .users-launchers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .users-dialog-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .users-permissions__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .users-list {
+    max-height: 430px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Settings */
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-page {
+    gap: 10px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-section {
+    gap: 10px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-grid,
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-grid--danger {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-card {
+    min-height: 92px;
+    grid-template-columns: 46px minmax(0, 1fr) 20px;
+    gap: 10px;
+    padding: 11px 12px;
+    border-radius: 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-card__copy strong {
+    font-size: .86rem;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-launcher-card__copy small {
+    font-size: .68rem;
+    line-height: 1.28;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-page .ui-dialog {
+    width: min(920px, calc(100vw - 28px));
+    max-height: calc(100dvh - 28px);
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-page .ui-dialog__header {
+    min-height: 56px;
+    padding: 10px 13px;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-page .ui-dialog__body {
+    min-height: 0;
+    padding: 12px 13px 14px;
+    overflow-y: auto;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .settings-window-rates .settings-rate-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  /* Shared table/form ergonomics */
+  .workspace__main:not(.workspace__main--sales) input,
+  .workspace__main:not(.workspace__main--sales) select,
+  .workspace__main:not(.workspace__main--sales) textarea {
+    max-width: 100%;
+  }
+
+  .workspace__main:not(.workspace__main--sales) :is(
+    .crm-table-wrap,
+    .goods-table-wrap,
+    .report-table-wrap,
+    .inv-table-wrap
+  ) {
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .workspace__main:not(.workspace__main--sales) .dashboard-primary-grid,
+  .workspace__main:not(.workspace__main--sales) .purchase-workspace,
+  .workspace__main:not(.workspace__main--sales) .debt-workspace,
+  .workspace__main:not(.workspace__main--sales) .stockout-workspace,
+  .workspace__main:not(.workspace__main--sales) .printing-grid,
+  .workspace__main:not(.workspace__main--sales) .stk-scan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-lower-grid,
+  .workspace__main:not(.workspace__main--sales) .report-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace__main:not(.workspace__main--sales) .dashboard-kpi-grid,
+  .workspace__main:not(.workspace__main--sales) .report-summary-grid,
+  .workspace__main:not(.workspace__main--sales) .debt-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace__main:not(.workspace__main--sales) .products-page .goods-catalog-layout {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+
+  .workspace__main:not(.workspace__main--sales) .qr-code-previews,
+  .workspace__main:not(.workspace__main--sales) .users-permissions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
