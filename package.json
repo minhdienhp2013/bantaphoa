@@ -11,8 +11,8 @@
     "preview": "vite preview",
     "build:desktop": "tsc -b && vite build --mode electron",
     "desktop:dev": "electron .",
-    "desktop:build": "npm run build:desktop && electron-builder --win nsis",
-    "desktop:dir": "npm run build:desktop && electron-builder --dir"
+    "desktop:build": "npm run build:desktop && electron-builder --win nsis --publish never",
+    "desktop:dir": "npm run build:desktop && electron-builder --dir --publish never"
   },
   "dependencies": {
     "@zxing/browser": "0.2.1",
