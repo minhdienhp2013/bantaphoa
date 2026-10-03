@@ -1,0 +1,71 @@
+{
+  "name": "quan-ly-ban-hang-web",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "node --test tests/*.mjs",
+    "test:rules": "firebase emulators:exec --only database \"node --test --test-concurrency=1 tests/rules/*.mjs\" --project demo-products-delete",
+    "preview": "vite preview",
+    "build:desktop": "tsc -b && vite build --mode electron",
+    "desktop:dev": "electron .",
+    "desktop:build": "npm run build:desktop && electron-builder --win nsis",
+    "desktop:dir": "npm run build:desktop && electron-builder --dir"
+  },
+  "dependencies": {
+    "@zxing/browser": "0.2.1",
+    "firebase": "12.19.0",
+    "jsbarcode": "3.12.3",
+    "qrcode": "1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router-dom": "7.18.3",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "5.0.2",
+    "@types/qrcode": "1.5.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "firebase-tools": "15.30.1",
+    "typescript": "7.0.2",
+    "vite": "8.2.2",
+    "electron": "44.4.4",
+    "electron-builder": "26.15.3"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "vn.minhdien.sales",
+    "productName": "Minh Điến - Quản lý bán hàng",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "Minh-Dien-Quan-Ly-Ban-Hang-${version}-Setup.${ext}",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Minh Điến - Quản lý bán hàng",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    }
+  }
+}
