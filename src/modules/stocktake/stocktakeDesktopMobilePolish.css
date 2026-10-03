@@ -1,0 +1,1532 @@
+/*
+ * STOCKTAKE — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ * Mobile is optimized for one-hand counting and scanning.
+ */
+
+@media (min-width: 1025px) {
+  .stk-shell {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .stk-shell .inv-page-header {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .stk-shell .inv-page-header .eyebrow {
+    margin-bottom: 2px;
+    font-size: .66rem;
+  }
+
+  .stk-shell .inv-page-header h1 {
+    margin: 1px 0 3px;
+    font-size: clamp(1.34rem, 1.8vw, 1.7rem);
+  }
+
+  .stk-shell .inv-page-header .muted {
+    font-size: .82rem;
+    line-height: 1.28;
+  }
+
+  .stk-workspace-tabs {
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid #eadfd5;
+    border-radius: 11px;
+    background: #fffdfa;
+  }
+
+  .stk-workspace-tabs .button {
+    min-height: 38px;
+    padding: 6px 10px;
+    font-size: .76rem;
+  }
+
+  .stk-editor,
+  .stk-management {
+    gap: 9px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    box-shadow: none;
+  }
+
+  .stk-editor > .inv-card__header,
+  .stk-management-heading {
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .stk-editor > .inv-card__header h2,
+  .stk-management-heading h2 {
+    margin-bottom: 2px;
+    font-size: 1rem;
+  }
+
+  .stk-editor > .inv-card__header .muted,
+  .stk-management-heading .muted {
+    font-size: .7rem;
+    line-height: 1.2;
+  }
+
+  .stk-mode-toggle {
+    gap: 6px;
+  }
+
+  .stk-mode-toggle .button {
+    min-height: 39px;
+    padding: 7px 10px;
+    font-size: .75rem;
+  }
+
+  .stk-manual-mode,
+  .stk-scan-mode,
+  .stk-review {
+    gap: 9px;
+  }
+
+  .stk-manual-toolbar,
+  .stk-section-heading,
+  .stk-review__heading {
+    gap: 9px;
+  }
+
+  .stk-manual-toolbar h3,
+  .stk-section-heading h3,
+  .stk-review__heading h3,
+  .stk-scan-list-preview h3 {
+    margin-bottom: 2px;
+    font-size: .92rem;
+  }
+
+  .stk-manual-toolbar .muted,
+  .stk-review__heading .muted {
+    font-size: .68rem;
+  }
+
+  .stk-manual-toolbar .inv-search {
+    width: min(320px, 38vw);
+    min-height: 40px;
+    padding: 7px 9px;
+    font-size: .78rem;
+  }
+
+  .stk-manual-mode .inv-table-wrap {
+    max-height: 470px;
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+
+  .stk-manual-table {
+    min-width: 720px;
+  }
+
+  .stk-manual-table th,
+  .stk-manual-table td {
+    padding: 7px 9px;
+  }
+
+  .stk-manual-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-size: .68rem;
+  }
+
+  .stk-manual-table td {
+    font-size: .76rem;
+  }
+
+  .stk-manual-table .inv-row-input {
+    min-height: 38px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: .78rem;
+  }
+
+  .stk-scan-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+    gap: 9px;
+  }
+
+  .stk-camera-panel,
+  .stk-scan-side,
+  .stk-review {
+    gap: 9px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .stk-camera-panel .qr-scanner {
+    padding: 9px;
+  }
+
+  .stk-camera-feedback {
+    gap: 3px;
+  }
+
+  .stk-camera-feedback__label {
+    font-size: .66rem;
+  }
+
+  .stk-feedback-slot {
+    min-height: 62px;
+  }
+
+  .stk-feedback,
+  .stk-feedback-idle {
+    padding: 8px 9px;
+    border-radius: 8px;
+    font-size: .72rem;
+  }
+
+  .stk-feedback strong {
+    font-size: .78rem;
+  }
+
+  .stk-scan-guidance {
+    font-size: .68rem;
+    line-height: 1.3;
+  }
+
+  .stk-scan-stats {
+    gap: 6px;
+  }
+
+  .stk-scan-stats > div {
+    gap: 3px;
+    padding: 8px 9px;
+    border-radius: 8px;
+  }
+
+  .stk-scan-stats span {
+    font-size: .66rem;
+  }
+
+  .stk-scan-stats strong {
+    font-size: 1.05rem;
+  }
+
+  .stk-scan-list-preview .stk-count-list,
+  .stk-review .stk-count-list {
+    max-height: 300px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 2px;
+    scrollbar-width: thin;
+  }
+
+  .stk-count-card {
+    gap: 8px;
+    padding: 8px 9px;
+    border-radius: 9px;
+  }
+
+  .stk-count-card__identity {
+    gap: 2px;
+  }
+
+  .stk-count-card__identity strong {
+    font-size: .75rem;
+    line-height: 1.15;
+  }
+
+  .stk-count-card__identity span,
+  .stk-count-card__identity small {
+    font-size: .63rem;
+    line-height: 1.15;
+  }
+
+  .stk-stepper {
+    grid-template-columns: 38px minmax(70px, 96px) 38px;
+    gap: 5px;
+  }
+
+  .stk-stepper button,
+  .stk-stepper input {
+    min-height: 38px;
+    border-radius: 8px;
+  }
+
+  .stk-stepper button {
+    font-size: 1.12rem;
+  }
+
+  .stk-editor > .inv-field {
+    gap: 4px;
+    font-size: .7rem;
+  }
+
+  .stk-editor > .inv-field textarea {
+    min-height: 58px;
+    padding: 7px 9px;
+    border-radius: 8px;
+    font-size: .76rem;
+  }
+
+  .stk-editor > .inv-actions {
+    gap: 6px;
+  }
+
+  .stk-editor > .inv-actions .button {
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .74rem;
+  }
+
+  .stk-management-heading .stk-management-touch {
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .72rem;
+  }
+
+  .stk-management-filters {
+    grid-template-columns: minmax(240px, 1.5fr) minmax(135px, .65fr) minmax(135px, .65fr) minmax(135px, .65fr) auto;
+    gap: 7px;
+  }
+
+  .stk-management-filters label {
+    gap: 4px;
+    font-size: .7rem;
+  }
+
+  .stk-management-filters input,
+  .stk-management-filters select {
+    min-height: 39px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    font-size: .76rem;
+  }
+
+  .stk-management-filters .button {
+    min-height: 39px;
+    padding: 7px 9px;
+    font-size: .7rem;
+  }
+
+  .stk-management-table-wrap {
+    max-height: 470px;
+    overflow: auto;
+    border-radius: 9px;
+    scrollbar-width: thin;
+  }
+
+  .stk-management-table {
+    min-width: 1240px;
+    font-size: .75rem;
+  }
+
+  .stk-management-table th,
+  .stk-management-table td {
+    padding: 7px 8px;
+  }
+
+  .stk-management-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-size: .65rem;
+  }
+
+  .stk-status,
+  .stk-result {
+    min-height: 24px;
+    padding: 3px 7px;
+    font-size: .64rem;
+  }
+
+  .stk-management-row-actions {
+    min-width: 235px;
+    gap: 3px 5px;
+  }
+
+  .stk-management-row-actions button {
+    min-height: 32px;
+    padding: 4px 6px;
+    font-size: .67rem;
+  }
+
+  .stk-management-modal {
+    width: min(1120px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    border-radius: 14px;
+  }
+
+  .stk-detail-header {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .stk-detail-header h2 {
+    margin-bottom: 3px;
+    font-size: 1.02rem;
+  }
+
+  .stk-detail-body {
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .stk-detail-meta {
+    gap: 6px;
+  }
+
+  .stk-detail-meta > div,
+  .stk-detail-summary > div {
+    gap: 3px;
+    padding: 8px 9px;
+    border-radius: 8px;
+  }
+
+  .stk-detail-meta span,
+  .stk-detail-summary span {
+    font-size: .65rem;
+  }
+
+  .stk-detail-meta strong,
+  .stk-detail-summary strong {
+    font-size: .76rem;
+  }
+
+  .stk-detail-summary {
+    gap: 6px;
+  }
+
+  .stk-detail-table-wrap {
+    max-height: 390px;
+    overflow: auto;
+    border-radius: 9px;
+    scrollbar-width: thin;
+  }
+
+  .stk-detail-table th,
+  .stk-detail-table td {
+    padding: 7px 8px;
+  }
+
+  .stk-detail-actions {
+    gap: 6px;
+  }
+
+  .stk-detail-actions .button {
+    min-height: 39px;
+    padding: 7px 9px;
+    font-size: .7rem;
+  }
+
+  .stk-apply-panel {
+    gap: 7px;
+    padding: 9px;
+    border-radius: 9px;
+  }
+
+  .stk-apply-panel__copy span {
+    font-size: .69rem;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 760px) {
+  .stk-shell {
+    width: 100%;
+    gap: 7px;
+  }
+
+  .stk-shell .inv-page-header {
+    padding: 9px 10px;
+    border-radius: 10px;
+  }
+
+  .stk-shell .inv-page-header::after,
+  .stk-shell .inv-page-header .eyebrow,
+  .stk-shell .inv-page-header .muted {
+    display: none;
+  }
+
+  .stk-shell .inv-page-header h1 {
+    margin: 0;
+    font-size: 1.08rem;
+  }
+
+  .stk-shell > .form-error,
+  .stk-shell > .inv-success {
+    padding: 8px 9px;
+    border-radius: 8px;
+    font-size: .69rem;
+    line-height: 1.18;
+  }
+
+  .stk-workspace-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding: 4px;
+    border: 1px solid #eadfd5;
+    border-radius: 10px;
+    background: #fffdfa;
+  }
+
+  .stk-workspace-tabs .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 7px;
+    font-size: .7rem;
+    line-height: 1.1;
+  }
+
+  .stk-editor,
+  .stk-management {
+    gap: 7px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .stk-editor > .inv-card__header {
+    margin-bottom: 0;
+  }
+
+  .stk-editor > .inv-card__header h2,
+  .stk-management-heading h2 {
+    margin-bottom: 2px;
+    font-size: .9rem;
+    line-height: 1.15;
+  }
+
+  .stk-editor > .inv-card__header .muted,
+  .stk-management-heading .muted {
+    font-size: .62rem;
+    line-height: 1.18;
+  }
+
+  .stk-mode-toggle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .stk-mode-toggle .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 7px;
+    font-size: .7rem;
+    line-height: 1.1;
+  }
+
+  .stk-manual-mode,
+  .stk-scan-mode,
+  .stk-review {
+    gap: 7px;
+  }
+
+  .stk-manual-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .stk-manual-toolbar h3,
+  .stk-section-heading h3,
+  .stk-review__heading h3,
+  .stk-scan-list-preview h3 {
+    margin-bottom: 2px;
+    font-size: .82rem;
+    line-height: 1.15;
+  }
+
+  .stk-manual-toolbar .muted,
+  .stk-review__heading .muted {
+    font-size: .61rem;
+    line-height: 1.16;
+  }
+
+  .stk-manual-toolbar .inv-search {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 9px;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+
+  /* Manual count becomes vertical cards instead of a horizontal table. */
+  .stk-manual-mode .inv-table-wrap {
+    max-height: none;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .stk-manual-table,
+  .stk-manual-table tbody {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .stk-manual-table thead {
+    display: none;
+  }
+
+  .stk-manual-table tbody {
+    display: grid;
+    max-height: 430px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stk-manual-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 112px;
+    grid-template-rows: auto auto;
+    gap: 2px 8px;
+    min-height: 68px;
+    padding: 8px 9px;
+    border: 1px solid #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .stk-manual-table td {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .stk-manual-table td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    color: #7a6d66;
+    font-size: .61rem;
+    line-height: 1.1;
+  }
+
+  .stk-manual-table td:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    overflow: hidden;
+    color: #4b3932;
+    font-size: .73rem;
+    font-weight: 750;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+  }
+
+  .stk-manual-table td:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    color: #6d625c;
+    font-size: .7rem;
+    font-weight: 800;
+    text-align: right;
+  }
+
+  .stk-manual-table td:nth-child(3)::before {
+    content: 'Hệ thống ';
+    display: inline;
+    color: #93857d;
+    font-size: .57rem;
+    font-weight: 650;
+  }
+
+  .stk-manual-table td:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .stk-manual-table td:nth-child(4)::before {
+    content: 'Thực tế';
+    display: block;
+    margin-bottom: 2px;
+    color: #93857d;
+    font-size: .57rem;
+    font-weight: 650;
+    text-align: right;
+  }
+
+  .stk-manual-table .inv-row-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 7px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  /* Scan mode: camera first, compact results and short scrollable counted list. */
+  .stk-scan-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .stk-camera-panel,
+  .stk-scan-side,
+  .stk-review {
+    gap: 6px;
+    padding: 7px;
+    border-radius: 9px;
+  }
+
+  .stk-camera-panel {
+    order: 1;
+  }
+
+  .stk-scan-side {
+    order: 2;
+  }
+
+  .stk-camera-panel .qr-scanner {
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .stk-section-heading .eyebrow,
+  .stk-review__heading .eyebrow {
+    display: none;
+  }
+
+  .stk-camera-feedback {
+    gap: 3px;
+  }
+
+  .stk-camera-feedback__label {
+    font-size: .59rem;
+  }
+
+  .stk-feedback-slot {
+    min-height: 58px;
+  }
+
+  .stk-feedback,
+  .stk-feedback-idle {
+    padding: 7px 8px;
+    border-radius: 8px;
+    font-size: .66rem;
+    line-height: 1.18;
+  }
+
+  .stk-feedback strong {
+    font-size: .72rem;
+  }
+
+  .stk-feedback__decision {
+    font-size: .66rem;
+  }
+
+  .stk-scan-guidance {
+    margin: 0;
+    font-size: .61rem;
+    line-height: 1.2;
+  }
+
+  .stk-end-scan,
+  .stk-undo,
+  .stk-review__heading .button {
+    width: 100%;
+    min-height: 44px;
+    font-size: .7rem;
+  }
+
+  .stk-scan-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .stk-scan-stats > div {
+    gap: 2px;
+    padding: 7px 8px;
+    border-radius: 8px;
+  }
+
+  .stk-scan-stats span {
+    font-size: .61rem;
+    line-height: 1.1;
+  }
+
+  .stk-scan-stats strong {
+    font-size: .96rem;
+    line-height: 1.05;
+  }
+
+  .stk-scan-list-preview {
+    gap: 5px;
+  }
+
+  .stk-scan-list-preview .stk-count-list,
+  .stk-review .stk-count-list {
+    grid-template-columns: 1fr;
+    max-height: 265px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stk-count-card {
+    grid-template-columns: minmax(0, 1fr) 138px;
+    gap: 7px;
+    padding: 7px 8px;
+    border-radius: 8px;
+  }
+
+  .stk-count-card__identity {
+    gap: 2px;
+  }
+
+  .stk-count-card__identity strong {
+    overflow: hidden;
+    font-size: .71rem;
+    line-height: 1.13;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stk-count-card__identity span,
+  .stk-count-card__identity small {
+    font-size: .59rem;
+    line-height: 1.1;
+  }
+
+  .stk-stepper {
+    width: 100%;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    gap: 4px;
+  }
+
+  .stk-stepper button,
+  .stk-stepper input {
+    min-height: 44px;
+    border-radius: 8px;
+  }
+
+  .stk-stepper button {
+    font-size: 1.1rem;
+  }
+
+  .stk-stepper input {
+    padding: 6px 4px;
+    font-size: 16px;
+  }
+
+  .stk-empty {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: .67rem;
+  }
+
+  .stk-editor > .inv-field {
+    gap: 3px;
+    font-size: .65rem;
+  }
+
+  .stk-editor > .inv-field textarea {
+    min-height: 58px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  /* Keep save controls reachable while counting. */
+  .stk-editor > .inv-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 8;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin: 0 -8px -8px;
+    padding: 7px 8px calc(8px + env(safe-area-inset-bottom));
+    border-top: 1px solid #eadfd5;
+    background: rgb(255 253 250 / .96);
+    backdrop-filter: blur(8px);
+  }
+
+  .stk-editor > .inv-actions .button {
+    width: 100%;
+    min-height: 46px;
+    font-size: .73rem;
+  }
+
+  /* Management: compact filters and scrollable cards. */
+  .stk-management-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stk-management-heading .eyebrow {
+    display: none;
+  }
+
+  .stk-management-heading .stk-management-touch {
+    width: auto;
+    min-height: 44px;
+    padding: 6px 9px;
+    font-size: .67rem;
+  }
+
+  .stk-management-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .stk-management-filters > label:first-child,
+  .stk-management-filters > label:nth-child(2),
+  .stk-management-filters > .button {
+    grid-column: 1 / -1;
+  }
+
+  .stk-management-filters label {
+    gap: 3px;
+    font-size: .63rem;
+  }
+
+  .stk-management-filters input,
+  .stk-management-filters select {
+    min-height: 44px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .stk-management-filters .button {
+    min-height: 44px;
+    font-size: .69rem;
+  }
+
+  .stk-management-notice,
+  .stk-management-empty {
+    padding: 9px;
+    border-radius: 8px;
+    font-size: .67rem;
+    line-height: 1.18;
+  }
+
+  .stk-management-table-wrap {
+    display: none;
+  }
+
+  .stk-management-mobile-list {
+    display: grid;
+    max-height: 500px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stk-management-card {
+    gap: 7px;
+    padding: 8px;
+    border-radius: 9px;
+  }
+
+  .stk-management-card__heading {
+    gap: 7px;
+  }
+
+  .stk-document-code {
+    font-size: .75rem;
+  }
+
+  .stk-status,
+  .stk-result {
+    min-height: 23px;
+    padding: 3px 6px;
+    font-size: .6rem;
+  }
+
+  .stk-management-card__meta {
+    gap: 4px 8px;
+    font-size: .61rem;
+    line-height: 1.12;
+  }
+
+  .stk-management-card > p {
+    font-size: .63rem;
+    line-height: 1.18;
+  }
+
+  .stk-management-card__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .stk-management-card__actions .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 5px;
+    font-size: .65rem;
+    line-height: 1.08;
+  }
+
+  .stk-management-card__actions .button--primary {
+    grid-column: 1 / -1;
+  }
+
+  /* Full-screen detail tailored for phone. */
+  .stk-management-modal-backdrop {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .stk-management-modal {
+    width: 100%;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    background: #fffdfa;
+  }
+
+  .stk-detail-header {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    gap: 7px;
+    padding: 9px 10px;
+    border-bottom-color: #eadfd5;
+    background: rgb(255 253 250 / .97);
+    backdrop-filter: blur(8px);
+  }
+
+  .stk-detail-header .eyebrow {
+    display: none;
+  }
+
+  .stk-detail-header h2 {
+    margin: 0 0 2px;
+    font-size: .9rem;
+    line-height: 1.15;
+  }
+
+  .stk-detail-header .button {
+    min-height: 44px;
+    padding: 6px 9px;
+    font-size: .67rem;
+  }
+
+  .stk-detail-body {
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .stk-detail-meta,
+  .stk-detail-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .stk-detail-meta > div,
+  .stk-detail-summary > div {
+    gap: 2px;
+    padding: 7px;
+    border-radius: 8px;
+  }
+
+  .stk-detail-meta__note {
+    grid-column: 1 / -1;
+  }
+
+  .stk-detail-meta span,
+  .stk-detail-summary span {
+    font-size: .58rem;
+    line-height: 1.08;
+  }
+
+  .stk-detail-meta strong,
+  .stk-detail-summary strong {
+    font-size: .69rem;
+    line-height: 1.12;
+  }
+
+  .stk-detail-table-wrap {
+    display: none;
+  }
+
+  .stk-detail-mobile-list {
+    display: grid;
+    max-height: 43dvh;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stk-detail-mobile-card {
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .stk-detail-mobile-card__heading {
+    gap: 6px;
+  }
+
+  .stk-detail-mobile-card__heading > div {
+    gap: 2px;
+  }
+
+  .stk-detail-mobile-card__heading strong {
+    font-size: .7rem;
+    line-height: 1.12;
+  }
+
+  .stk-detail-mobile-card__heading > div span,
+  .stk-detail-mobile-card > small {
+    font-size: .59rem;
+    line-height: 1.1;
+  }
+
+  .stk-detail-mobile-card__quantities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .stk-detail-mobile-card__quantities span {
+    gap: 2px;
+    padding: 6px 7px;
+    border-radius: 7px;
+    font-size: .6rem;
+  }
+
+  .stk-detail-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
+  }
+
+  .stk-detail-actions > .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 5px;
+    font-size: .65rem;
+    line-height: 1.08;
+  }
+
+  .stk-apply-panel {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .stk-apply-panel__copy {
+    gap: 2px;
+  }
+
+  .stk-apply-panel__copy strong {
+    font-size: .7rem;
+  }
+
+  .stk-apply-panel__copy span {
+    font-size: .6rem;
+    line-height: 1.15;
+  }
+
+  .stk-apply-panel .button {
+    width: 100%;
+    min-height: 46px;
+    font-size: .68rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .stk-manual-table tr {
+    grid-template-columns: minmax(0, 1fr) 104px;
+  }
+
+  .stk-count-card {
+    grid-template-columns: 1fr;
+  }
+
+  .stk-stepper {
+    width: 100%;
+  }
+
+  .stk-management-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .stk-management-heading .stk-management-touch {
+    width: 100%;
+  }
+
+  .stk-management-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .stk-management-filters > label:first-child,
+  .stk-management-filters > label:nth-child(2),
+  .stk-management-filters > .button {
+    grid-column: auto;
+  }
+
+  .stk-detail-meta,
+  .stk-detail-summary,
+  .stk-management-card__actions,
+  .stk-detail-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .stk-detail-meta__note,
+  .stk-management-card__actions .button--primary,
+  .stk-apply-panel {
+    grid-column: auto;
+  }
+}
+
+
+/* Stocktake entry modes open as dedicated modal workspaces. */
+.stk-entry-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1790;
+  border: 0;
+  padding: 0;
+  background: rgb(44 32 27 / .48);
+  backdrop-filter: blur(2px);
+}
+
+.stk-entry-modal {
+  position: fixed;
+  z-index: 1800;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid #dfcdbb;
+  background: #fffdfa;
+  box-shadow: 0 24px 80px rgb(48 31 24 / .32);
+}
+
+.stk-entry-modal__header {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #eadfd5;
+  background: rgb(255 253 250 / .97);
+  backdrop-filter: blur(8px);
+}
+
+.stk-entry-modal__header > div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.stk-entry-modal__header span {
+  color: #8a756b;
+  font-weight: 750;
+}
+
+.stk-entry-modal__header h2 {
+  margin: 0;
+  color: var(--brand-red-deep);
+}
+
+.stk-entry-modal__close {
+  flex: 0 0 auto;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #eadfd5;
+  border-radius: 10px;
+  color: #725f56;
+  background: #fff7ee;
+  font: inherit;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stk-entry-modal__body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stk-entry-modal__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 8;
+  display: flex;
+  gap: 7px;
+  border-top: 1px solid #eadfd5;
+  background: rgb(255 253 250 / .97);
+  backdrop-filter: blur(8px);
+}
+
+.stk-entry-note {
+  display: grid;
+}
+
+@media (min-width: 1025px) {
+  .stk-entry-modal {
+    top: 50%;
+    left: 50%;
+    width: min(1120px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+  }
+
+  .stk-entry-modal--manual {
+    width: min(980px, calc(100vw - 48px));
+  }
+
+  .stk-entry-modal__header {
+    min-height: 58px;
+    padding: 8px 10px 8px 14px;
+  }
+
+  .stk-entry-modal__header span {
+    font-size: .66rem;
+  }
+
+  .stk-entry-modal__header h2 {
+    font-size: 1rem;
+  }
+
+  .stk-entry-modal__body {
+    padding: 11px 12px;
+  }
+
+  .stk-entry-modal__footer {
+    justify-content: flex-end;
+    padding: 9px 12px;
+  }
+
+  .stk-entry-modal__footer .button {
+    min-height: 40px;
+    padding: 7px 11px;
+    font-size: .74rem;
+  }
+
+  .stk-entry-note {
+    gap: 4px;
+    margin-top: 9px;
+    font-size: .7rem;
+  }
+
+  .stk-entry-note textarea {
+    min-height: 60px;
+    padding: 7px 9px;
+    border: 1px solid #ded0c4;
+    border-radius: 8px;
+    background: #fffdfa;
+    font: inherit;
+  }
+}
+
+@media (max-width: 760px) {
+  .stk-entry-modal {
+    inset: 6px;
+    width: auto;
+    height: calc(100dvh - 12px);
+    max-height: none;
+    border-radius: 14px;
+  }
+
+  .stk-entry-modal__header {
+    min-height: 56px;
+    padding: 6px 6px 6px 10px;
+  }
+
+  .stk-entry-modal__header span {
+    font-size: .59rem;
+  }
+
+  .stk-entry-modal__header h2 {
+    overflow: hidden;
+    font-size: .88rem;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stk-entry-modal__body {
+    padding: 7px;
+  }
+
+  .stk-entry-modal__footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 6px 7px calc(7px + env(safe-area-inset-bottom));
+  }
+
+  .stk-entry-modal__footer .button {
+    width: 100%;
+    min-height: 46px;
+    font-size: .72rem;
+  }
+
+  .stk-entry-note {
+    gap: 3px;
+    margin-top: 7px;
+    font-size: .63rem;
+  }
+
+  .stk-entry-note textarea {
+    width: 100%;
+    min-height: 56px;
+    padding: 7px 8px;
+    border: 1px solid #ded0c4;
+    border-radius: 8px;
+    background: #fffdfa;
+    font: inherit;
+    font-size: 16px;
+  }
+
+  .stk-entry-modal--scan .stk-entry-modal__body {
+    overflow: hidden;
+  }
+
+  .stk-entry-modal--scan .stk-scan-mode,
+  .stk-entry-modal--scan .stk-scan-grid {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .stk-entry-modal--scan .stk-scan-grid {
+    display: grid;
+    grid-template-rows: minmax(0, 1.15fr) minmax(160px, .85fr);
+    overflow: hidden;
+  }
+
+  .stk-entry-modal--scan .stk-camera-panel,
+  .stk-entry-modal--scan .stk-scan-side {
+    min-height: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stk-entry-modal--scan .stk-camera-panel .qr-scanner {
+    padding: 5px;
+  }
+
+  .stk-entry-modal--scan .qr-section-heading {
+    margin-bottom: 6px;
+  }
+
+  .stk-entry-modal--scan .qr-section-heading .eyebrow {
+    display: none;
+  }
+
+  .stk-entry-modal--scan .qr-section-heading h2 {
+    font-size: .78rem;
+  }
+
+  .stk-entry-modal--scan .qr-engine-badge {
+    padding: 3px 5px;
+    font-size: .55rem;
+  }
+
+  .stk-entry-modal--scan .qr-video-shell {
+    aspect-ratio: 16 / 10;
+    max-height: 31dvh;
+    border-radius: 8px;
+  }
+
+  .stk-entry-modal--scan .qr-status,
+  .stk-entry-modal--scan .qr-error {
+    margin-top: 5px;
+    font-size: .6rem;
+    line-height: 1.15;
+  }
+
+  .stk-entry-modal--scan .qr-error {
+    padding: 7px;
+  }
+
+  .stk-entry-modal--scan .qr-scanner-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .stk-entry-modal--scan .qr-scanner-actions .button {
+    min-height: 44px;
+    font-size: .66rem;
+  }
+
+  .stk-entry-modal--scan .qr-field {
+    gap: 3px;
+    margin-top: 6px;
+    font-size: .62rem;
+  }
+
+  .stk-entry-modal--scan .qr-field select {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .stk-entry-modal--scan .stk-camera-feedback {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    padding-bottom: 3px;
+    background: #fbfcfe;
+  }
+
+  .stk-entry-modal--scan .stk-feedback-slot {
+    min-height: 54px;
+  }
+
+  .stk-entry-modal--scan .stk-feedback--success {
+    box-shadow: 0 2px 10px rgb(23 97 60 / .08);
+  }
+
+  .stk-entry-modal--scan .stk-feedback--success strong {
+    font-size: .72rem;
+  }
+
+  .stk-entry-modal--scan .stk-scan-list-preview .stk-count-list {
+    max-height: 190px;
+  }
+
+  .stk-entry-modal--manual .stk-manual-table tbody {
+    max-height: calc(100dvh - 255px);
+  }
+}
+
+@media (max-width: 390px) {
+  .stk-entry-modal {
+    inset: 4px;
+    height: calc(100dvh - 8px);
+    border-radius: 12px;
+  }
+
+  .stk-entry-modal--scan .stk-scan-grid {
+    grid-template-rows: minmax(0, 1.05fr) minmax(150px, .95fr);
+  }
+
+  .stk-entry-modal--scan .qr-video-shell {
+    max-height: 28dvh;
+  }
+}

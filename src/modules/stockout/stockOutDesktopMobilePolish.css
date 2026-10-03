@@ -1,0 +1,538 @@
+/*
+ * STOCK OUT — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ */
+
+@media (min-width: 1025px) {
+  .stockout-page {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .stockout-page .inv-page-header {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .stockout-page .inv-page-header .eyebrow {
+    margin-bottom: 2px;
+    font-size: .66rem;
+  }
+
+  .stockout-page .inv-page-header h1 {
+    margin: 1px 0 3px;
+    font-size: clamp(1.34rem, 1.8vw, 1.7rem);
+  }
+
+  .stockout-page .inv-page-header .muted {
+    font-size: .82rem;
+    line-height: 1.28;
+  }
+
+  .stockout-workspace {
+    display: grid;
+    grid-template-columns: minmax(360px, .88fr) minmax(0, 1.12fr);
+    gap: 9px;
+    align-items: start;
+  }
+
+  .stockout-page .inv-card {
+    gap: 9px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    box-shadow: none;
+  }
+
+  .stockout-create-card {
+    align-self: start;
+  }
+
+  .stockout-create-card > h2,
+  .stockout-records-card h2 {
+    margin: 0;
+    color: var(--brand-red-deep);
+    font-size: 1rem;
+  }
+
+  .stockout-records-card > div:first-child .muted {
+    margin: 2px 0 0;
+    font-size: .7rem;
+    line-height: 1.2;
+  }
+
+  .stockout-create-card .inv-form-grid {
+    gap: 7px;
+  }
+
+  .stockout-create-card .inv-field {
+    gap: 4px;
+    font-size: .72rem;
+  }
+
+  .stockout-create-card .inv-field input,
+  .stockout-create-card .inv-field select {
+    min-height: 40px;
+    padding: 7px 9px;
+    border-radius: 8px;
+    font-size: .78rem;
+  }
+
+  .stockout-create-card .inv-line-editor {
+    gap: 6px;
+  }
+
+  .stockout-create-card .inv-line {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 110px 104px;
+    gap: 8px;
+    align-items: end;
+    padding: 8px;
+    border: 1px solid #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .stockout-create-card .inv-line > .inv-field:first-child {
+    grid-column: 1;
+    min-width: 0;
+  }
+
+  .stockout-create-card .inv-line > .inv-field:nth-child(2) {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .stockout-create-card .inv-line > .inv-field:first-child select,
+  .stockout-create-card .inv-line > .inv-field:nth-child(2) input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .stockout-create-card .inv-line > span:empty {
+    display: none;
+  }
+
+  .stockout-create-card .inv-line > .button {
+    grid-column: 3;
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: 7px 8px;
+    font-size: .7rem;
+    white-space: nowrap;
+  }
+
+  .stockout-create-card .inv-actions {
+    gap: 6px;
+  }
+
+  .stockout-create-card .inv-actions .button {
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .76rem;
+  }
+
+  .stockout-records-card {
+    min-width: 0;
+  }
+
+  .stockout-records-card .inv-list {
+    max-height: 470px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 2px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+  }
+
+  .stockout-records-card .inv-record {
+    min-height: 58px;
+    gap: 9px;
+    padding: 8px 9px;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .stockout-records-card .inv-record__meta {
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .stockout-records-card .inv-record__meta strong {
+    overflow: hidden;
+    font-size: .77rem;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stockout-records-card .inv-record__meta span {
+    font-size: .64rem;
+    line-height: 1.15;
+  }
+
+  .stockout-records-card .inv-badge {
+    padding: 3px 7px;
+    font-size: .62rem;
+  }
+
+  .stockout-records-card .inv-record__actions .button {
+    min-height: 38px;
+    padding: 6px 9px;
+    font-size: .7rem;
+    white-space: nowrap;
+  }
+
+  .stockout-page > .form-error,
+  .stockout-page > .inv-success {
+    padding: 8px 10px;
+    border-radius: 9px;
+    font-size: .74rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .stockout-page {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .stockout-page .inv-page-header {
+    padding: 9px 10px;
+    border-radius: 10px;
+  }
+
+  .stockout-page .inv-page-header::after,
+  .stockout-page .inv-page-header .eyebrow,
+  .stockout-page .inv-page-header .muted {
+    display: none;
+  }
+
+  .stockout-page .inv-page-header h1 {
+    margin: 0;
+    font-size: 1.08rem;
+  }
+
+  .stockout-workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .stockout-page .inv-card {
+    gap: 7px;
+    padding: 9px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .stockout-create-card > h2,
+  .stockout-records-card h2 {
+    margin: 0;
+    color: var(--brand-red-deep);
+    font-size: .92rem;
+    line-height: 1.15;
+  }
+
+  .stockout-records-card > div:first-child .muted {
+    margin: 2px 0 0;
+    font-size: .62rem;
+    line-height: 1.15;
+  }
+
+  .stockout-create-card .inv-form-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .stockout-create-card .inv-field {
+    gap: 3px;
+    font-size: .67rem;
+  }
+
+  .stockout-create-card .inv-field input,
+  .stockout-create-card .inv-field select {
+    min-height: 44px;
+    padding: 8px 9px;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+
+  .stockout-create-card .inv-line-editor {
+    gap: 6px;
+  }
+
+  .stockout-create-card .inv-line {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .stockout-create-card .inv-line > .inv-field:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .stockout-create-card .inv-line > span:empty {
+    display: none;
+  }
+
+  .stockout-create-card .inv-line .button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 7px 6px;
+    font-size: .67rem;
+  }
+
+  .stockout-create-card .inv-actions {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 6px;
+  }
+
+  .stockout-create-card .inv-actions .button {
+    min-width: 0;
+    min-height: 46px;
+    padding: 7px 6px;
+    font-size: .72rem;
+    line-height: 1.15;
+  }
+
+  .stockout-records-card .inv-list {
+    max-height: 340px;
+    overflow-y: auto;
+    gap: 5px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stockout-records-card .inv-record {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 66px;
+    gap: 7px;
+    padding: 8px;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .stockout-records-card .inv-record__meta {
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .stockout-records-card .inv-record__meta strong {
+    overflow: hidden;
+    font-size: .73rem;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stockout-records-card .inv-record__meta span {
+    font-size: .6rem;
+    line-height: 1.15;
+  }
+
+  .stockout-records-card .inv-badge {
+    padding: 3px 6px;
+    font-size: .59rem;
+  }
+
+  .stockout-records-card .inv-record__actions {
+    align-self: center;
+    justify-content: end;
+  }
+
+  .stockout-records-card .inv-record__actions .button {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: .64rem;
+    line-height: 1.1;
+  }
+
+  .stockout-page > .form-error,
+  .stockout-page > .inv-success {
+    padding: 8px 9px;
+    border-radius: 8px;
+    font-size: .7rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 390px) {
+  .stockout-create-card .inv-line {
+    grid-template-columns: 1fr;
+  }
+
+  .stockout-create-card .inv-line > .inv-field:first-child {
+    grid-column: auto;
+  }
+
+  .stockout-create-card .inv-actions,
+  .stockout-records-card .inv-record {
+    grid-template-columns: 1fr;
+  }
+
+  .stockout-records-card .inv-record__actions {
+    justify-content: stretch;
+  }
+
+  .stockout-records-card .inv-record__actions .button {
+    width: 100%;
+  }
+}
+
+
+/* Searchable product picker for stock out — shared by desktop and mobile. */
+.stockout-product-search {
+  position: relative;
+  min-width: 0;
+}
+
+.stockout-product-search > input {
+  width: 100%;
+  min-width: 0;
+}
+
+.stockout-product-results {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 80;
+  width: min(560px, 100%);
+  max-height: 310px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #d8c5b5;
+  border-radius: 10px;
+  background: #fffdfa;
+  box-shadow: 0 16px 38px rgb(48 31 24 / .18);
+  scrollbar-width: thin;
+}
+
+.stockout-product-result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 10px;
+  border: 0;
+  border-bottom: 1px solid #eee3d9;
+  background: #fffdfa;
+  color: #4b3932;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stockout-product-result:last-child {
+  border-bottom: 0;
+}
+
+.stockout-product-result:hover,
+.stockout-product-result.is-active {
+  background: #fff4de;
+}
+
+.stockout-product-result__main,
+.stockout-product-result__stock {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stockout-product-result__main strong {
+  overflow: hidden;
+  font-size: .76rem;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stockout-product-result__main small,
+.stockout-product-result__stock small {
+  color: #7a6d66;
+  font-size: .62rem;
+}
+
+.stockout-product-result__stock {
+  align-content: center;
+  justify-items: end;
+  text-align: right;
+}
+
+.stockout-product-result__stock strong {
+  color: #17613c;
+  font-size: .74rem;
+  white-space: nowrap;
+}
+
+.stockout-product-result__stock.is-out strong {
+  color: #a23b3b;
+}
+
+.stockout-product-empty {
+  padding: 12px;
+  color: #7a6d66;
+  font-size: .72rem;
+  text-align: center;
+}
+
+@media (min-width: 1025px) {
+  .stockout-create-card,
+  .stockout-create-card .inv-line,
+  .stockout-create-card .inv-field {
+    overflow: visible;
+  }
+
+  .stockout-product-search > input {
+    min-height: 40px;
+    padding: 7px 9px;
+    border: 1px solid #ded0c4;
+    border-radius: 8px;
+    background: #fffdfa;
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .stockout-create-card,
+  .stockout-create-card .inv-line,
+  .stockout-create-card .inv-field {
+    overflow: visible;
+  }
+
+  .stockout-product-search > input {
+    min-height: 44px;
+    padding: 8px 9px;
+    border: 1px solid #ded0c4;
+    border-radius: 9px;
+    background: #fffdfa;
+    font-size: 16px;
+  }
+
+  .stockout-product-results {
+    width: 100%;
+    max-height: 280px;
+  }
+
+  .stockout-product-result {
+    min-height: 58px;
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .stockout-product-result__main strong {
+    font-size: .73rem;
+  }
+
+  .stockout-product-result__stock strong {
+    font-size: .7rem;
+  }
+}
