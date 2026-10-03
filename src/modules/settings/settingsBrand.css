@@ -1,0 +1,15 @@
+.settings-shell { gap: var(--space-6, 24px); }
+.settings-header { padding: var(--space-6, 24px); border: 1px solid var(--border); border-radius: var(--radius-xl); background: linear-gradient(135deg, var(--surface) 0%, var(--brand-gold-soft) 180%); box-shadow: var(--shadow-sm); }
+.settings-header h1 { color: var(--text); }
+.settings-card { border-color: var(--border); border-radius: var(--radius-xl); background: var(--surface); box-shadow: var(--shadow-sm); }
+.settings-rate-field { padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--muted-surface); }
+.settings-rate-input-wrap input, .danger-zone__confirmation input { border-color: var(--border); background: var(--surface); color: var(--text); }
+.settings-rate-input-wrap input:focus-visible, .settings-rate-save:focus-visible, .danger-zone__confirmation input:focus-visible, .danger-zone__button:focus-visible { outline-color: var(--focus-ring); }
+.settings-success { color: var(--success); }
+.settings-danger-heading { padding: 18px 20px; border-left: 4px solid var(--danger); border-radius: var(--radius-lg); background: var(--surface); }
+.danger-zone { border-color: var(--danger); border-radius: var(--radius-xl); background: color-mix(in srgb, var(--danger) 5%, var(--surface)); box-shadow: var(--shadow-sm); }
+.danger-zone__grid > div { border-color: color-mix(in srgb, var(--danger) 28%, var(--border)); border-radius: var(--radius-lg); background: var(--surface); }
+.danger-zone__button { border-color: var(--danger); background: var(--danger); }
+.danger-zone__note { color: var(--danger); }
+@media (max-width: 720px) { .settings-header { padding: 18px; } }
+@media (prefers-reduced-motion: reduce) { .settings-shell *, .settings-shell *::before, .settings-shell *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
