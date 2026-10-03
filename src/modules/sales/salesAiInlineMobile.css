@@ -1,0 +1,149 @@
+/* UI-01: on phones, Quick Ask / alias fallback behaves like the search dropdown instead of a block below quick services. */
+@media (max-width: 760px) {
+  /* Search result order: search -> AI fallback -> six quick-service tiles. */
+  .sales-pos-shell > .sales-search-area {
+    order: 1 !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card {
+    order: 2 !important;
+    max-height: min(42dvh, 320px);
+    margin-top: -4px !important;
+    padding: 6px !important;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid #dfbd55 !important;
+    border-radius: 11px !important;
+    background: #fffaf0 !important;
+    box-shadow: 0 5px 16px rgb(129 89 16 / .08) !important;
+  }
+
+  .sales-pos-shell > .sales-service-grid {
+    order: 3 !important;
+  }
+
+  /* Keep the old Quick Ask container out of the way until it actually has a result or is processing. */
+  .sales-pos-shell > .sales-chat-card:not(:has(.sales-chat-response > p > strong)):not(:has(.sales-chat-form button:disabled)):not(:has(.sales-chat-voice-status)):not(:has(.sales-chat-market)):not(:has(.sales-chat-confirm)) {
+    display: none !important;
+  }
+
+  /* When normal search has no rows, don't leave a second empty-result box above the AI fallback. */
+  .sales-search-results:has(> .sales-empty) {
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-heading,
+  .sales-pos-shell > .sales-chat-card .sales-chat-form {
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-voice-status {
+    min-height: 0;
+    margin: 0 2px 5px;
+    color: #7d6428;
+    font-size: .72rem;
+    line-height: 1.25;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response {
+    gap: 2px;
+    margin: 0;
+    padding: 6px 8px;
+    border: 1px solid rgb(209 173 68 / .34);
+    border-radius: 9px;
+    background: rgb(255 255 255 / .58);
+    color: #66562f;
+    font-size: .75rem;
+    line-height: 1.28;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response p {
+    margin-block: 1px;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response strong {
+    color: #6e2b22;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidates {
+    gap: 5px;
+    max-height: 190px;
+    margin-top: 5px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidates button {
+    min-height: 66px;
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 6px 7px;
+    border: 1px solid #ddbd53;
+    border-radius: 9px;
+    background: #fff4c9;
+    color: #4f291e;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidate__image,
+  .sales-pos-shell > .sales-chat-card .sales-chat-resolved-product__image {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidate__identity {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-resolved-product > span {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidate__identity strong {
+    display: block;
+    overflow: hidden;
+    color: #7e241a;
+    font-size: .82rem;
+    line-height: 1.15;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidate__identity small {
+    display: block;
+    margin-top: 2px;
+    color: #725f32;
+    font-size: .67rem;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidate__meta {
+    color: #6b451c;
+    font-size: .74rem;
+    white-space: nowrap;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-resolved-product {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 7px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    background: #fff4c9;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-manual-button {
+    min-height: 44px;
+    margin-top: 5px;
+    border-color: #e3cf8c;
+    background: #f1f1ef;
+    color: #3d362c;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-market,
+  .sales-pos-shell > .sales-chat-card .sales-chat-confirm,
+  .sales-pos-shell > .sales-chat-card .sales-manual-correction-status {
+    margin-top: 5px;
+  }
+}

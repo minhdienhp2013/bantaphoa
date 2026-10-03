@@ -1,0 +1,76 @@
+/* Mobile Sales only: compact quick access appears in the sticky app topbar after the search area has scrolled away. */
+.sales-topbar-shortcuts {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .sales-topbar-shortcuts.is-visible {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .sales-topbar-shortcut {
+    position: relative;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #6d351d;
+    cursor: pointer;
+  }
+
+  .sales-topbar-shortcut::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid #ddbf78;
+    border-radius: 8px;
+    background: #fff9e9;
+    box-shadow: 0 1px 4px rgb(91 61 22 / .07);
+  }
+
+  .sales-topbar-shortcut > span {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .sales-topbar-shortcut--qr::before {
+    border-color: #d7ae4a;
+    background: #fff3c7;
+  }
+
+  .topbar:has(.sales-topbar-shortcuts.is-visible) {
+    gap: 3px !important;
+  }
+
+  .topbar:has(.sales-topbar-shortcuts.is-visible) .topbar__context {
+    flex: 1 1 auto;
+    min-width: 46px;
+  }
+
+  .topbar:has(.sales-topbar-shortcuts.is-visible) .role-badge {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar:has(.sales-topbar-shortcuts.is-visible) .topbar__context strong {
+    font-size: .72rem !important;
+  }
+
+  .topbar:has(.sales-topbar-shortcuts.is-visible) .role-badge {
+    padding-inline: 4px !important;
+    font-size: .5rem !important;
+  }
+}
