@@ -1,0 +1,126 @@
+.product-editor {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 90;
+  width: min(1040px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  transform: translateX(-50%);
+  padding: 0;
+  border: 1px solid #e4d6c9;
+  border-radius: var(--ui-radius-xl);
+  background: #faf7f2;
+  box-shadow:
+    0 0 0 100vmax rgb(47 31 25 / .55),
+    var(--ui-shadow-dialog);
+  overscroll-behavior: contain;
+}
+
+.product-editor > .section-heading {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin: 0;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--ui-border);
+  background: rgb(255 253 250 / .97);
+  backdrop-filter: blur(10px);
+}
+
+.product-editor > .section-heading h2 {
+  margin-bottom: 5px;
+}
+
+.product-editor > .section-heading p {
+  color: var(--ui-text-muted);
+}
+
+.product-editor > .product-form {
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgb(255 248 238 / .62), transparent 180px),
+    #faf7f2;
+}
+
+.product-editor .product-form label,
+.product-editor .vnd-money-input {
+  min-width: 0;
+}
+
+.product-editor .product-form input,
+.product-editor .product-form select,
+.product-editor .vnd-money-input__field {
+  background: #fffdfa;
+}
+
+.product-editor .form-actions {
+  position: sticky;
+  bottom: -20px;
+  z-index: 2;
+  margin: 4px -20px -20px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid var(--ui-border);
+  background: rgb(255 253 250 / .97);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 900px) {
+  .product-editor {
+    top: 14px;
+    width: calc(100vw - 28px);
+    max-height: calc(100vh - 28px);
+  }
+
+  .product-editor > .product-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-editor .form-field--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .product-editor {
+    top: 8px;
+    width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    border-radius: 14px;
+  }
+
+  .product-editor > .section-heading {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .product-editor > .section-heading h2 {
+    font-size: 1.15rem;
+  }
+
+  .product-editor > .section-heading p {
+    font-size: .78rem;
+  }
+
+  .product-editor > .product-form {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 14px;
+  }
+
+  .product-editor .form-field--wide,
+  .product-editor .form-field--full,
+  .product-editor .form-actions {
+    grid-column: 1;
+  }
+
+  .product-editor .form-actions {
+    bottom: -14px;
+    margin: 4px -14px -14px;
+    padding: 12px 14px 14px;
+  }
+
+  .product-editor .form-actions .button {
+    flex: 1 1 0;
+  }
+}
