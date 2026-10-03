@@ -1,0 +1,567 @@
+/* Minh Dien branded Purchases presentation. Keep transaction/CAS behavior in existing TS modules. */
+.purchase-page {
+  color: var(--ui-text);
+}
+
+.purchase-page-header {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border: 1px solid #ead8c5;
+  border-radius: var(--ui-radius-lg);
+  background:
+    radial-gradient(circle at 92% 18%, rgb(211 161 59 / .16), transparent 34%),
+    linear-gradient(135deg, #fffdfa 0%, #fff8ee 64%, #f8eee4 100%);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.purchase-page-header::after {
+  content: '';
+  position: absolute;
+  right: -48px;
+  bottom: -82px;
+  width: 170px;
+  height: 170px;
+  border: 22px solid rgb(163 59 50 / .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.purchase-page-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.purchase-page-header h1 {
+  color: var(--brand-red-deep);
+}
+
+.purchase-page-header p {
+  color: #7a6b64;
+}
+
+.purchase-success {
+  border: 1px solid #b9ddc8;
+  color: var(--ui-success);
+  background: #eef9f2;
+}
+
+.purchase-filters,
+.purchase-toolbar,
+.purchase-list-panel,
+.purchase-editor,
+.purchase-import-panel,
+.purchase-product-modal {
+  border-color: var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.purchase-filters {
+  background: linear-gradient(180deg, #fffdfa, #fbf7f2);
+}
+
+.purchase-filter-heading span,
+.purchase-filter-section > strong,
+.purchase-filters legend {
+  color: var(--brand-red-deep);
+}
+
+.purchase-filters fieldset label,
+.purchase-filter-check,
+.purchase-filter-section label {
+  color: #62524b;
+}
+
+.purchase-filter-section input,
+.purchase-filter-section select,
+.purchase-search input,
+.purchase-editor input,
+.purchase-editor select,
+.purchase-editor textarea,
+.purchase-import-supplier-grid select,
+.purchase-import-supplier-grid input {
+  border-color: #ded0c4;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.purchase-filter-section input:focus,
+.purchase-filter-section select:focus,
+.purchase-search input:focus,
+.purchase-editor input:focus,
+.purchase-editor select:focus,
+.purchase-editor textarea:focus,
+.purchase-import-supplier-grid select:focus,
+.purchase-import-supplier-grid input:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .16);
+  outline-offset: 0;
+}
+
+.purchase-toolbar {
+  background: linear-gradient(180deg, #fffdfa, #fbf7f2);
+}
+
+.purchase-search > span {
+  color: var(--brand-red-deep);
+}
+
+.purchase-search input::placeholder {
+  color: #998b84;
+}
+
+.purchase-toolbar .button--primary,
+.purchase-editor .button--primary,
+.purchase-import-panel .button--primary,
+.purchase-product-modal .button--primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand-red), var(--brand-red-deep));
+  box-shadow: 0 7px 16px rgb(123 48 42 / .16);
+}
+
+.purchase-toolbar .button--secondary,
+.purchase-editor .button--secondary,
+.purchase-import-panel .button--secondary,
+.purchase-product-modal .button--secondary,
+.purchase-filter-clear {
+  border: 1px solid #dfc98b;
+  color: var(--brand-red-deep);
+  background: #fff8e5;
+}
+
+.purchase-toolbar .button--secondary:hover:not(:disabled),
+.purchase-editor .button--secondary:hover:not(:disabled),
+.purchase-import-panel .button--secondary:hover:not(:disabled),
+.purchase-product-modal .button--secondary:hover:not(:disabled),
+.purchase-filter-clear:hover:not(:disabled) {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.purchase-list-heading,
+.purchase-pagination {
+  border-color: #eee3d9;
+  color: #776861;
+  background: #fffdfa;
+}
+
+.purchase-table th {
+  color: #74645d;
+  background: #faf5ef;
+}
+
+.purchase-table th,
+.purchase-table td {
+  border-bottom-color: #eee4dc;
+}
+
+.purchase-row:hover {
+  background: #fffaf1;
+}
+
+.purchase-row--selected {
+  background: #fff4df;
+}
+
+.purchase-code-button,
+.purchase-view-button,
+.purchase-collapse-button {
+  color: var(--brand-red-deep);
+}
+
+.purchase-code-button:hover,
+.purchase-view-button:hover,
+.purchase-collapse-button:hover {
+  background: var(--brand-gold-soft);
+}
+
+/* Keep purchase state colors semantic, not brand-colored. */
+.purchase-status--completed {
+  color: #17613c;
+  background: #e6f8ed;
+}
+
+.purchase-status--cancelled {
+  color: #667085;
+  background: #edf0f4;
+}
+
+.purchase-detail-row > td {
+  background: #fbf7f2;
+}
+
+.purchase-detail {
+  border-color: #e3c97e;
+  background: #fffdfa;
+  box-shadow: 0 10px 28px rgb(111 72 50 / .09);
+}
+
+.purchase-detail-heading > div > span,
+.purchase-detail-meta dt,
+.purchase-detail-mobile-items article > div span,
+.purchase-detail-mobile-items dt,
+.purchase-detail-summary span {
+  color: #7a6c65;
+}
+
+.purchase-detail-title-line h3,
+.purchase-detail-meta dd {
+  color: #4b3932;
+}
+
+.purchase-detail-meta {
+  border-color: #eee3d9;
+}
+
+.purchase-detail-table-wrap,
+.purchase-detail-mobile-items article {
+  border-color: #e9ddd2;
+}
+
+.purchase-detail-table th {
+  color: #74645d;
+  background: #faf5ef;
+}
+
+.purchase-detail-table th,
+.purchase-detail-table td {
+  border-bottom-color: #eee4dc;
+}
+
+.purchase-detail-summary {
+  border: 1px solid #e4cb82;
+  background: linear-gradient(135deg, #fff8e6, #f8e8ba);
+}
+
+.purchase-detail-summary strong {
+  color: #4b3932;
+}
+
+.purchase-detail-summary-total strong {
+  color: var(--brand-red-deep);
+}
+
+.button--danger,
+.purchase-editor-remove {
+  border-color: #e4aaa3;
+  color: var(--ui-danger);
+  background: #fff4f2;
+}
+
+.button--danger:hover:not(:disabled),
+.purchase-editor-remove:hover:not(:disabled) {
+  background: #ffe9e5;
+}
+
+.purchase-card {
+  border-color: #e8ddd3;
+  background: #fffdfa;
+  box-shadow: 0 5px 16px rgb(83 54 42 / .045);
+}
+
+.purchase-card--selected {
+  border-color: #dec175;
+  box-shadow: 0 0 0 2px rgb(211 161 59 / .12), 0 8px 22px rgb(111 72 50 / .08);
+}
+
+.purchase-card-toggle {
+  background: #fffdfa;
+}
+
+.purchase-card-toggle:hover {
+  background: #fff8eb;
+}
+
+.purchase-card-main > span,
+.purchase-card-main > small,
+.purchase-card-side > small,
+.purchase-empty {
+  color: #7a6d66;
+}
+
+.purchase-pagination select {
+  border-color: #ded0c4;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.purchase-editor {
+  background: linear-gradient(180deg, #fffdfa, #fdf9f5);
+}
+
+.purchase-editor-heading h2 {
+  color: var(--brand-red-deep);
+}
+
+.purchase-editor-heading p,
+.purchase-editor label {
+  color: #665650;
+}
+
+.purchase-editor-warning {
+  border-color: #e2c76f;
+  color: #765b12;
+  background: #fff8df;
+}
+
+.purchase-editor-lines {
+  border-color: #e8ddd2;
+  background: #fffdfa;
+}
+
+.purchase-editor-line {
+  border-bottom-color: #eee4dc;
+}
+
+.purchase-editor-line--header {
+  color: #75655d;
+  background: #faf5ef;
+}
+
+.purchase-editor-line.is-unavailable {
+  background: #fff8e8;
+}
+
+.purchase-editor-total {
+  border: 1px solid #e3ca80;
+  background: linear-gradient(135deg, #fff8e7, #f8e8ba);
+}
+
+.purchase-editor-total span {
+  color: #75665e;
+}
+
+.purchase-editor-total strong {
+  color: var(--brand-red-deep);
+}
+
+.purchase-touch:focus-visible,
+.purchase-code-button:focus-visible,
+.purchase-view-button:focus-visible,
+.purchase-collapse-button:focus-visible,
+.purchase-card-toggle:focus-visible,
+.purchase-editor-remove:focus-visible,
+.purchase-product-icon-button:focus-visible,
+.purchase-import-file:focus-within,
+.purchase-import-table-wrap:focus-visible,
+.purchase-import-checkbox-hit:focus-within {
+  outline-color: rgb(211 161 59 / .55);
+}
+
+/* Smart product picker / scanner / quick-add modal */
+.purchase-product-icon-button {
+  border-color: #dfc98b;
+  color: var(--brand-red-deep);
+  background: #fff8e5;
+}
+
+.purchase-product-icon-button:hover:not(:disabled) {
+  background: var(--brand-gold-soft);
+}
+
+.purchase-product-results {
+  border-color: #e3d4c7;
+  background: #fffdfa;
+  box-shadow: 0 14px 32px rgb(75 48 37 / .15);
+}
+
+.purchase-product-result {
+  border-bottom-color: #eee4dc;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.purchase-product-result:hover,
+.purchase-product-result.is-active {
+  background: #fff6df;
+}
+
+.purchase-product-result small,
+.purchase-product-no-result {
+  color: #7a6b64;
+}
+
+.purchase-product-error {
+  color: var(--ui-danger);
+}
+
+.purchase-editor-context-panel,
+.purchase-scan-panel {
+  border-color: #e3cc87;
+  background: #fff9eb;
+}
+
+.purchase-scan-panel .qr-scanner {
+  background: #fffdfa;
+}
+
+.purchase-product-modal-backdrop {
+  background: rgb(46 30 24 / .58);
+}
+
+.purchase-product-modal {
+  border-color: #e4d6ca;
+  box-shadow: var(--ui-shadow-dialog);
+}
+
+.purchase-product-modal-heading {
+  border-bottom-color: #eee3d9;
+  background: #fffdfa;
+}
+
+.purchase-product-modal-heading h2 {
+  color: var(--brand-red-deep);
+}
+
+.purchase-product-modal-body {
+  background: #fbf7f2;
+}
+
+/* Excel import workspace */
+.purchase-import-panel {
+  background: linear-gradient(180deg, #fffdfa, #fdf9f5);
+}
+
+.purchase-import-heading h2 {
+  color: var(--brand-red-deep);
+}
+
+.purchase-import-heading p,
+.purchase-import-filename,
+.purchase-import-summary span,
+.purchase-import-new-controls span {
+  color: #786a63;
+}
+
+.purchase-import-file {
+  border-color: #dfc98b;
+  color: var(--brand-red-deep);
+  background: #fff8e5;
+}
+
+.purchase-import-file:hover {
+  background: var(--brand-gold-soft);
+}
+
+.purchase-import-summary > div,
+.purchase-import-new-controls,
+.purchase-import-supplier-grid {
+  border-color: #e8ddd2;
+  background: #faf5ef;
+}
+
+.purchase-import-summary strong {
+  color: #4b3932;
+}
+
+.purchase-import-table-wrap {
+  border-color: #e8ddd2;
+}
+
+.purchase-import-table th {
+  color: #75665e;
+  background: #faf5ef;
+}
+
+.purchase-import-table th,
+.purchase-import-table td {
+  border-bottom-color: #eee4dc;
+}
+
+/* Import statuses intentionally retain semantic colors. */
+.purchase-import-status--matched {
+  color: #17613c;
+  background: #e6f8ed;
+}
+
+.purchase-import-status--new {
+  color: #315f9f;
+  background: #edf4ff;
+}
+
+.purchase-import-status--review {
+  color: #744b00;
+  background: #fff1cc;
+}
+
+.purchase-import-status--error {
+  color: #b42318;
+  background: #ffe7e5;
+}
+
+.purchase-import-row--review,
+.purchase-import-row--error {
+  background: #fffaf3;
+}
+
+.purchase-import-failures {
+  border-color: #e4aaa3;
+  color: var(--ui-danger);
+  background: #fff6f5;
+}
+
+@media (max-width: 900px) {
+  .purchase-page-header {
+    padding: 16px;
+  }
+
+  .purchase-filters.is-open {
+    border-color: #e3d5c9;
+  }
+}
+
+@media (max-width: 700px) {
+  .purchase-page {
+    gap: 13px;
+  }
+
+  .purchase-page-header {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .purchase-toolbar,
+  .purchase-list-panel,
+  .purchase-editor,
+  .purchase-import-panel {
+    border-radius: 14px;
+  }
+
+  .purchase-card {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .purchase-page-header {
+    padding: 12px;
+  }
+
+  .purchase-page-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .purchase-toolbar,
+  .purchase-editor,
+  .purchase-import-panel {
+    padding-inline: 10px;
+  }
+
+  .purchase-detail,
+  .purchase-card .purchase-detail {
+    border-radius: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .purchase-card,
+  .purchase-code-button,
+  .purchase-view-button,
+  .purchase-product-icon-button,
+  .purchase-product-result,
+  .purchase-import-file {
+    transition: none;
+  }
+}
