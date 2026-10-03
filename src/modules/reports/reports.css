@@ -1,0 +1,83 @@
+.reports-shell { display: grid; gap: 18px; min-width: 0; }
+.report-page-header, .report-section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.report-page-header { margin-bottom: 4px; }
+.report-card, .report-loading, .report-warning, .report-note { min-width: 0; border: 1px solid #e0e5ed; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(31,48,78,.04); }
+.report-card { padding: clamp(16px, 3vw, 24px); }
+.report-loading, .report-note { padding: 18px; color: #59667a; }
+.report-warning { padding: 16px 18px; color: #744b00; background: #fff9e8; border-color: #efdc9d; }
+.report-warning ul { margin: 8px 0 0; padding-left: 20px; line-height: 1.55; }
+.report-filters { display: grid; gap: 16px; }
+.report-preset-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.report-chip { min-height: 44px; padding: 9px 14px; border: 1px solid #d7dee9; border-radius: 999px; color: #334158; background: #f8fafc; font-weight: 750; cursor: pointer; }
+.report-chip--active { color: #174f9d; border-color: #91b5eb; background: #eaf2ff; }
+.report-chip--static { display: inline-flex; align-items: center; cursor: default; }
+.report-custom-range { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.report-field { display: grid; gap: 6px; min-width: 0; color: #344158; font-weight: 700; }
+.report-field input, .report-field select { min-height: 44px; width: 100%; padding: 9px 11px; border: 1px solid #ccd5e1; border-radius: 9px; color: #172033; background: #fff; }
+.report-touch { min-height: 44px; }
+.report-range-label { color: #344158; }
+.report-summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.report-stat { min-width: 0; display: grid; gap: 7px; padding: 18px; border: 1px solid #e0e5ed; border-radius: 13px; background: #fff; }
+.report-stat span { color: #647084; font-weight: 700; }
+.report-stat strong { overflow-wrap: anywhere; font-size: clamp(1.15rem, 2.2vw, 1.55rem); }
+.report-stat small { color: #7c8797; line-height: 1.4; }
+.report-stat--emphasis { border-color: #a7caaf; background: #f0faf2; }
+.report-inline-stats { display: flex; flex-wrap: wrap; gap: 8px 14px; color: #5a6678; font-size: .9rem; }
+.report-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; }
+.report-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: .9rem; }
+.report-sales-table { min-width: 1320px; }
+.report-table th, .report-table td { padding: 10px 12px; border-bottom: 1px solid #e8ecf2; text-align: left; vertical-align: top; }
+.report-creator-cell { min-width: 140px; font-weight: 700; color: #344158; }
+.report-note-cell { min-width: 180px; max-width: 280px; white-space: normal; overflow-wrap: anywhere; color: #59667a; line-height: 1.45; }
+.report-table th { white-space: nowrap; color: #536078; background: #f7f9fc; font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; }
+.report-table tbody tr:last-child td { border-bottom: 0; }
+.report-empty-cell { color: #7a8495; text-align: center !important; padding: 22px !important; }
+.report-filter-field { min-width: 190px; }
+.report-collapsible { display: grid; gap: 0; }
+.report-collapsible-heading { align-items: center; }
+.report-collapse-toggle { flex: 0 0 auto; min-width: 122px; }
+.report-collapsible-content { display: grid; gap: 14px; padding-top: 16px; border-top: 1px solid #edf0f4; margin-top: 16px; }
+.report-collapsible-content > .muted { margin: 0; }
+.report-collapsible-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 14px; }
+.report-collapsible-toolbar > .muted { margin: 0; flex: 1 1 auto; }
+.report-two-column { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; min-width: 0; }
+.stock-status { display: inline-flex; min-height: 26px; align-items: center; padding: 4px 8px; border-radius: 999px; font-weight: 750; white-space: nowrap; }
+.stock-status--out { color: #8b2f2f; background: #ffeded; }
+.stock-status--low { color: #795600; background: #fff4cf; }
+.stock-status--ok { color: #21623b; background: #e8f7ed; }
+.backup-panel { display: grid; gap: 15px; }
+.report-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.backup-divider { height: 1px; background: #e5e9ef; }
+.backup-meta { margin: 0; padding: 10px 12px; border-radius: 9px; color: #41506a; background: #f5f7fa; overflow-wrap: anywhere; }
+.backup-mode-grid { display: grid; gap: 9px; }
+.backup-mode-grid label, .backup-confirm > label:first-child { display: flex; gap: 9px; align-items: flex-start; min-height: 44px; padding: 10px 12px; border: 1px solid #e0e5ed; border-radius: 10px; line-height: 1.45; }
+.backup-mode-grid input, .backup-confirm input[type="checkbox"] { width: 20px; height: 20px; flex: 0 0 auto; margin-top: 1px; }
+.backup-preview { display: grid; gap: 14px; }
+.backup-target { display: grid; gap: 4px; padding: 12px; border-radius: 10px; background: #f4f6f9; overflow-wrap: anywhere; }
+.backup-confirm { display: grid; gap: 12px; padding-top: 4px; }
+.form-success { margin: 0; padding: 12px 14px; border-radius: 10px; color: #1b6238; background: #e9f8ef; line-height: 1.5; }
+
+@media (max-width: 980px) {
+  .report-summary-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .report-two-column { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .report-page-header, .report-section-heading { display: grid; }
+  .report-page-header .button { width: 100%; }
+  .report-summary-grid { grid-template-columns: 1fr; }
+  .report-custom-range { display: grid; grid-template-columns: 1fr; }
+  .report-custom-range .button, .report-actions .button { width: 100%; }
+  .report-actions { display: grid; }
+  .report-filter-field { min-width: 0; width: 100%; }
+  .report-collapsible-heading { grid-template-columns: 1fr; }
+  .report-collapse-toggle { width: 100%; min-width: 0; }
+  .report-collapsible-toolbar { display: grid; grid-template-columns: 1fr; }
+  .report-table { min-width: 620px; }
+  .report-sales-table { min-width: 1280px; }
+}
+
+@media (max-width: 360px) {
+  .report-card { padding: 14px; }
+  .report-chip { flex: 1 1 calc(50% - 8px); }
+}

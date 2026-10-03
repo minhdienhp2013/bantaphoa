@@ -1,0 +1,76 @@
+/* Minh Dien Reports + Backup presentation layer. Report calculations and backup behavior stay unchanged. */
+.reports-shell { color: var(--ui-text); }
+.report-page-header {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border: 1px solid #ead8c5;
+  border-radius: var(--ui-radius-lg);
+  background: radial-gradient(circle at 92% 18%, rgb(211 161 59 / .16), transparent 34%), linear-gradient(135deg, #fffdfa 0%, #fff8ee 64%, #f8eee4 100%);
+  box-shadow: var(--ui-shadow-sm);
+}
+.report-page-header::after { content: ''; position: absolute; right: -48px; bottom: -82px; width: 170px; height: 170px; border: 22px solid rgb(163 59 50 / .045); border-radius: 50%; pointer-events: none; }
+.report-page-header > * { position: relative; z-index: 1; }
+.report-page-header .eyebrow, .report-page-header h1 { color: var(--brand-red-deep); }
+.report-page-header .muted { color: #7a6b64; }
+
+.report-card, .report-loading, .report-note {
+  border-color: var(--ui-border);
+  background: linear-gradient(180deg, #fffdfa, #fdfaf7);
+  box-shadow: var(--ui-shadow-sm);
+}
+.report-filters { background: #fffaf5; }
+.report-chip { border-color: #dfd1c5; color: #67564e; background: #fffdfa; }
+.report-chip:hover:not(.report-chip--static) { border-color: var(--brand-gold); background: #fff7e9; }
+.report-chip--active { color: #fff; border-color: var(--brand-red); background: var(--brand-red); box-shadow: 0 4px 12px rgb(163 59 50 / .16); }
+.report-field { color: #5d4c44; }
+.report-field input, .report-field select { border-color: #ded0c4; color: #4b3932; background: #fffdfa; }
+.report-field input:focus, .report-field select:focus { border-color: var(--brand-gold); outline: 3px solid rgb(211 161 59 / .16); }
+.report-range-label { color: var(--brand-red-deep); }
+
+.report-stat { position: relative; overflow: hidden; border-color: #eadfd5; background: #fffdfa; box-shadow: 0 5px 16px rgb(82 52 39 / .045); }
+.report-stat::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(180deg, var(--brand-red), var(--brand-gold)); }
+.report-stat span { color: #786a63; }
+.report-stat strong { color: #44342e; }
+.report-stat small { color: #8b7c74; }
+.report-stat--emphasis { border-color: #b9d8c4; background: #f0faf3; }
+.report-stat--emphasis::before { background: var(--ui-success); }
+
+.report-section-heading h2 { color: var(--brand-red-deep); }
+.report-inline-stats { color: #75665f; }
+.report-table th { color: #725f56; background: #fbf3ea; }
+.report-table td { border-bottom-color: #eee3d9; }
+.report-table tbody tr:hover td { background: #fff9f1; }
+.report-empty-cell { color: #8a7a72; }
+
+.stock-status--out { color: #8b2f2f; background: #ffeded; }
+.stock-status--low { color: #795600; background: #fff4cf; }
+.stock-status--ok { color: #21623b; background: #e8f7ed; }
+.report-warning { color: #744b00; background: #fff9e8; border-color: #efdc9d; }
+
+.backup-divider { background: #eadfd5; }
+.backup-meta, .backup-target { color: #5f5049; background: #f9f2eb; }
+.backup-mode-grid label, .backup-confirm > label:first-child { border-color: #e4d7cb; background: #fffdfa; }
+.backup-mode-grid label:hover { border-color: var(--brand-gold); background: #fff8ec; }
+
+.report-touch:focus-visible, .report-chip:focus-visible,
+.report-field input:focus-visible, .report-field select:focus-visible,
+.backup-mode-grid input:focus-visible, .backup-confirm input:focus-visible {
+  outline: 3px solid rgb(211 161 59 / .28);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .report-page-header { padding: 16px; }
+  .report-card { border-radius: var(--ui-radius-md); }
+  .report-summary-grid { gap: 10px; }
+  .report-stat { padding: 15px; }
+}
+@media (max-width: 390px) {
+  .report-page-header { padding: 14px; }
+  .report-card { padding: 13px; }
+  .report-chip { padding-inline: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reports-shell *, .reports-shell *::before, .reports-shell *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,263 @@
+.qr-page {
+  display: grid;
+  gap: 22px;
+  padding-bottom: 28px;
+}
+
+.qr-page-header {
+  max-width: 900px;
+}
+
+.qr-page-header h1 {
+  margin-bottom: 8px;
+}
+
+.qr-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.qr-scanner,
+.qr-result-card,
+.qr-generator,
+.printing-workspace {
+  border: 1px solid #dfe5ee;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 26px rgba(30, 49, 78, 0.06);
+}
+
+.qr-scanner,
+.qr-result-card,
+.qr-generator {
+  padding: clamp(16px, 2.5vw, 24px);
+}
+
+.qr-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.qr-section-heading h2,
+.qr-section-heading h3 {
+  margin: 0;
+}
+
+.qr-engine-badge {
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #1d56ad;
+  background: #eaf1fc;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.qr-video-shell {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  background: #101824;
+}
+
+.qr-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #d6deea;
+  font-weight: 750;
+  background: linear-gradient(145deg, #101824, #27364d);
+}
+
+.qr-status {
+  margin: 12px 0 0;
+  color: #46546a;
+  line-height: 1.45;
+}
+
+.qr-error,
+.qr-warning,
+.qr-info-card {
+  margin: 12px 0 0;
+  padding: 11px 13px;
+  border-radius: 10px;
+  line-height: 1.45;
+}
+
+.qr-error {
+  color: #8a2d2d;
+  background: #fff0f0;
+  border: 1px solid #f4caca;
+}
+
+.qr-warning {
+  color: #72510a;
+  background: #fff7df;
+  border: 1px solid #eedda8;
+}
+
+.qr-info-card {
+  color: #28415f;
+  background: #edf5ff;
+  border: 1px solid #cee0f8;
+}
+
+.qr-scanner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.qr-touch-button {
+  min-height: 44px;
+}
+
+.qr-field {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+  font-weight: 700;
+  color: #364156;
+}
+
+.qr-field input,
+.qr-field select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #ccd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #172033;
+  background: #ffffff;
+}
+
+.qr-found-product,
+.qr-not-found {
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.qr-found-product {
+  background: #eef8f2;
+  border: 1px solid #cbe6d4;
+}
+
+.qr-not-found {
+  background: #fff5f2;
+  border: 1px solid #f0d4cc;
+}
+
+.qr-history {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.qr-history-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid #edf0f4;
+  font-size: 0.88rem;
+}
+
+.qr-history-row code,
+.qr-code-preview-card code {
+  overflow-wrap: anywhere;
+  color: #526078;
+  font-size: 0.78rem;
+}
+
+.qr-product-select {
+  max-width: 620px;
+}
+
+.qr-code-previews {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.qr-code-preview-card {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #e0e5ed;
+  border-radius: 12px;
+  background: #fbfcfe;
+  text-align: center;
+}
+
+.qr-code-preview-card h3 {
+  margin: 0;
+}
+
+.qr-code-preview-card .label-qr {
+  width: min(170px, 70%);
+  aspect-ratio: 1;
+}
+
+.qr-code-preview-card--barcode .label-barcode {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .qr-top-grid,
+  .qr-code-previews {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .qr-page {
+    gap: 16px;
+  }
+
+  .qr-scanner,
+  .qr-result-card,
+  .qr-generator {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  .qr-video-shell {
+    aspect-ratio: 3 / 4;
+    max-height: 70vh;
+  }
+
+  .qr-scanner-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .qr-scanner-actions .button {
+    width: 100%;
+  }
+
+  .qr-history-row {
+    grid-template-columns: 1fr;
+  }
+}

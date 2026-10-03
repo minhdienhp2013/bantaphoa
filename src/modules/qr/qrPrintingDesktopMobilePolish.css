@@ -1,0 +1,522 @@
+/*
+ * QR / PRINTING — DESKTOP + MOBILE POLISH
+ * Presentation only. Physical label geometry and @media print remain owned by printing.css / printIsolation.css.
+ * Tablet 761px–1024px intentionally keeps the existing shared layout.
+ */
+
+@media (min-width: 1025px) {
+  .qr-page {
+    gap: 14px;
+  }
+
+  .qr-page-header {
+    padding: 16px 18px;
+    border-radius: 16px;
+  }
+
+  .qr-page-header h1 {
+    margin-bottom: 4px;
+    font-size: 1.65rem;
+  }
+
+  .qr-page-header .eyebrow {
+    margin-bottom: 5px;
+  }
+
+  .qr-page-header .muted {
+    margin-bottom: 0;
+    font-size: .88rem;
+  }
+
+  .printing-workspace {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .printing-workspace > .qr-section-heading {
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .printing-workspace > .qr-section-heading h2 {
+    margin-bottom: 0;
+    font-size: 1.15rem;
+  }
+
+  .printing-workspace > .qr-section-heading .eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .printing-workspace > .qr-section-heading > strong {
+    min-width: 76px;
+    padding: 7px 10px;
+    border: 1px solid #e6d7c8;
+    border-radius: 999px;
+    color: var(--brand-red-deep);
+    background: #fff7e8;
+    text-align: center;
+    font-size: .78rem;
+  }
+
+  .printing-grid {
+    grid-template-columns: minmax(300px, .82fr) minmax(390px, 1.18fr);
+    gap: 12px;
+  }
+
+  .printing-panel {
+    padding: 13px;
+    border-radius: 12px;
+  }
+
+  .printing-panel h3 {
+    margin-bottom: 9px;
+    font-size: .98rem;
+  }
+
+  .printing-panel .qr-field {
+    margin-top: 9px;
+    gap: 5px;
+    font-size: .78rem;
+  }
+
+  .printing-panel .qr-field input,
+  .printing-panel .qr-field select {
+    min-height: 42px;
+    padding: 8px 10px;
+  }
+
+  .print-product-list {
+    max-height: 430px;
+    gap: 6px;
+    margin-top: 9px;
+  }
+
+  .print-product-row {
+    grid-template-columns: minmax(0, 1fr) 78px;
+    gap: 8px;
+    min-height: 58px;
+    padding: 8px 9px;
+  }
+
+  .print-product-check {
+    gap: 8px;
+  }
+
+  .print-product-check strong {
+    font-size: .87rem;
+  }
+
+  .print-product-check small {
+    font-size: .7rem;
+  }
+
+  .print-quantity {
+    gap: 3px;
+    font-size: .68rem;
+  }
+
+  .print-quantity input {
+    min-height: 36px;
+    padding: 5px 7px;
+  }
+
+  .print-size-grid {
+    gap: 8px;
+    margin-top: 9px;
+  }
+
+  .print-size-grid label {
+    gap: 4px;
+    font-size: .7rem;
+  }
+
+  .print-size-grid input {
+    min-height: 38px;
+    padding: 6px 7px;
+  }
+
+  .print-options {
+    gap: 6px 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .print-options legend {
+    font-size: .78rem;
+  }
+
+  .print-options label {
+    min-height: 28px;
+    font-size: .76rem;
+  }
+
+  .printing-panel--preview {
+    padding: 13px;
+  }
+
+  .print-preview-heading {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .print-preview-heading h3 {
+    margin-bottom: 3px;
+  }
+
+  .print-preview-heading p {
+    max-width: 850px;
+    font-size: .76rem;
+    line-height: 1.35;
+  }
+
+  .print-preview-heading .button {
+    min-width: 118px;
+  }
+
+  .label-preview-shell {
+    max-height: 470px;
+    overflow: auto;
+    padding: 14px;
+  }
+
+  .qr-generator {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .qr-generator .qr-section-heading {
+    margin-bottom: 8px;
+  }
+
+  .qr-generator .qr-section-heading .eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .qr-generator .qr-section-heading h2 {
+    font-size: 1.08rem;
+  }
+
+  .qr-generator .qr-product-select {
+    max-width: 520px;
+    margin-top: 8px;
+  }
+
+  .qr-code-previews {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .qr-code-preview-card {
+    min-height: 190px;
+    gap: 8px;
+    padding: 11px;
+    border-radius: 12px;
+  }
+
+  .qr-code-preview-card h3 {
+    font-size: .9rem;
+  }
+
+  .qr-code-preview-card .label-qr {
+    width: min(135px, 66%);
+  }
+
+  .qr-code-preview-card--barcode .label-barcode {
+    max-width: 260px;
+    max-height: 88px;
+  }
+
+  .qr-code-preview-card code {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .qr-page {
+    gap: 10px;
+    padding-bottom: 18px;
+  }
+
+  .qr-page-header {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .qr-page-header::after,
+  .qr-page-header .eyebrow,
+  .qr-page-header .muted {
+    display: none;
+  }
+
+  .qr-page-header h1 {
+    margin: 0;
+    font-size: 1.24rem;
+    line-height: 1.15;
+  }
+
+  .qr-info-card,
+  .qr-error,
+  .qr-warning {
+    margin-top: 0;
+    padding: 9px 10px;
+    font-size: .76rem;
+  }
+
+  .printing-workspace {
+    padding: 9px;
+    border-radius: 14px;
+  }
+
+  .printing-workspace > .qr-section-heading {
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .printing-workspace > .qr-section-heading .eyebrow {
+    display: none;
+  }
+
+  .printing-workspace > .qr-section-heading h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .printing-workspace > .qr-section-heading > strong {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    border: 1px solid #ead8c5;
+    border-radius: 999px;
+    color: var(--brand-red-deep);
+    background: #fff7e4;
+    font-size: .68rem;
+  }
+
+  .printing-grid {
+    gap: 8px;
+  }
+
+  .printing-panel {
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .printing-panel h3 {
+    margin-bottom: 7px;
+    font-size: .9rem;
+  }
+
+  .printing-panel .qr-field {
+    gap: 4px;
+    margin-top: 7px;
+    font-size: .72rem;
+  }
+
+  .printing-panel .qr-field input,
+  .printing-panel .qr-field select {
+    min-height: 42px;
+    padding: 8px 9px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .print-product-list {
+    max-height: 310px;
+    gap: 6px;
+    margin-top: 8px;
+    overscroll-behavior: contain;
+  }
+
+  .print-product-row {
+    grid-template-columns: minmax(0, 1fr) 68px;
+    gap: 7px;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .print-product-check {
+    gap: 7px;
+  }
+
+  .print-product-check input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .print-product-check strong {
+    font-size: .82rem;
+  }
+
+  .print-product-check small {
+    font-size: .67rem;
+  }
+
+  .print-quantity {
+    gap: 3px;
+    font-size: .65rem;
+  }
+
+  .print-quantity input {
+    min-height: 40px;
+    padding: 6px;
+    font-size: 16px;
+  }
+
+  .print-size-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .print-size-grid label {
+    gap: 4px;
+    font-size: .67rem;
+    line-height: 1.15;
+  }
+
+  .print-size-grid input {
+    min-height: 42px;
+    padding: 7px 8px;
+    font-size: 16px;
+  }
+
+  .print-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 7px;
+    margin-top: 9px;
+    padding: 8px;
+  }
+
+  .print-options legend {
+    font-size: .72rem;
+  }
+
+  .print-options label {
+    min-height: 34px;
+    gap: 6px;
+    font-size: .7rem;
+    line-height: 1.15;
+  }
+
+  .print-options input {
+    width: 18px;
+    height: 18px;
+  }
+
+  .print-preview-heading {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .print-preview-heading h3 {
+    margin: 0;
+    font-size: .9rem;
+  }
+
+  .print-preview-heading p {
+    margin-top: 4px;
+    font-size: .67rem;
+    line-height: 1.3;
+  }
+
+  .print-preview-heading .button {
+    min-height: 42px;
+  }
+
+  .label-preview-shell {
+    max-height: 360px;
+    overflow: auto;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .qr-generator {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .qr-generator .qr-section-heading {
+    margin-bottom: 6px;
+  }
+
+  .qr-generator .qr-section-heading .eyebrow {
+    display: none;
+  }
+
+  .qr-generator .qr-section-heading h2 {
+    font-size: .98rem;
+  }
+
+  .qr-generator .qr-product-select {
+    margin-top: 6px;
+    font-size: .72rem;
+  }
+
+  .qr-generator .qr-product-select select {
+    min-height: 42px;
+    font-size: 16px;
+  }
+
+  .qr-code-previews {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-top: 9px;
+  }
+
+  .qr-code-preview-card {
+    min-height: 0;
+    gap: 6px;
+    padding: 9px;
+    border-radius: 11px;
+  }
+
+  .qr-code-preview-card h3 {
+    font-size: .82rem;
+  }
+
+  .qr-code-preview-card .label-qr {
+    width: min(122px, 54%);
+  }
+
+  .qr-code-preview-card--barcode .label-barcode {
+    max-width: 245px;
+    max-height: 78px;
+  }
+
+  .qr-code-preview-card code {
+    font-size: .67rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .printing-workspace {
+    padding: 8px;
+  }
+
+  .printing-panel {
+    padding: 8px;
+  }
+
+  .print-product-row {
+    grid-template-columns: minmax(0, 1fr) 64px;
+  }
+
+  .print-size-grid,
+  .print-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qr-code-preview-card .label-qr {
+    width: min(112px, 52%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qr-page *,
+  .qr-page *::before,
+  .qr-page *::after {
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

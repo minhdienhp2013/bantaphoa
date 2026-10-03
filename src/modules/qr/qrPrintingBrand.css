@@ -1,0 +1,112 @@
+/* Minh Dien QR/Barcode/Printing screen presentation only.
+   Deliberately excludes .product-label and print-isolation output so physical label dimensions stay unchanged. */
+.qr-page { color: var(--ui-text); }
+
+.qr-page-header {
+  position: relative;
+  overflow: hidden;
+  max-width: none;
+  padding: 18px 20px;
+  border: 1px solid #ead8c5;
+  border-radius: var(--ui-radius-lg);
+  background: radial-gradient(circle at 92% 18%, rgb(211 161 59 / .16), transparent 34%), linear-gradient(135deg, #fffdfa 0%, #fff8ee 64%, #f8eee4 100%);
+  box-shadow: var(--ui-shadow-sm);
+}
+.qr-page-header::after {
+  content: '';
+  position: absolute;
+  right: -48px;
+  bottom: -82px;
+  width: 170px;
+  height: 170px;
+  border: 22px solid rgb(163 59 50 / .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.qr-page-header > * { position: relative; z-index: 1; }
+.qr-page-header .eyebrow, .qr-page-header h1 { color: var(--brand-red-deep); }
+.qr-page-header .muted { color: #7a6b64; }
+
+.qr-scanner, .qr-result-card, .qr-generator, .printing-workspace {
+  border-color: var(--ui-border);
+  background: linear-gradient(180deg, #fffdfa, #fdfaf7);
+  box-shadow: var(--ui-shadow-sm);
+}
+.qr-section-heading h2, .qr-section-heading h3,
+.printing-panel h3, .print-preview-heading h3 { color: var(--brand-red-deep); }
+
+.qr-field input, .qr-field select,
+.print-quantity input, .print-size-grid input {
+  border-color: #ded0c4;
+  color: #4b3932;
+  background: #fffdfa;
+}
+.qr-field input:focus, .qr-field select:focus,
+.print-quantity input:focus, .print-size-grid input:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .16);
+  outline-offset: 0;
+}
+
+.printing-panel {
+  border-color: #eadfd5;
+  background: #fffaf5;
+}
+.print-product-row {
+  border-color: #eadfd5;
+  background: #fffdfa;
+}
+.print-product-row:hover { background: #fff7ec; }
+.print-product-check small, .print-quantity, .print-size-grid label { color: #786a63; }
+.print-options { border-color: #e5d7ca; background: #fffdfa; }
+.print-options legend { color: #5d463d; }
+
+.qr-code-preview-card {
+  border-color: #eadfd5;
+  background: linear-gradient(180deg, #fffdfa, #fff8f0);
+  box-shadow: 0 5px 16px rgb(82 52 39 / .05);
+}
+.qr-code-preview-card h3 { color: var(--brand-red-deep); }
+.qr-code-preview-card code { color: #705f57; }
+
+.qr-info-card { color: var(--ui-info); background: #eef6fa; border-color: #cfe1ea; }
+.qr-warning { color: #72510a; background: #fff7df; border-color: #eedda8; }
+.qr-error { color: var(--ui-danger); background: #fff0ee; border-color: #efcbc7; }
+
+.qr-touch-button:focus-visible,
+.qr-field select:focus-visible,
+.print-product-check input:focus-visible,
+.print-options input:focus-visible {
+  outline: 3px solid rgb(211 161 59 / .28);
+  outline-offset: 2px;
+}
+
+/* Preview workspace may be branded; actual printable label surfaces remain controlled by printing.css/printIsolation.css. */
+.label-preview-shell {
+  border: 1px solid #eadfd5;
+  background-color: #f8f0e8;
+}
+
+@media (max-width: 900px) {
+  .printing-grid { grid-template-columns: 1fr; }
+  .printing-panel--preview { grid-column: auto; }
+}
+
+@media (max-width: 540px) {
+  .qr-page-header { padding: 14px; }
+  .printing-workspace { padding: 14px; border-radius: 13px; }
+  .printing-panel { padding: 13px; }
+  .print-size-grid { grid-template-columns: 1fr 1fr; }
+  .print-options { grid-template-columns: 1fr; }
+  .print-product-row { grid-template-columns: minmax(0, 1fr) 76px; }
+  .label-preview-shell { padding: 12px; }
+}
+
+@media (max-width: 390px) {
+  .print-size-grid { grid-template-columns: 1fr; }
+  .print-product-row { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qr-page *, .qr-page *::before, .qr-page *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
