@@ -165,7 +165,7 @@ export default function A4InvoiceSettingsPanel() {
             maxLength={120}
             value={draft.storeName}
             disabled={loading || saving}
-            placeholder="Ví dụ: Minh Điến"
+            placeholder="Ví dụ: Bán Tạp Hóa"
             onChange={(event) => {
               const nextValue = event.currentTarget.value;
               setDraft((current) => ({ ...current, storeName: nextValue }));

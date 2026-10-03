@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import DesktopCashDrawerSettings from './DesktopCashDrawerSettings';
 import type { ReceiptPaperSize } from '../../types/models';
 
-type DesktopPrinter = Awaited<ReturnType<NonNullable<Window['minhDienDesktop']>['getPrinters']>>[number];
+type DesktopPrinter = Awaited<ReturnType<NonNullable<Window['banTapHoaDesktop']>['getPrinters']>>[number];
 
 interface DesktopPrinterSettingsProps {
   paperSize?: ReceiptPaperSize;
@@ -26,9 +26,9 @@ export default function DesktopPrinterSettings({
   paperSize = '80mm',
   mode = 'thermal',
 }: DesktopPrinterSettingsProps) {
-  const desktop = window.minhDienDesktop;
+  const desktop = window.banTapHoaDesktop;
   const isA4 = mode === 'a4';
-  const savedDeviceName = (settings: Awaited<ReturnType<NonNullable<Window['minhDienDesktop']>['getPrinterSettings']>>) =>
+  const savedDeviceName = (settings: Awaited<ReturnType<NonNullable<Window['banTapHoaDesktop']>['getPrinterSettings']>>) =>
     isA4 ? settings.a4DeviceName : settings.receiptDeviceName;
   const [printers, setPrinters] = useState<DesktopPrinter[]>([]);
   const [selectedName, setSelectedName] = useState('');
@@ -118,7 +118,7 @@ export default function DesktopPrinterSettings({
   }
 
   async function handleSave() {
-    const api = window.minhDienDesktop;
+    const api = window.banTapHoaDesktop;
     if (!api || !selectedName || saving) return;
     setSaving(true);
     setError('');
@@ -140,7 +140,7 @@ export default function DesktopPrinterSettings({
   }
 
   async function handleTest() {
-    const api = window.minhDienDesktop;
+    const api = window.banTapHoaDesktop;
     if (!api || !selectedName || testing) return;
     setTesting(true);
     setError('');
@@ -255,4 +255,3 @@ export default function DesktopPrinterSettings({
     </>
   );
 }
-

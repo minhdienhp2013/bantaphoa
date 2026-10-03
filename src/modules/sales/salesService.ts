@@ -8,19 +8,14 @@ import {
   query,
   ref,
   startAt,
-  update,
   type Unsubscribe,
 } from 'firebase/database';
 import { db } from '../../firebase/client';
 import type {
-  AppUser,
-  AuditLog,
   Customer,
   PaymentMethod,
   Product,
   ProductSale,
-  QuickServiceCategory,
-  QuickServiceSale,
   Sale,
   SaleItem,
   StockMovementType,
@@ -28,11 +23,6 @@ import type {
 } from '../../types/models';
 import { commitStockOperation } from '../inventory/inventoryService';
 import { buildStockOperationId, roundStockQuantity } from '../inventory/stockOperationCas';
-import { readQuickServiceProfitRate } from '../settings/quickServiceSettings';
-import {
-  normalizeQuickServiceOptionalText,
-  quickServiceSaleMatchesIntent,
-} from './quickServiceIntent';
 import { normalizeSale } from './saleNormalizer';
 
 const DEFAULT_HISTORY_LIMIT = 50;
@@ -49,15 +39,6 @@ export interface CreateSaleInput {
   items: SaleLineInput[];
   discount: number;
   paymentMethod: PaymentMethod;
-  note?: string;
-}
-
-export interface CreateQuickServiceSaleInput {
-  saleId: string;
-  serviceCategory: QuickServiceCategory;
-  amount: number;
-  paymentMethod: 'cash' | 'bank_transfer';
-  customerId?: string;
   note?: string;
 }
 
@@ -86,14 +67,6 @@ function normalizeMoney(value: unknown, label: string) {
   return Math.round(number);
 }
 
-function normalizeQuickAmount(value: unknown) {
-  const amount = Number(value);
-  if (!Number.isSafeInteger(amount) || amount <= 0) {
-    throw new Error('Số tiền dịch vụ phải là số nguyên VND lớn hơn 0.');
-  }
-  return amount;
-}
-
 function normalizeQuantity(value: unknown) {
   const quantity = roundStockQuantity(Number(value));
   if (!Number.isFinite(quantity) || quantity <= 0) {
@@ -120,7 +93,7 @@ async function readProduct(productId: string): Promise<Product> {
 }
 
 async function readCustomer(customerId?: string): Promise<Customer | null> {
-  const id = normalizeQuickServiceOptionalText(customerId);
+  const id = customerId?.trim() || undefined;
   if (!id) return null;
   const snapshot = await get(ref(requireDatabase(), `customers/${id}`));
   if (!snapshot.exists()) throw new Error('Khách hàng đã chọn không còn tồn tại.');
@@ -142,16 +115,6 @@ async function readProductSaleOrNull(saleId: string): Promise<ProductSale | null
 async function getPersistedProductSale(saleId: string): Promise<ProductSale> {
   const sale = await readProductSaleOrNull(saleId);
   if (!sale) throw new Error('Nghiệp vụ kho đã hoàn tất nhưng không đọc được đơn bán đã lưu.');
-  return sale;
-}
-
-async function readQuickServiceSaleOrNull(saleId: string): Promise<QuickServiceSale | null> {
-  const snapshot = await get(ref(requireDatabase(), `quickServiceSales/${saleId}`));
-  if (!snapshot.exists()) return null;
-  const sale = normalizeSale(saleId, snapshot.val());
-  if (!sale || sale.saleKind !== 'quick_service') {
-    throw new Error('Giao dịch bán nhanh đã tồn tại nhưng dữ liệu không hợp lệ.');
-  }
   return sale;
 }
 
@@ -359,162 +322,17 @@ export async function reverseSale(
   return getPersistedProductSale(saleId);
 }
 
-export async function createQuickServiceSale(
-  input: CreateQuickServiceSaleInput,
-  actorUid: string,
-): Promise<QuickServiceSale> {
-  if (!actorUid) throw new Error('Phiên đăng nhập không hợp lệ.');
-  if (!input.saleId) throw new Error('Thiếu mã giao dịch.');
-
-  const amount = normalizeQuickAmount(input.amount);
-  const customerId = normalizeQuickServiceOptionalText(input.customerId);
-  const note = normalizeQuickServiceOptionalText(input.note);
-  const intent = {
-    serviceCategory: input.serviceCategory,
-    amount,
-    paymentMethod: input.paymentMethod,
-    ...(customerId ? { customerId } : {}),
-    ...(note ? { note } : {}),
-  };
-
-  const existing = await readQuickServiceSaleOrNull(input.saleId);
-  if (existing) {
-    if (quickServiceSaleMatchesIntent(existing, intent, actorUid)) return existing;
-    throw new Error('Mã giao dịch bán nhanh đã được dùng cho một nội dung khác.');
-  }
-
-  const [rate, customer] = await Promise.all([
-    readQuickServiceProfitRate(input.serviceCategory),
-    readCustomer(customerId),
-  ]);
-  const createdAt = Date.now();
-  const sale: QuickServiceSale = {
-    id: input.saleId,
-    code: makeSaleCode(input.saleId, createdAt),
-    saleKind: 'quick_service',
-    serviceCategory: input.serviceCategory,
-    estimatedProfitRatePercent: rate,
-    subtotal: amount,
-    discount: 0,
-    total: amount,
-    paymentMethod: input.paymentMethod,
-    status: 'completed',
-    createdBy: actorUid,
-    createdAt,
-    updatedAt: createdAt,
-    ...(customer ? { customerId: customer.id, customerName: customer.name } : {}),
-    ...(note ? { note } : {}),
-  };
-
-  const auditId = push(ref(requireDatabase(), 'auditLogs')).key;
-  if (!auditId) throw new Error('Không thể tạo nhật ký kiểm toán.');
-  const audit: AuditLog = {
-    id: auditId,
-    actorUid,
-    action: 'QUICK_SERVICE_SALE_COMPLETED',
-    entityType: 'quick_service_sale',
-    entityId: input.saleId,
-    summary: `Hoàn tất bán nhanh ${sale.code}`,
-    createdAt,
-  };
-
-  try {
-    await update(ref(requireDatabase()), {
-      [`quickServiceSales/${input.saleId}`]: sale,
-      [`auditLogs/${auditId}`]: audit,
-    });
-  } catch (error) {
-    const committed = await readQuickServiceSaleOrNull(input.saleId).catch(() => null);
-    if (committed && quickServiceSaleMatchesIntent(committed, intent, actorUid)) return committed;
-    throw error;
-  }
-
-  return sale;
-}
-
-export async function cancelQuickServiceSale(
-  saleId: string,
-  actor: Pick<AppUser, 'uid' | 'role'>,
-): Promise<QuickServiceSale> {
-  if (!actor.uid) throw new Error('Phiên đăng nhập không hợp lệ.');
-  if (actor.role !== 'owner' && actor.role !== 'staff') throw new Error('Vai trò người dùng không hợp lệ.');
-  if (!saleId) throw new Error('Thiếu mã giao dịch.');
-
-  const sale = await readQuickServiceSaleOrNull(saleId);
-  if (!sale) throw new Error('Không tìm thấy giao dịch bán nhanh.');
-  if (sale.status === 'cancelled') return sale;
-  if (sale.status !== 'completed') throw new Error('Giao dịch bán nhanh không thể hủy ở trạng thái hiện tại.');
-  if (actor.role !== 'owner' && sale.createdBy !== actor.uid) {
-    throw new Error('Nhân viên chỉ được hủy giao dịch bán nhanh do chính mình tạo.');
-  }
-
-  const updatedAt = Date.now();
-  const auditId = push(ref(requireDatabase(), 'auditLogs')).key;
-  if (!auditId) throw new Error('Không thể tạo nhật ký kiểm toán.');
-  const audit: AuditLog = {
-    id: auditId,
-    actorUid: actor.uid,
-    action: 'QUICK_SERVICE_SALE_CANCELLED',
-    entityType: 'quick_service_sale',
-    entityId: saleId,
-    summary: `Hủy giao dịch bán nhanh ${sale.code}`,
-    createdAt: updatedAt,
-  };
-
-  try {
-    await update(ref(requireDatabase()), {
-      [`quickServiceSales/${saleId}/status`]: 'cancelled',
-      [`quickServiceSales/${saleId}/updatedAt`]: updatedAt,
-      [`auditLogs/${auditId}`]: audit,
-    });
-  } catch (error) {
-    const committed = await readQuickServiceSaleOrNull(saleId).catch(() => null);
-    if (committed?.status === 'cancelled') return committed;
-    throw error;
-  }
-
-  return { ...sale, status: 'cancelled', updatedAt };
-}
-
 export function subscribeSales(
   options: SaleHistoryQuery,
   onData: (sales: Sale[]) => void,
   onError: (error: Error) => void,
 ): Unsubscribe {
   const limit = Math.min(MAX_HISTORY_LIMIT, Math.max(20, Math.round(options.limit ?? DEFAULT_HISTORY_LIMIT)));
-  let productSales: Sale[] = [];
-  let quickServiceSales: Sale[] = [];
-
-  const emit = () => {
-    onData(
-      [...productSales, ...quickServiceSales]
-        .sort((a, b) => b.createdAt - a.createdAt)
-        .slice(0, limit),
-    );
-  };
-
-  const unsubscribeProducts = onValue(
+  return onValue(
     buildHistoryQuery('sales', options, limit),
-    (snapshot) => {
-      productSales = normalizeHistoryNode(snapshot.val(), 'product');
-      emit();
-    },
+    (snapshot) => onData(normalizeHistoryNode(snapshot.val(), 'product').sort((a, b) => b.createdAt - a.createdAt).slice(0, limit)),
     (error) => onError(error instanceof Error ? error : new Error('Không thể tải lịch sử đơn bán.')),
   );
-
-  const unsubscribeQuick = onValue(
-    buildHistoryQuery('quickServiceSales', options, limit),
-    (snapshot) => {
-      quickServiceSales = normalizeHistoryNode(snapshot.val(), 'quick_service');
-      emit();
-    },
-    (error) => onError(error instanceof Error ? error : new Error('Không thể tải lịch sử bán nhanh.')),
-  );
-
-  return () => {
-    unsubscribeProducts();
-    unsubscribeQuick();
-  };
 }
 
 export function subscribeCustomers(

@@ -1,5 +1,5 @@
 export interface CashDrawerConnection { url: string; key: string }
-const STORAGE_KEY = 'minhdien.cashDrawerConnection.v1';
+const STORAGE_KEY = 'bantaphoa.cashDrawerConnection.v1';
 export function normalizeCashDrawerConnection(input: CashDrawerConnection): CashDrawerConnection {
   const url = new URL(input.url.trim());
   const octets = url.hostname.split('.');

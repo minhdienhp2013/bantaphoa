@@ -8,17 +8,8 @@ export interface ReceiptPrintOptions {
   creatorName?: string;
 }
 
-const RECEIPT_PAPER_STORAGE_KEY = 'quan-ly-ban-hang.receipt-paper-size.v1';
+const RECEIPT_PAPER_STORAGE_KEY = 'ban-tap-hoa.receipt-paper-size.v1';
 const DEFAULT_RECEIPT_PAPER_SIZE: ReceiptPaperSize = '80mm';
-
-const QUICK_SERVICE_LABELS: Record<string, string> = {
-  photo: 'Photo',
-  printing: 'In ấn',
-  scan: 'Scan',
-  computer: 'Vi tính',
-  stationery: 'Văn phòng phẩm',
-  other: 'Dịch vụ khác',
-};
 
 function escapeHtml(value: unknown): string {
   return String(value ?? '')
@@ -77,19 +68,6 @@ function productRows(sale: Extract<Sale, { saleKind: 'product' }>, showSku = tru
   `).join('');
 }
 
-function quickServiceRows(sale: Extract<Sale, { saleKind: 'quick_service' }>): string {
-  const label = QUICK_SERVICE_LABELS[sale.serviceCategory] || 'Dịch vụ';
-  return `
-    <tr>
-      <td class="item-name">
-        <strong>${escapeHtml(label)}</strong>
-        <span>Dịch vụ bán nhanh</span>
-      </td>
-      <td class="amount">${formatMoney(sale.total)}</td>
-    </tr>
-  `;
-}
-
 export function readReceiptPaperSize(): ReceiptPaperSize {
   try {
     return localStorage.getItem(RECEIPT_PAPER_STORAGE_KEY) === '58mm' ? '58mm' : DEFAULT_RECEIPT_PAPER_SIZE;
@@ -118,7 +96,7 @@ export function buildSaleReceiptHtml(
   const storeName = settings?.storeName?.trim() || 'CỬA HÀNG';
   const address = settings?.address?.trim();
   const phone = settings?.phone?.trim();
-  const rows = sale.saleKind === 'product' ? productRows(sale, receiptSettings.showSku) : quickServiceRows(sale);
+  const rows = productRows(sale, receiptSettings.showSku);
   const showSubtotal = sale.discount > 0;
   const status = statusLabel(sale);
   const paymentQrImageDataUrl = receiptSettings.paymentQrImageDataUrl;
@@ -218,7 +196,7 @@ export function printSaleReceipt(
   const html = buildSaleReceiptHtml(sale, settings, options);
   const receiptSettings = resolveReceiptSettings(settings?.receipt);
   const paperSize = options.paperSize ?? receiptSettings.defaultPaperSize ?? DEFAULT_RECEIPT_PAPER_SIZE;
-  const desktop = typeof window !== 'undefined' ? window.minhDienDesktop : undefined;
+  const desktop = typeof window !== 'undefined' ? window.banTapHoaDesktop : undefined;
 
   if (desktop?.isElectron) {
     return desktop.printReceipt({ html, paperSize }).then(() => undefined);

@@ -216,14 +216,9 @@ export default function DashboardPage() {
                 <div><ComparisonBadge comparison={getDashboardComparison(ownerMetrics.productActualGrossProfit, previousMetrics.productActualGrossProfit)} /><small>so với {previousPeriodLabel}: {vnd(previousMetrics.productActualGrossProfit)}</small></div>
               </article>
               <article className="dashboard-kpi-card">
-                <span>Lợi nhuận ước tính dịch vụ</span>
-                <strong>{vnd(ownerMetrics.serviceEstimatedProfit)}</strong>
-                <div><ComparisonBadge comparison={getDashboardComparison(ownerMetrics.serviceEstimatedProfit, previousMetrics.serviceEstimatedProfit)} /><small>so với {previousPeriodLabel}: {vnd(previousMetrics.serviceEstimatedProfit)}</small></div>
-              </article>
-              <article className="dashboard-kpi-card">
-                <span>Lợi nhuận tổng hợp ước tính trước chi phí</span>
-                <strong title="Gồm phần ước tính dịch vụ · trước chi phí">{vnd(ownerMetrics.combinedProfitEstimate)}</strong>
-                <div><ComparisonBadge comparison={getDashboardComparison(ownerMetrics.combinedProfitEstimate, previousMetrics.combinedProfitEstimate)} /><small>so với {previousPeriodLabel}: {vnd(previousMetrics.combinedProfitEstimate)}</small></div>
+                <span>Lợi nhuận gộp</span>
+                <strong title="Doanh thu − giá vốn">{vnd(ownerMetrics.grossProfit)}</strong>
+                <div><ComparisonBadge comparison={getDashboardComparison(ownerMetrics.grossProfit, previousMetrics.grossProfit)} /><small>so với {previousPeriodLabel}: {vnd(previousMetrics.grossProfit)}</small></div>
               </article>
               <article className="dashboard-kpi-card">
                 <span>Chi phí</span>
@@ -271,7 +266,6 @@ export default function DashboardPage() {
                     </div>
                     <div className="dashboard-mini-stats">
                       <div><span>Doanh thu hàng hóa</span><strong>{vnd(ownerData.currentReport.summary.productRevenue)}</strong></div>
-                      <div><span>Doanh thu dịch vụ</span><strong>{vnd(ownerData.currentReport.summary.serviceRevenue)}</strong></div>
                       <div><span>Giao dịch trung bình</span><strong>{vnd(ownerMetrics.averageOrder)}</strong></div>
                       <div><span>Sản phẩm đã bán</span><strong>{number(ownerMetrics.soldQuantity)}</strong></div>
                     </div>

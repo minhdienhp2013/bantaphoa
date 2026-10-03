@@ -2,13 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAuth } from '../../auth/AuthContext';
 import type { StockMovement, StockMovementType } from '../../types/models';
 import BackupPanel from '../backup/BackupPanel';
-import { QUICK_SERVICE_CATEGORY_LABELS } from '../settings/quickServiceProfitRates';
 import { exportReportExcel } from './reportExcel';
 import {
   buildCustomRange,
   buildPresetRange,
   getProductSaleSnapshotCost,
-  getQuickServiceEstimatedProfit,
   loadReport,
   loadReportMovements,
   type ReportBundle,
@@ -196,7 +194,7 @@ export default function ReportsPage() {
         <div>
           <p className="eyebrow">REP-001 → REP-008</p>
           <h1>Đơn hàng và báo cáo</h1>
-          <p className="muted">Doanh thu và giá vốn hàng hóa đọc từ snapshot giao dịch; phần dịch vụ dùng tỷ lệ lợi nhuận ước tính đã chụp tại thời điểm bán.</p>
+          <p className="muted">Doanh thu và giá vốn đọc từ dữ liệu đã lưu của từng đơn bán hàng.</p>
         </div>
         <button className="button button--secondary report-touch" type="button" disabled={!data || loading || exporting} aria-busy={exporting} onClick={() => void handleExportExcel()}>{exporting ? 'Đang chuẩn bị Excel…' : 'Xuất Excel theo khoảng đang xem'}</button>
       </header>
@@ -224,37 +222,34 @@ export default function ReportsPage() {
             <article className="report-stat"><span>Doanh thu hàng hóa</span><strong>{vnd(data.summary.productRevenue)}</strong><small>Product Sale completed</small></article>
             <article className="report-stat"><span>Giá vốn hàng hóa</span><strong>{vnd(data.summary.productCostOfGoods)}</strong><small>Snapshot Product Sale</small></article>
             <article className="report-stat"><span>Lợi nhuận gộp thực hàng hóa</span><strong>{vnd(data.summary.productActualGrossProfit)}</strong><small>Doanh thu hàng hóa − giá vốn</small></article>
-            <article className="report-stat"><span>Doanh thu dịch vụ</span><strong>{vnd(data.summary.serviceRevenue)}</strong><small>Quick Service completed</small></article>
-            <article className="report-stat"><span>Lợi nhuận ước tính dịch vụ</span><strong>{vnd(data.summary.serviceEstimatedProfit)}</strong><small>Theo tỷ lệ snapshot từng giao dịch</small></article>
             <article className="report-stat"><span>Chi phí hợp lệ</span><strong>{vnd(data.summary.expenseTotal)}</strong><small>Expense status completed</small></article>
             {appUser.role === 'owner' ? <article className="report-stat"><span>Lãi vay đã trả</span><strong>{vnd(data.summary.loanInterestExpense)}</strong><small>Chi phí tài chính ròng trong kỳ; không gồm trả gốc</small></article> : null}
-            <article className="report-stat"><span>Lợi nhuận tổng hợp trước chi phí</span><strong>{vnd(data.summary.combinedProfitBeforeExpenses)}</strong><small>Gồm phần ước tính dịch vụ</small></article>
-            <article className="report-stat report-stat--emphasis"><span>Lợi nhuận ròng tổng hợp ước tính</span><strong>{vnd(data.summary.combinedNetProfitEstimate)}</strong><small>Gồm phần ước tính dịch vụ − chi phí − lãi vay đã trả</small></article>
+            <article className="report-stat"><span>Lợi nhuận gộp</span><strong>{vnd(data.summary.grossProfit)}</strong><small>Doanh thu − giá vốn</small></article>
+            <article className="report-stat report-stat--emphasis"><span>Lợi nhuận ròng</span><strong>{vnd(data.summary.netProfit)}</strong><small>Lợi nhuận gộp − chi phí − lãi vay đã trả</small></article>
             <article className="report-stat"><span>Nhập hàng</span><strong>{vnd(data.summary.purchaseTotal)}</strong><small>Phiếu nhập completed trong kỳ</small></article>
           </section>
 
           {data.warnings.length ? <div className="report-warning" role="status"><strong>Cảnh báo dữ liệu legacy</strong><ul>{data.warnings.map((warning) => <li key={warning}>{warning}</li>)}</ul></div> : null}
 
           <section className="report-card report-orders-section">
-            <div className="report-section-heading"><div><p className="eyebrow">REP-001 → REP-004</p><h2>Bán hàng và dịch vụ</h2></div></div>
+            <div className="report-section-heading"><div><p className="eyebrow">REP-001 → REP-004</p><h2>Bán hàng</h2></div></div>
             <div className="report-table-wrap">
               <table className="report-table report-sales-table">
-                <thead><tr><th>Thời gian</th><th>Loại giao dịch</th><th>Mặt hàng đã bán</th><th>Mã</th><th>Khách hàng</th><th>Người khởi tạo</th><th>Thanh toán</th><th>Ghi chú</th><th>Doanh thu</th><th>Giá vốn hàng hóa</th><th>LN thực hàng hóa</th><th>Tỷ lệ LN dịch vụ</th><th>LN ước tính dịch vụ</th></tr></thead>
+                <thead><tr><th>Thời gian</th><th>Loại giao dịch</th><th>Mặt hàng đã bán</th><th>Mã</th><th>Khách hàng</th><th>Người khởi tạo</th><th>Thanh toán</th><th>Ghi chú</th><th>Doanh thu</th><th>Giá vốn hàng hóa</th><th>LN thực hàng hóa</th></tr></thead>
                 <tbody>{data.sales.length ? data.sales.map((sale) => {
-                  if (sale.saleKind === 'product') {
+
                     const cost = getProductSaleSnapshotCost(sale);
                     const itemSummary = productSaleItemsLabel(sale.items);
                     const itemTitle = productSaleItemsLabel(sale.items, sale.items.length);
-                    return <tr key={sale.id}><td>{dateTime(sale.createdAt)}</td><td>Hàng hóa</td><td className="report-note-cell" title={itemTitle}>{itemSummary}</td><td>{sale.code}</td><td>{sale.customerName || 'Khách lẻ'}</td><td className="report-creator-cell">{sale.creatorName}</td><td>{paymentMethodLabel(sale.paymentMethod)}</td><td className="report-note-cell">{sale.note || '—'}</td><td>{vnd(sale.total)}</td><td>{vnd(cost)}</td><td>{vnd(sale.total - cost)}</td><td>—</td><td>—</td></tr>;
-                  }
-                  return <tr key={sale.id}><td>{dateTime(sale.createdAt)}</td><td>Dịch vụ · {QUICK_SERVICE_CATEGORY_LABELS[sale.serviceCategory]}</td><td>—</td><td>{sale.code}</td><td>{sale.customerName || 'Khách lẻ'}</td><td className="report-creator-cell">{sale.creatorName}</td><td>{paymentMethodLabel(sale.paymentMethod)}</td><td className="report-note-cell">{sale.note || '—'}</td><td>{vnd(sale.total)}</td><td>—</td><td>—</td><td>{sale.estimatedProfitRatePercent}%</td><td>{vnd(getQuickServiceEstimatedProfit(sale))}</td></tr>;
-                }) : <tr><td colSpan={13} className="report-empty-cell">Không có giao dịch completed trong kỳ.</td></tr>}</tbody>
+                    return <tr key={sale.id}><td>{dateTime(sale.createdAt)}</td><td>Hàng hóa</td><td className="report-note-cell" title={itemTitle}>{itemSummary}</td><td>{sale.code}</td><td>{sale.customerName || 'Khách lẻ'}</td><td className="report-creator-cell">{sale.creatorName}</td><td>{paymentMethodLabel(sale.paymentMethod)}</td><td className="report-note-cell">{sale.note || '—'}</td><td>{vnd(sale.total)}</td><td>{vnd(cost)}</td><td>{vnd(sale.total - cost)}</td></tr>;
+
+                }) : <tr><td colSpan={11} className="report-empty-cell">Không có giao dịch completed trong kỳ.</td></tr>}</tbody>
               </table>
             </div>
 
-            <div className="report-orders-mobile-list" aria-label="Danh sách đơn hàng và dịch vụ trên điện thoại">
+            <div className="report-orders-mobile-list" aria-label="Danh sách đơn hàng trên điện thoại">
               {data.sales.length ? data.sales.map((sale) => {
-                if (sale.saleKind === 'product') {
+
                   const cost = getProductSaleSnapshotCost(sale);
                   return (
                     <article className="report-order-card" key={`mobile-${sale.id}`}>
@@ -278,31 +273,7 @@ export default function ReportsPage() {
                       {sale.note ? <p className="report-order-card__note">{sale.note}</p> : null}
                     </article>
                   );
-                }
 
-                return (
-                  <article className="report-order-card" key={`mobile-${sale.id}`}>
-                    <div className="report-order-card__head">
-                      <div>
-                        <strong>{sale.code}</strong>
-                        <span>{dateTime(sale.createdAt)}</span>
-                      </div>
-                      <span className="report-order-kind report-order-kind--service">
-                        {QUICK_SERVICE_CATEGORY_LABELS[sale.serviceCategory]}
-                      </span>
-                    </div>
-                    <div className="report-order-card__identity">
-                      <span>{sale.customerName || 'Khách lẻ'}</span>
-                      <small>{sale.creatorName} · {paymentMethodLabel(sale.paymentMethod)}</small>
-                    </div>
-                    <dl className="report-order-card__money report-order-card__money--service">
-                      <div><dt>Doanh thu</dt><dd>{vnd(sale.total)}</dd></div>
-                      <div><dt>Tỷ lệ LN</dt><dd>{sale.estimatedProfitRatePercent}%</dd></div>
-                      <div><dt>LN ước tính</dt><dd>{vnd(getQuickServiceEstimatedProfit(sale))}</dd></div>
-                    </dl>
-                    {sale.note ? <p className="report-order-card__note">{sale.note}</p> : null}
-                  </article>
-                );
               }) : <div className="report-mobile-empty">Không có giao dịch completed trong kỳ.</div>}
             </div>
           </section>
@@ -396,12 +367,12 @@ export default function ReportsPage() {
           <section className="report-two-column report-partners-grid">
             <article className="report-card">
               <div className="report-section-heading"><div><p className="eyebrow">REP-007</p><h2>Khách hàng</h2></div></div>
-              <div className="report-table-wrap"><table className="report-table"><thead><tr><th>Khách hàng</th><th>Giao dịch</th><th>Tổng doanh thu</th><th>DT hàng hóa</th><th>DT dịch vụ</th><th>Giá vốn hàng hóa</th><th>LN thực hàng hóa</th><th>LN ước tính dịch vụ</th><th>LN tổng hợp ước tính</th></tr></thead><tbody>{data.customers.length ? data.customers.map((item) => <tr key={item.customerId}><td>{item.customerName}</td><td>{item.orderCount}</td><td>{vnd(item.totalRevenue)}</td><td>{vnd(item.productRevenue)}</td><td>{vnd(item.serviceRevenue)}</td><td>{vnd(item.productCostOfGoods)}</td><td>{vnd(item.productActualGrossProfit)}</td><td>{vnd(item.serviceEstimatedProfit)}</td><td>{vnd(item.combinedProfitEstimate)} <small>(gồm phần ước tính dịch vụ)</small></td></tr>) : <tr><td colSpan={9} className="report-empty-cell">Chưa có dữ liệu.</td></tr>}</tbody></table></div>
+              <div className="report-table-wrap"><table className="report-table"><thead><tr><th>Khách hàng</th><th>Giao dịch</th><th>Tổng doanh thu</th><th>DT hàng hóa</th><th>Giá vốn hàng hóa</th><th>LN thực hàng hóa</th><th>Lợi nhuận gộp</th></tr></thead><tbody>{data.customers.length ? data.customers.map((item) => <tr key={item.customerId}><td>{item.customerName}</td><td>{item.orderCount}</td><td>{vnd(item.totalRevenue)}</td><td>{vnd(item.productRevenue)}</td><td>{vnd(item.productCostOfGoods)}</td><td>{vnd(item.productActualGrossProfit)}</td><td>{vnd(item.grossProfit)}</td></tr>) : <tr><td colSpan={7} className="report-empty-cell">Chưa có dữ liệu.</td></tr>}</tbody></table></div>
             </article>
             <article className="report-card"><div className="report-section-heading"><div><p className="eyebrow">REP-007</p><h2>Nhà cung cấp</h2></div></div><div className="report-table-wrap"><table className="report-table"><thead><tr><th>Nhà cung cấp</th><th>Phiếu nhập</th><th>Giá trị nhập</th></tr></thead><tbody>{data.suppliers.length ? data.suppliers.map((item) => <tr key={item.supplierId}><td>{item.supplierName}</td><td>{item.purchaseCount}</td><td>{vnd(item.purchaseTotal)}</td></tr>) : <tr><td colSpan={3} className="report-empty-cell">Chưa có dữ liệu.</td></tr>}</tbody></table></div></article>
           </section>
 
-          <div className="report-note">Giao dịch cancelled/refunded không được tính vào tài chính. Lợi nhuận dịch vụ là ước tính theo tỷ lệ snapshot tại thời điểm tạo giao dịch; thay đổi Settings sau đó không làm đổi lịch sử.</div>
+          <div className="report-note">Giao dịch cancelled/refunded không được tính vào tài chính. Giá vốn dùng dữ liệu đã lưu lúc bán; thay đổi giá sản phẩm không làm đổi lịch sử.</div>
           <BackupPanel actorUid={appUser.uid} />
         </>
       ) : null}

@@ -4,7 +4,7 @@ import type { CashDrawerSettings, CashDrawerLanInfo } from '../../types/electron
 const defaults: CashDrawerSettings = { enabled: false, host: '', port: 9100, pin: 0, onTime: 25, offTime: 250 };
 
 export default function DesktopCashDrawerSettings() {
-  const desktop = window.minhDienDesktop;
+  const desktop = window.banTapHoaDesktop;
   const [settings, setSettings] = useState(defaults);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -75,7 +75,7 @@ export default function DesktopCashDrawerSettings() {
             <select value={settings.relayMode || 'tailscale'} disabled={disabled}
               onChange={(event) => setSettings({ ...settings, relayMode: event.target.value === 'lan' ? 'lan' : 'tailscale',
                 relayHost: settings.relayHost || lanInfo.addresses[0]?.address || '',
-                relayOrigin: settings.relayOrigin || 'https://quan-ly-ban-hang-web.pages.dev' })}>
+                relayOrigin: settings.relayOrigin || 'https://ban-tap-hoa-web.pages.dev' })}>
               <option value="lan" disabled={desktop.platform !== 'win32'}>Mạng nội bộ — không VPN</option>
               <option value="tailscale">Tailscale</option>
             </select></label>

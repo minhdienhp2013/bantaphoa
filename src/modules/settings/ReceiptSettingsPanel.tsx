@@ -249,7 +249,7 @@ export default function ReceiptSettingsPanel() {
             maxLength={120}
             value={draft.storeName}
             disabled={loading || saving}
-            placeholder="Ví dụ: Minh Điến"
+            placeholder="Ví dụ: Bán Tạp Hóa"
             onChange={(event) => {
               const nextValue = event.currentTarget.value;
               setDraft((current) => ({ ...current, storeName: nextValue }));
@@ -433,4 +433,3 @@ export default function ReceiptSettingsPanel() {
     </section>
   );
 }
-

@@ -1,14 +1,5 @@
-import type { Product, Purchase, QuickServiceCategory, Sale, StockOut, UserRole } from '../../types/models';
+import type { Product, Purchase, Sale, StockOut, UserRole } from '../../types/models';
 import type { ReportRange, ReportSummary } from '../reports/reportService';
-
-const QUICK_SERVICE_LABELS: Record<QuickServiceCategory, string> = {
-  photo: 'Photo',
-  printing: 'In ấn',
-  scan: 'Scan',
-  computer: 'Vi tính',
-  stationery: 'Văn phòng phẩm',
-  other: 'Khác',
-};
 
 export type DashboardPreset = 'today' | 'last7' | 'month' | 'quarter' | 'year';
 
@@ -81,11 +72,9 @@ export interface DashboardQuickAction {
 
 export interface DashboardOwnerMetrics {
   revenue: number;
-  grossProfit: number;
   totalRevenue: number;
   productActualGrossProfit: number;
-  serviceEstimatedProfit: number;
-  combinedProfitEstimate: number;
+  grossProfit: number;
   completedSales: number;
   expenseTotal: number;
   averageOrder: number;
@@ -290,15 +279,7 @@ export function buildRecentActivity(sales: Sale[], purchases: Purchase[], stockO
   const activities: DashboardActivity[] = [];
   for (const sale of sales) {
     if (sale.status !== 'completed') continue;
-    if (sale.saleKind === 'quick_service') {
-      activities.push({
-        id: `sale:${sale.id}`,
-        type: 'sale',
-        title: `Dịch vụ ${sale.code}`,
-        detail: `${QUICK_SERVICE_LABELS[sale.serviceCategory]} · ${sale.customerName ? `Khách: ${sale.customerName}` : 'Khách lẻ'}`,
-        createdAt: finite(sale.createdAt),
-      });
-    } else {
+
       activities.push({
         id: `sale:${sale.id}`,
         type: 'sale',
@@ -306,7 +287,7 @@ export function buildRecentActivity(sales: Sale[], purchases: Purchase[], stockO
         detail: sale.customerName ? `Khách: ${sale.customerName}` : 'Khách lẻ',
         createdAt: finite(sale.createdAt),
       });
-    }
+
   }
   for (const purchase of purchases) {
     if (purchase.status !== 'completed') continue;
@@ -388,15 +369,12 @@ export function getOwnerMetrics(summary: ReportSummary, sales: Sale[]): Dashboar
   const completedSales = Math.max(0, Math.round(finite(summary.completedSales)));
   const totalRevenue = Math.round(finite(summary.totalRevenue));
   const productActualGrossProfit = Math.round(finite(summary.productActualGrossProfit));
-  const serviceEstimatedProfit = Math.round(finite(summary.serviceEstimatedProfit));
-  const combinedProfitEstimate = Math.round(finite(summary.combinedProfitBeforeExpenses));
+  const grossProfit = Math.round(finite(summary.grossProfit));
   return {
     revenue: totalRevenue,
-    grossProfit: productActualGrossProfit,
     totalRevenue,
     productActualGrossProfit,
-    serviceEstimatedProfit,
-    combinedProfitEstimate,
+    grossProfit,
     completedSales,
     expenseTotal: Math.round(finite(summary.expenseTotal)),
     averageOrder: completedSales > 0 ? Math.round(totalRevenue / completedSales) : 0,

@@ -48,7 +48,7 @@ function HomeRoute() {
 }
 
 export default function App() {
-  const Router = window.minhDienDesktop?.isElectron ? HashRouter : BrowserRouter;
+  const Router = window.banTapHoaDesktop?.isElectron ? HashRouter : BrowserRouter;
 
   return (
     <Router>

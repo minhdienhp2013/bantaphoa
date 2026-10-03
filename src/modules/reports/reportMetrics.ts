@@ -1,16 +1,14 @@
-import type { Customer, ProductSale, QuickServiceSale, Sale } from '../../types/models';
+import type { Customer, ProductSale, Sale } from '../../types/models';
 
 export interface SalesFinancialSummary {
   totalRevenue: number;
   productRevenue: number;
   productCostOfGoods: number;
   productActualGrossProfit: number;
-  serviceRevenue: number;
-  serviceEstimatedProfit: number;
-  combinedProfitBeforeExpenses: number;
+  grossProfit: number;
   expenseTotal: number;
   loanInterestExpense: number;
-  combinedNetProfitEstimate: number;
+  netProfit: number;
   completedSales: number;
 }
 
@@ -20,11 +18,9 @@ export interface CustomerReportRow {
   orderCount: number;
   totalRevenue: number;
   productRevenue: number;
-  serviceRevenue: number;
   productCostOfGoods: number;
   productActualGrossProfit: number;
-  serviceEstimatedProfit: number;
-  combinedProfitEstimate: number;
+  grossProfit: number;
 }
 
 function finite(value: unknown, fallback = 0) {
@@ -36,30 +32,41 @@ function money(value: unknown) {
   return Math.round(finite(value));
 }
 
-export function getProductSaleSnapshotCost(sale: ProductSale, warnings: string[] = []) {
+export function getProductSaleSnapshotCost(
+  sale: ProductSale,
+  warnings: string[] = [],
+) {
   const costTotal = Number(sale.costTotal);
-  if (Number.isFinite(costTotal) && costTotal >= 0) return Math.round(costTotal);
+  if (Number.isFinite(costTotal) && costTotal >= 0)
+    return Math.round(costTotal);
 
   if (
-    sale.items.length > 0
-    && sale.items.every((item) => Number.isFinite(Number(item.quantity)) && Number.isFinite(Number(item.costPrice)))
+    sale.items.length > 0 &&
+    sale.items.every(
+      (item) =>
+        Number.isFinite(Number(item.quantity)) &&
+        Number.isFinite(Number(item.costPrice)),
+    )
   ) {
-    warnings.push(`Đơn ${sale.code || sale.id} thiếu costTotal; dùng SaleItem.costPrice snapshot.`);
+    warnings.push(
+      `Đơn ${sale.code || sale.id} thiếu costTotal; dùng SaleItem.costPrice snapshot.`,
+    );
     return Math.round(
-      sale.items.reduce((sum, item) => sum + finite(item.quantity) * finite(item.costPrice), 0),
+      sale.items.reduce(
+        (sum, item) => sum + finite(item.quantity) * finite(item.costPrice),
+        0,
+      ),
     );
   }
 
-  warnings.push(`Đơn ${sale.code || sale.id} thiếu snapshot giá vốn; tính 0 thay vì lấy Product.costPrice hiện tại.`);
+  warnings.push(
+    `Đơn ${sale.code || sale.id} thiếu snapshot giá vốn; tính 0 thay vì lấy Product.costPrice hiện tại.`,
+  );
   return 0;
 }
 
 // Compatibility export for older report call sites. The type remains ProductSale-only.
 export const getSaleSnapshotCost = getProductSaleSnapshotCost;
-
-export function getQuickServiceEstimatedProfit(sale: QuickServiceSale) {
-  return Math.round(sale.total * sale.estimatedProfitRatePercent / 100);
-}
 
 export function buildSalesFinancialSummary(
   sales: Sale[],
@@ -69,27 +76,20 @@ export function buildSalesFinancialSummary(
 ): SalesFinancialSummary {
   let productRevenue = 0;
   let productCostOfGoods = 0;
-  let serviceRevenue = 0;
-  let serviceEstimatedProfit = 0;
   let completedSales = 0;
 
   for (const sale of sales) {
     if (sale.status !== 'completed') continue;
     completedSales += 1;
 
-    if (sale.saleKind === 'product') {
-      productRevenue += money(sale.total);
-      productCostOfGoods += getProductSaleSnapshotCost(sale, warnings);
-      continue;
-    }
-
-    serviceRevenue += money(sale.total);
-    serviceEstimatedProfit += getQuickServiceEstimatedProfit(sale);
+    productRevenue += money(sale.total);
+    productCostOfGoods += getProductSaleSnapshotCost(sale, warnings);
+    continue;
   }
 
-  const totalRevenue = productRevenue + serviceRevenue;
+  const totalRevenue = productRevenue;
   const productActualGrossProfit = productRevenue - productCostOfGoods;
-  const combinedProfitBeforeExpenses = productActualGrossProfit + serviceEstimatedProfit;
+  const grossProfit = productActualGrossProfit;
   const expenseTotal = Math.max(0, money(expenseTotalInput));
   const loanInterestExpense = Math.max(0, money(loanInterestExpenseInput));
 
@@ -98,12 +98,10 @@ export function buildSalesFinancialSummary(
     productRevenue,
     productCostOfGoods,
     productActualGrossProfit,
-    serviceRevenue,
-    serviceEstimatedProfit,
-    combinedProfitBeforeExpenses,
+    grossProfit,
     expenseTotal,
     loanInterestExpense,
-    combinedNetProfitEstimate: combinedProfitBeforeExpenses - expenseTotal - loanInterestExpense,
+    netProfit: grossProfit - expenseTotal - loanInterestExpense,
     completedSales,
   };
 }
@@ -121,35 +119,34 @@ export function buildCustomerReportRows(
     const customerId = sale.customerId || '__walk_in__';
     const current = rows.get(customerId) ?? {
       customerId,
-      customerName: sale.customerName || directory[customerId]?.name || (customerId === '__walk_in__' ? 'Khách lẻ' : customerId),
+      customerName:
+        sale.customerName ||
+        directory[customerId]?.name ||
+        (customerId === '__walk_in__' ? 'Khách lẻ' : customerId),
       orderCount: 0,
       totalRevenue: 0,
       productRevenue: 0,
-      serviceRevenue: 0,
       productCostOfGoods: 0,
       productActualGrossProfit: 0,
-      serviceEstimatedProfit: 0,
-      combinedProfitEstimate: 0,
+      grossProfit: 0,
     };
 
     current.orderCount += 1;
     current.totalRevenue += money(sale.total);
 
-    if (sale.saleKind === 'product') {
-      const productCost = getProductSaleSnapshotCost(sale, warnings);
-      current.productRevenue += money(sale.total);
-      current.productCostOfGoods += productCost;
-      current.productActualGrossProfit = current.productRevenue - current.productCostOfGoods;
-    } else {
-      current.serviceRevenue += money(sale.total);
-      current.serviceEstimatedProfit += getQuickServiceEstimatedProfit(sale);
-    }
+    const productCost = getProductSaleSnapshotCost(sale, warnings);
+    current.productRevenue += money(sale.total);
+    current.productCostOfGoods += productCost;
+    current.productActualGrossProfit =
+      current.productRevenue - current.productCostOfGoods;
 
-    current.combinedProfitEstimate = current.productActualGrossProfit + current.serviceEstimatedProfit;
+    current.grossProfit = current.productActualGrossProfit;
     rows.set(customerId, current);
   }
 
   return [...rows.values()].sort(
-    (a, b) => b.totalRevenue - a.totalRevenue || a.customerName.localeCompare(b.customerName, 'vi'),
+    (a, b) =>
+      b.totalRevenue - a.totalRevenue ||
+      a.customerName.localeCompare(b.customerName, 'vi'),
   );
 }

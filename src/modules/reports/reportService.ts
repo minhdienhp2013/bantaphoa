@@ -35,7 +35,6 @@ export {
   buildCustomerReportRows,
   buildSalesFinancialSummary,
   getProductSaleSnapshotCost,
-  getQuickServiceEstimatedProfit,
   getSaleSnapshotCost,
 } from './reportMetrics';
 export type { CustomerReportRow } from './reportMetrics';
@@ -53,13 +52,11 @@ export interface ReportSummary {
   productRevenue: number;
   productCostOfGoods: number;
   productActualGrossProfit: number;
-  serviceRevenue: number;
-  serviceEstimatedProfit: number;
-  combinedProfitBeforeExpenses: number;
+  grossProfit: number;
   expenseTotal: number;
   loanInterestExpense: number;
   loanPrincipalCashOutflow: number;
-  combinedNetProfitEstimate: number;
+  netProfit: number;
   completedSales: number;
   purchaseTotal: number;
   stockOutValue: number;
@@ -341,7 +338,6 @@ export async function loadReport(
 ): Promise<ReportBundle> {
   const [
     salesRaw,
-    quickServiceSalesRaw,
     expensesRaw,
     purchasesRaw,
     stockOutsRaw,
@@ -356,7 +352,6 @@ export async function loadReport(
     users,
   ] = await Promise.all([
     readRecordRange<unknown>('sales', 'createdAt', range),
-    readRecordRange<unknown>('quickServiceSales', 'createdAt', range),
     readRecordRange<Expense>('expenses', 'expenseDate', range),
     readRecordRange<Purchase>('purchases', 'createdAt', range),
     readRecordRange<StockOut>('stockOuts', 'createdAt', range),
@@ -386,7 +381,6 @@ export async function loadReport(
   const warnings: string[] = [];
   const sales: ReportSale[] = [
     ...normalizeSalesRecord(salesRaw, 'sales'),
-    ...normalizeSalesRecord(quickServiceSalesRaw, 'quickServiceSales'),
   ]
     .filter((sale) => sale.status === 'completed' && inRange(sale.createdAt, range))
     .sort((a, b) => b.createdAt - a.createdAt)

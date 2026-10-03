@@ -29,7 +29,7 @@ export interface CashDrawerLanInfo {
 }
 declare global {
   interface Window {
-    minhDienDesktop?: {
+    banTapHoaDesktop?: {
       isElectron: true;
       platform: string;
       getCashDrawerSettings?: () => Promise<CashDrawerSettings>;
@@ -80,4 +80,3 @@ declare global {
     };
   }
 }
-

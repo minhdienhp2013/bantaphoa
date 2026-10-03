@@ -1,0 +1,12 @@
+/* Product sales must expose quantity controls on PC and tablet as well as mobile. */
+@media (min-width: 761px) {
+  .sales-pos-shell > .sales-invoice-card > .sales-cart-list {
+    display: flex !important;
+    flex-direction: column;
+    flex: 0 1 auto;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

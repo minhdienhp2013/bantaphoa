@@ -11,7 +11,7 @@ const drawerRelay = createCashDrawerRelay(cashDrawer, lanCertificates);
 let preparingLan = false;
 
 const DEV_SERVER_URL = process.env.VITE_DEV_SERVER_URL || 'http://127.0.0.1:5173';
-const APP_ID = 'vn.minhdien.sales';
+const APP_ID = 'vn.bantaphoa.sales';
 const PRINTER_SETTINGS_FILE = 'desktop-printer.json';
 
 let mainWindow = null;
@@ -37,7 +37,7 @@ function refreshTrayMenu() {
   if (!tray) return;
   const supportsLogin = app.isPackaged && process.platform === 'win32';
   tray.setContextMenu(Menu.buildFromTemplate([
-    { label: 'Mở Minh Điến', click: showMainWindow },
+    { label: 'Mở Bán Tạp Hóa', click: showMainWindow },
     { label: 'Đóng cửa sổ vẫn giữ cầu nối két hoạt động', enabled: false },
     { type: 'separator' },
     ...(supportsLogin ? [{
@@ -60,7 +60,7 @@ function createBackgroundTray() {
     const icon = loadTrayIcon();
     if (icon.isEmpty()) throw new Error('Không tìm thấy biểu tượng khay hệ thống.');
     tray = new Tray(icon.resize({ width: 16, height: 16 }));
-    tray.setToolTip('Minh Điến · cầu nối két tiền');
+    tray.setToolTip('Bán Tạp Hóa · cầu nối két tiền');
     tray.on('double-click', showMainWindow);
     refreshTrayMenu();
   } catch (error) {
@@ -190,7 +190,7 @@ function buildPrinterTestHtml(printer, paperSize) {
 <html lang="vi">
 <head>
 <meta charset="utf-8" />
-<title>Minh Điến - In thử máy in</title>
+<title>Bán Tạp Hóa - In thử máy in</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: #fff; color: #000; }
@@ -210,7 +210,7 @@ function buildPrinterTestHtml(printer, paperSize) {
 </style>
 </head>
 <body>
-  <div class="center title">MINH ĐIẾN</div>
+  <div class="center title">BÁN TẠP HÓA</div>
   <div class="center">IN THỬ MÁY IN HÓA ĐƠN</div>
   <div class="line"></div>
   <div class="row"><span>Máy in</span><strong>${escapeHtml(printer.displayName || printer.name)}</strong></div>
@@ -344,8 +344,7 @@ async function createMainWindow(background = false) {
     minHeight: 680,
     show: false,
     backgroundColor: '#fbf7f2',
-    title: 'Minh Điến - Quản lý bán hàng',
-    icon: rendererPath('apple-touch-icon-v3-180.png'),
+    title: 'Bán Tạp Hóa - Quản lý bán hàng',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -394,7 +393,7 @@ async function createMainWindow(background = false) {
       await window.loadURL(
         'data:text/html;charset=utf-8,' +
         encodeURIComponent(
-          '<!doctype html><meta charset="utf-8"><title>Minh Điến Desktop</title>' +
+          '<!doctype html><meta charset="utf-8"><title>Bán Tạp Hóa Desktop</title>' +
           '<body style="font-family:Arial;padding:32px">' +
           '<h2>Chưa kết nối được Vite dev server</h2>' +
           '<p>Hãy chạy <code>npm run dev</code> trước, sau đó mở lại <code>npm run desktop:dev</code>.</p>' +

@@ -3,7 +3,6 @@ export const BUSINESS_DATA_RESET_CONFIRMATION_PHRASE = 'XOA TOAN BO DU LIEU' as 
 export const BUSINESS_DATA_RESET_DELETE_NODES = [
   'products',
   'sales',
-  'quickServiceSales',
   'purchases',
   'debts',
   'debtPayments',
@@ -14,9 +13,6 @@ export const BUSINESS_DATA_RESET_DELETE_NODES = [
   'stockOperations',
   'stocktakes',
   'productDeletionLocks',
-  'salesAiLearning',
-  'salesAiLearningComponents',
-  'salesAiLearningEvents',
 ] as const;
 
 export const BUSINESS_DATA_RESET_RETAINED_NODES = [

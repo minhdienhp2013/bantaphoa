@@ -1,8 +1,7 @@
 import { readCashDrawerConnection, requestCashDrawerRelay } from './cashDrawerConnection';
-export async function openCashDrawerAfterTransaction(transactionId: string, kind: 'expense' | 'quick_service' | 'product' | 'manual' = 'expense'): Promise<string | null> {
-  const savedNotice = kind === 'manual' ? '' : kind === 'quick_service' ? 'Đã lưu thanh toán dịch vụ.'
-    : kind === 'product' ? 'Đã lưu đơn bán hàng.' : 'Đã lưu khoản chi.';
-  const desktop = typeof window !== 'undefined' ? window.minhDienDesktop : undefined;
+export async function openCashDrawerAfterTransaction(transactionId: string, kind: 'expense' | 'product' | 'manual' = 'expense'): Promise<string | null> {
+  const savedNotice = kind === 'manual' ? '' :  kind === 'product' ? 'Đã lưu đơn bán hàng.' : 'Đã lưu khoản chi.';
+  const desktop = typeof window !== 'undefined' ? window.banTapHoaDesktop : undefined;
   const connection = desktop?.isElectron && desktop.openCashDrawer ? null : readCashDrawerConnection();
   if (!(desktop?.isElectron && desktop.openCashDrawer) && !connection) {
     return `${savedNotice} Chưa kết nối két tiền trên thiết bị này.`.trim();

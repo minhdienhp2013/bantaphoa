@@ -1,34 +1,16 @@
 import type {
   PaymentMethod,
   ProductSale,
-  QuickServiceCategory,
-  QuickServiceSale,
   Sale,
   SaleItem,
 } from '../../types/models';
 
 const PRODUCT_STATUSES = new Set(['completed', 'cancelled', 'refunded']);
-const QUICK_STATUSES = new Set(['completed', 'cancelled']);
 const PRODUCT_PAYMENT_METHODS = new Set<PaymentMethod>(['cash', 'bank_transfer', 'other']);
-const QUICK_PAYMENT_METHODS = new Set(['cash', 'bank_transfer']);
-const QUICK_CATEGORIES = new Set<QuickServiceCategory>([
-  'photo',
-  'printing',
-  'scan',
-  'computer',
-  'stationery',
-  'other',
-]);
-
 const PRODUCT_ALLOWED_FIELDS = new Set([
   'id', 'code', 'saleKind', 'customerId', 'customerName', 'items', 'subtotal', 'discount', 'total',
   'costTotal', 'profit', 'paymentMethod', 'note', 'status', 'createdBy', 'createdAt', 'updatedAt',
 ]);
-const QUICK_ALLOWED_FIELDS = new Set([
-  'id', 'code', 'saleKind', 'serviceCategory', 'estimatedProfitRatePercent', 'customerId', 'customerName',
-  'subtotal', 'discount', 'total', 'paymentMethod', 'note', 'status', 'createdBy', 'createdAt', 'updatedAt',
-]);
-
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
@@ -142,32 +124,8 @@ function normalizeProductSale(id: string, value: Record<string, unknown>): Produ
   };
 }
 
-function normalizeQuickServiceSale(id: string, value: Record<string, unknown>): QuickServiceSale | null {
-  if (!hasOnlyFields(value, QUICK_ALLOWED_FIELDS)) return null;
-  if (value.saleKind !== 'quick_service') return null;
-  if (!QUICK_CATEGORIES.has(value.serviceCategory as QuickServiceCategory)) return null;
-  if (!QUICK_STATUSES.has(String(value.status))) return null;
-  if (!QUICK_PAYMENT_METHODS.has(String(value.paymentMethod))) return null;
-  if (!Number.isSafeInteger(value.estimatedProfitRatePercent) || Number(value.estimatedProfitRatePercent) < 0 || Number(value.estimatedProfitRatePercent) > 100) return null;
-  if (value.discount !== 0 || !isIntegerMoney(value.subtotal) || Number(value.subtotal) <= 0 || value.total !== value.subtotal) return null;
-
-  const base = baseFields(id, value);
-  if (!base) return null;
-
-  return {
-    ...base,
-    saleKind: 'quick_service',
-    serviceCategory: value.serviceCategory as QuickServiceCategory,
-    estimatedProfitRatePercent: Number(value.estimatedProfitRatePercent),
-    paymentMethod: value.paymentMethod as QuickServiceSale['paymentMethod'],
-    discount: 0,
-    status: value.status as QuickServiceSale['status'],
-  };
-}
-
 export function normalizeSale(id: string, value: unknown): Sale | null {
   if (!isRecord(value)) return null;
-  if (value.saleKind === 'quick_service') return normalizeQuickServiceSale(id, value);
   if (value.saleKind === 'product' || value.saleKind == null) return normalizeProductSale(id, value);
   return null;
 }

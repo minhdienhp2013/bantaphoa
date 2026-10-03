@@ -1,84 +1,41 @@
 name: CI
-
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
-
 permissions:
   contents: read
-
 jobs:
-  build:
-    if: >-
-      github.event_name == 'pull_request' ||
-      (
-        github.event_name == 'push' &&
-        !startsWith(github.event.head_commit.message, 'Merge PR #') &&
-        !startsWith(github.event.head_commit.message, 'Merge pull request #')
-      )
+  web-and-rules:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: package.json
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Test frontend
-        run: npm test
-
-      - name: Realtime Database Rules Emulator Test
-        if: success() || failure()
-        run: npm run test:rules
-
-      - name: Build frontend
-        if: success() || failure()
-        run: npm run build
-
-      - name: Build Electron frontend
-        if: success() || failure()
-        run: npm run build:desktop
-
-      - name: Compare existing baseline test failures
-        if: failure() && github.event_name == 'pull_request'
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          git fetch origin "$BASE_SHA" --depth=1
-          git worktree add --detach ../baseline "$BASE_SHA"
-          ln -s "$PWD/node_modules" ../baseline/node_modules
-          cd ../baseline
-          npm test > baseline-tests.log 2>&1 || true
-          node -e "for (const line of require('node:fs').readFileSync('baseline-tests.log', 'utf8').split('\n')) if (/✖|ℹ (tests|pass|fail|skipped)/.test(line)) console.log(line)"
-
-  drawer-windows:
-    if: github.event_name == 'pull_request'
-    runs-on: windows-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Test Windows drawer and certificate generation (no hardware)
-        run: node --test tests/cash-drawer-contract.mjs tests/cash-drawer-relay-contract.mjs tests/cash-drawer-lan-contract.mjs tests/manual-cash-drawer-contract.mjs tests/product-sale-cash-drawer-contract.mjs tests/quick-service-cash-drawer-contract.mjs
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:rules
+      - run: npm run build
+      - run: npm run build:desktop
+  windows-installer:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run desktop:build

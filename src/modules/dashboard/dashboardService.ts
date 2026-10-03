@@ -97,7 +97,7 @@ async function readCreatedRange<T extends { id: string; createdAt: number }>(pat
   return rows.sort((a, b) => finite(b.createdAt) - finite(a.createdAt));
 }
 
-async function readSaleLedger(path: 'sales' | 'quickServiceSales', range: ReportRange): Promise<Sale[]> {
+async function readSaleLedger(path: 'sales', range: ReportRange): Promise<Sale[]> {
   const snapshot = await get(query(
     ref(requireDatabase(), path),
     orderByChild('createdAt'),
@@ -115,11 +115,7 @@ async function readSaleLedger(path: 'sales' | 'quickServiceSales', range: Report
 }
 
 async function readSalesRange(range: ReportRange): Promise<Sale[]> {
-  const [productSales, quickServiceSales] = await Promise.all([
-    readSaleLedger('sales', range),
-    readSaleLedger('quickServiceSales', range),
-  ]);
-  return [...productSales, ...quickServiceSales].sort((a, b) => finite(b.createdAt) - finite(a.createdAt));
+  return (await readSaleLedger('sales', range)).sort((a, b) => finite(b.createdAt) - finite(a.createdAt));
 }
 
 function normalizePurchases(purchases: Purchase[]) {

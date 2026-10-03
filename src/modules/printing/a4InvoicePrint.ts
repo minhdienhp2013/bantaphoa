@@ -50,26 +50,6 @@ function productRows(sale: Extract<Sale, { saleKind: 'product' }>, showSku: bool
   `).join('');
 }
 
-function quickServiceRows(sale: Extract<Sale, { saleKind: 'quick_service' }>): string {
-  const labels: Record<string, string> = {
-    photo: 'Photo',
-    printing: 'In ấn',
-    scan: 'Scan',
-    computer: 'Vi tính',
-    stationery: 'Văn phòng phẩm',
-    other: 'Dịch vụ khác',
-  };
-  return `
-    <tr>
-      <td class="center-cell">1</td>
-      <td><strong>${escapeHtml(labels[sale.serviceCategory] || 'Dịch vụ')}</strong></td>
-      <td class="number">1</td>
-      <td class="number">${formatMoney(sale.total)}</td>
-      <td class="number strong">${formatMoney(sale.total)}</td>
-    </tr>
-  `;
-}
-
 export function buildA4InvoiceHtml(
   sale: Sale,
   settings: StoreSettings | null,
@@ -80,9 +60,7 @@ export function buildA4InvoiceHtml(
   const address = settings?.address?.trim();
   const phone = settings?.phone?.trim();
   const paymentQr = a4.showPaymentQr ? settings?.receipt?.paymentQrImageDataUrl : undefined;
-  const rows = sale.saleKind === 'product'
-    ? productRows(sale, a4.showSku)
-    : quickServiceRows(sale);
+  const rows = productRows(sale, a4.showSku);
   const showSubtotal = sale.discount > 0;
 
   return `<!doctype html>
@@ -207,7 +185,7 @@ export function printA4Invoice(
   }
 
   const html = buildA4InvoiceHtml(sale, settings, options);
-  const desktop = typeof window !== 'undefined' ? window.minhDienDesktop : undefined;
+  const desktop = typeof window !== 'undefined' ? window.banTapHoaDesktop : undefined;
 
   if (desktop?.isElectron) {
     return desktop.printA4({ html }).then(() => undefined);

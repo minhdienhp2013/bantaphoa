@@ -2,7 +2,6 @@ export const TRANSACTION_HISTORY_RESET_CONFIRMATION_PHRASE = 'RESET GIAO DICH' a
 
 export const TRANSACTION_HISTORY_RESET_DELETE_NODES = [
   'sales',
-  'quickServiceSales',
   'purchases',
   'stockOuts',
   'stockMovements',
@@ -26,9 +25,6 @@ export const TRANSACTION_HISTORY_RESET_RETAINED_NODES = [
   'expenses',
   'settings',
   'auditLogs',
-  'salesAiLearning',
-  'salesAiLearningComponents',
-  'salesAiLearningEvents',
 ] as const;
 
 export function isTransactionHistoryResetConfirmation(value: string) {

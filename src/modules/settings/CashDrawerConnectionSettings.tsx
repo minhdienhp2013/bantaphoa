@@ -5,7 +5,7 @@ export default function CashDrawerConnectionSettings() {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
-  if (window.minhDienDesktop?.isElectron) return null;
+  if (window.banTapHoaDesktop?.isElectron) return null;
   return <section className="receipt-desktop-printer" aria-label="Kết nối két tiền">
     <strong>Két tiền · kết nối máy tính tại quầy</strong>
     <p>PC, iPad và điện thoại dùng chung két qua máy tính Windows tại quầy. Nếu chọn mạng nội bộ, dùng cùng Wi-Fi/LAN và cài chứng chỉ của máy tính một lần; không cần VPN. Máy tính cần giữ ứng dụng chạy và máy in kết nối. Tailscale là lựa chọn khác.</p>

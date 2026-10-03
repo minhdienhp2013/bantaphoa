@@ -38,7 +38,7 @@ interface Props {
 const PosCashExpense = forwardRef<CashExpenseHandle, Props>(function PosCashExpense({
   actorUid, active, disabled, amount, note, onReset, onStatusChange, onActiveChange, onLockChange, onNotice,
 }, ref) {
-  const storageKey = `minhdien.pos-expense.pending.${actorUid}`;
+  const storageKey = `bantaphoa.pos-expense.pending.${actorUid}`;
   const [pending, setPending] = useState(() => readPending(storageKey));
   const [saving, setSaving] = useState(false);
   const submittingRef = useRef(false);

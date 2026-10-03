@@ -4,12 +4,9 @@ import { db } from '../../firebase/client';
 import type {
   BackupEnvelope,
   Product,
-  ProductSale,
-  QuickServiceSale,
   StockOperationReceipt,
 } from '../../types/models';
-import { normalizeSale } from '../sales/saleNormalizer';
-import { normalizeBackupLedgers, type BackupInputSchemaVersion } from './backupSaleValidation';
+import { normalizeBackupSales, type BackupInputSchemaVersion } from './backupSaleValidation';
 
 export const BACKUP_SCHEMA_VERSION = 3 as const;
 export const SUPPORTED_BACKUP_SCHEMA_VERSIONS = [1, 2, 3] as const;
@@ -19,13 +16,13 @@ type BackupKey = keyof BackupData;
 type RawBackupSchemaVersion = BackupInputSchemaVersion;
 
 export const BACKUP_DATA_KEYS: BackupKey[] = [
-  'products', 'categories', 'customers', 'suppliers', 'sales', 'quickServiceSales', 'purchases', 'debts', 'debtPayments', 'loans', 'loanPayments', 'stockOuts',
-  'stockMovements', 'stockOperations', 'stocktakes', 'expenses', 'salesAiLearning', 'salesAiLearningComponents', 'salesAiLearningEvents', 'settings',
+  'products', 'categories', 'customers', 'suppliers', 'sales', 'purchases', 'debts', 'debtPayments', 'loans', 'loanPayments', 'stockOuts',
+  'stockMovements', 'stockOperations', 'stocktakes', 'expenses', 'settings',
 ];
 
 const COLLECTION_KEYS: Exclude<BackupKey, 'settings'>[] = [
-  'products', 'categories', 'customers', 'suppliers', 'sales', 'quickServiceSales', 'purchases', 'debts', 'debtPayments', 'loans', 'loanPayments', 'stockOuts',
-  'stockMovements', 'stockOperations', 'stocktakes', 'expenses', 'salesAiLearning', 'salesAiLearningComponents', 'salesAiLearningEvents',
+  'products', 'categories', 'customers', 'suppliers', 'sales', 'purchases', 'debts', 'debtPayments', 'loans', 'loanPayments', 'stockOuts',
+  'stockMovements', 'stockOperations', 'stocktakes', 'expenses',
 ];
 
 export interface RestoreNodePreview {
@@ -75,49 +72,18 @@ function normalizeProducts(value: unknown): Record<string, Product> {
   return result;
 }
 
-function normalizeCurrentLedgersForExport(
-  salesValue: unknown,
-  quickServiceSalesValue: unknown,
-): { sales: Record<string, ProductSale>; quickServiceSales: Record<string, QuickServiceSale> } {
-  const sales: Record<string, ProductSale> = {};
-  const quickServiceSales: Record<string, QuickServiceSale> = {};
-
-  if (salesValue != null && !isPlainRecord(salesValue)) throw new Error('sales hiện tại không hợp lệ để tạo backup.');
-  for (const [id, raw] of Object.entries(isPlainRecord(salesValue) ? salesValue : {})) {
-    const sale = normalizeSale(id, raw);
-    if (!sale) throw new Error(`sales/${id} không hợp lệ; từ chối tạo backup v3 không đầy đủ.`);
-    if (sale.saleKind === 'product') sales[id] = sale;
-    else quickServiceSales[id] = sale;
-  }
-
-  if (quickServiceSalesValue != null && !isPlainRecord(quickServiceSalesValue)) {
-    throw new Error('quickServiceSales hiện tại không hợp lệ để tạo backup.');
-  }
-  for (const [id, raw] of Object.entries(isPlainRecord(quickServiceSalesValue) ? quickServiceSalesValue : {})) {
-    const sale = normalizeSale(id, raw);
-    if (!sale || sale.saleKind !== 'quick_service') {
-      throw new Error(`quickServiceSales/${id} không hợp lệ; từ chối tạo backup v3 không đầy đủ.`);
-    }
-    if (quickServiceSales[id]) throw new Error(`Trùng id Quick Service Sale ${id} khi tạo backup.`);
-    quickServiceSales[id] = sale;
-  }
-
-  return { sales, quickServiceSales };
-}
-
 export async function createBackupEnvelope(): Promise<BackupEnvelope> {
   const values = await Promise.all(BACKUP_DATA_KEYS.map((key) => readPath(key)));
   const raw = Object.fromEntries(BACKUP_DATA_KEYS.map((key, index) => [key, values[index]])) as Record<BackupKey, unknown>;
-  const ledgers = normalizeCurrentLedgersForExport(raw.sales, raw.quickServiceSales);
+  const ledgers = normalizeBackupSales(raw.sales ?? {}, 3);
   const data: BackupData = {
     products: normalizeProducts(raw.products),
-    sales: ledgers.sales,
-    quickServiceSales: ledgers.quickServiceSales,
+    sales: ledgers,
     stockOperations: {},
   };
 
   for (const key of BACKUP_DATA_KEYS) {
-    if (key === 'products' || key === 'sales' || key === 'quickServiceSales') continue;
+    if (key === 'products' || key === 'sales') continue;
     const value = raw[key];
     if (key === 'settings') {
       if (isPlainRecord(value)) data.settings = value as unknown as BackupData['settings'];
@@ -252,15 +218,13 @@ export function parseAndValidateBackup(text: string): BackupEnvelope {
   validateOperations(parsed.data.stockOperations);
   if (parsed.data.settings != null && !isPlainRecord(parsed.data.settings)) throw new Error('settings không hợp lệ.');
 
-  const normalizedLedgers = normalizeBackupLedgers(
+  const normalizedLedgers = normalizeBackupSales(
     parsed.data.sales ?? {},
-    parsed.data.quickServiceSales ?? {},
     schemaVersion,
   );
   const normalizedData = {
     ...parsed.data,
-    sales: normalizedLedgers.sales,
-    quickServiceSales: normalizedLedgers.quickServiceSales,
+    sales: normalizedLedgers,
   } as unknown as BackupData;
 
   return {

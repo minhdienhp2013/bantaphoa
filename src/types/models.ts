@@ -96,15 +96,6 @@ export interface SaleItem {
 }
 
 export type PaymentMethod = 'cash' | 'bank_transfer' | 'other';
-export type SaleKind = 'product' | 'quick_service';
-export type QuickServiceCategory =
-  | 'photo'
-  | 'printing'
-  | 'scan'
-  | 'computer'
-  | 'stationery'
-  | 'other';
-
 export interface SaleBase {
   id: string;
   code: string;
@@ -128,16 +119,7 @@ export interface ProductSale extends SaleBase {
   status: 'completed' | 'cancelled' | 'refunded';
 }
 
-export interface QuickServiceSale extends SaleBase {
-  saleKind: 'quick_service';
-  serviceCategory: QuickServiceCategory;
-  estimatedProfitRatePercent: number;
-  paymentMethod: 'cash' | 'bank_transfer';
-  discount: 0;
-  status: 'completed' | 'cancelled';
-}
-
-export type Sale = ProductSale | QuickServiceSale;
+export type Sale = ProductSale;
 
 export interface PurchaseItem {
   productId: string;
@@ -372,7 +354,6 @@ export interface LabelTemplateSettings {
   pageMarginMm?: number;
 }
 
-export type QuickServiceProfitRatesPercent = Partial<Record<QuickServiceCategory, number>>;
 
 export type ReceiptPaperSize = '58mm' | '80mm';
 export type InvoicePaperSize = ReceiptPaperSize | 'A4';
@@ -405,7 +386,6 @@ export interface StoreSettings {
   currency: 'VND';
   defaultLabelTemplateId?: string;
   labelTemplates?: Record<string, LabelTemplateSettings>;
-  quickServiceProfitRatesPercent?: QuickServiceProfitRatesPercent;
   receipt?: ReceiptSettings;
   a4Invoice?: A4InvoiceSettings;
   defaultInvoicePaperSize?: InvoicePaperSize;
@@ -421,7 +401,6 @@ export interface BackupEnvelope {
     customers?: Record<string, Customer>;
     suppliers?: Record<string, Supplier>;
     sales?: Record<string, ProductSale>;
-    quickServiceSales?: Record<string, QuickServiceSale>;
     purchases?: Record<string, Purchase>;
     debts?: Record<string, Debt>;
     debtPayments?: Record<string, DebtPaymentEvent>;
@@ -432,9 +411,6 @@ export interface BackupEnvelope {
     stockOperations?: Record<string, StockOperationReceipt>;
     stocktakes?: Record<string, Stocktake>;
     expenses?: Record<string, Expense>;
-    salesAiLearning?: Record<string, Record<string, unknown>>;
-    salesAiLearningComponents?: Record<string, Record<string, unknown>>;
-    salesAiLearningEvents?: Record<string, Record<string, unknown>>;
     settings?: StoreSettings;
   };
 }

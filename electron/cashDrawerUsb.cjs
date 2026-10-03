@@ -27,15 +27,15 @@ public class DrawerRaw {
  }
 }
 '@
-[DrawerRaw]::Send($env:MINHDIEN_DRAWER_PRINTER,[Convert]::FromBase64String($env:MINHDIEN_DRAWER_BYTES))
+[DrawerRaw]::Send($env:BANTAPHOA_DRAWER_PRINTER,[Convert]::FromBase64String($env:BANTAPHOA_DRAWER_BYTES))
 `;
 function sendUsbPulse(settings, run = execFile, platform = process.platform) {
   if (platform !== 'win32') return Promise.reject(new Error('Kết nối USB cần máy tính Windows tại quầy.'));
   return new Promise((resolve, reject) => {
     run('powershell.exe', ['-NoProfile', '-NonInteractive', '-EncodedCommand', Buffer.from(SCRIPT, 'utf16le').toString('base64')], {
       windowsHide: true, timeout: 3000, maxBuffer: 8192,
-      env: { ...process.env, MINHDIEN_DRAWER_PRINTER: settings.printerName,
-        MINHDIEN_DRAWER_BYTES: Buffer.from([27, 112, settings.pin, settings.onTime, settings.offTime]).toString('base64') },
+      env: { ...process.env, BANTAPHOA_DRAWER_PRINTER: settings.printerName,
+        BANTAPHOA_DRAWER_BYTES: Buffer.from([27, 112, settings.pin, settings.onTime, settings.offTime]).toString('base64') },
     }, (error) => error ? reject(new Error('Không gửi được lệnh RAW tới máy in USB.')) : resolve());
   });
 }

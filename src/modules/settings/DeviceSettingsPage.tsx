@@ -2,7 +2,7 @@ import DesktopPrinterSettings from './DesktopPrinterSettings';
 import CashDrawerConnectionSettings from './CashDrawerConnectionSettings';
 
 export default function DeviceSettingsPage() {
-  const isDesktop = Boolean(window.minhDienDesktop?.isElectron);
+  const isDesktop = Boolean(window.banTapHoaDesktop?.isElectron);
   return (
     <div className="settings-shell settings-page">
       <header className="settings-header">

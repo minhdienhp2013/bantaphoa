@@ -17,5 +17,4 @@ const desktopApi = Object.freeze({
   printA4: (input) => ipcRenderer.invoke('desktop:print-a4', input),
 });
 
-contextBridge.exposeInMainWorld('minhDienDesktop', desktopApi);
-
+contextBridge.exposeInMainWorld('banTapHoaDesktop', desktopApi);

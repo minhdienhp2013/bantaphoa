@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "test": "node --test tests/*.mjs",
-    "test:rules": "firebase emulators:exec --only database \"node --test --test-concurrency=1 tests/rules/*.mjs\" --project demo-products-delete",
+    "test:rules": "firebase emulators:exec --only database \"node --test --test-concurrency=1 tests/rules/*.mjs\" --project demo-bantaphoa",
     "preview": "vite preview",
     "build:desktop": "tsc -b && vite build --mode electron",
     "desktop:dev": "electron .",
@@ -54,15 +54,18 @@
       "target": [
         "nsis"
       ],
-      "artifactName": "Ban-Tap-Hoa-${version}-Setup.${ext}",
-      "icon": "build/icon.ico"
+      "artifactName": "Ban-Tap-Hoa-${version}-Setup.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Bán Tạp Hóa - Quản lý bán hàng",
+      "shortcutName": "Bán Tạp Hóa - Quản lý bán hàng"
     }
-  }
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "Phần mềm quản lý bán hàng độc lập cho cửa hàng tạp hóa"
 }
