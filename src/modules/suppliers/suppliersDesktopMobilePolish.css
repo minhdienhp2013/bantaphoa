@@ -1,0 +1,299 @@
+/*
+ * SUPPLIERS — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ */
+
+@media (min-width: 1025px) {
+  .suppliers-page {
+    gap: 14px;
+  }
+
+  .suppliers-page .crm-heading {
+    align-items: center;
+    padding: 16px 18px;
+  }
+
+  .suppliers-page .crm-heading h1 {
+    margin-bottom: 4px;
+  }
+
+  .suppliers-page .crm-heading .button {
+    flex: 0 0 auto;
+    min-width: 170px;
+  }
+
+  .suppliers-page .crm-stats {
+    gap: 10px;
+  }
+
+  .suppliers-page .crm-stat {
+    min-height: 78px;
+    padding: 12px 16px;
+  }
+
+  .suppliers-page .crm-stat strong {
+    font-size: 1.4rem;
+  }
+
+  .suppliers-page .crm-toolbar {
+    align-items: center;
+    padding: 12px 14px;
+  }
+
+  .suppliers-page .crm-search {
+    width: min(660px, 100%);
+  }
+
+  .suppliers-page .crm-search input {
+    min-height: 44px;
+  }
+
+  .suppliers-page .crm-table {
+    min-width: 820px;
+  }
+
+  .suppliers-page .crm-table th,
+  .suppliers-page .crm-table td {
+    padding-block: 10px;
+  }
+
+  .suppliers-page .crm-table tbody tr {
+    height: 62px;
+  }
+
+  .suppliers-page .crm-row-actions {
+    min-width: 154px;
+  }
+
+  .suppliers-page .crm-text-button {
+    min-height: 36px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .suppliers-page {
+    gap: 10px;
+  }
+
+  .suppliers-page .crm-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .suppliers-page .crm-heading::after,
+  .suppliers-page .crm-heading .eyebrow,
+  .suppliers-page .crm-heading .muted {
+    display: none;
+  }
+
+  .suppliers-page .crm-heading h1 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .suppliers-page .crm-heading .button {
+    width: auto;
+    min-width: 0;
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .78rem;
+    white-space: nowrap;
+  }
+
+  .suppliers-page .crm-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .suppliers-page .crm-stat {
+    min-height: 66px;
+    gap: 3px;
+    padding: 9px 8px 9px 11px;
+    border-radius: 12px;
+  }
+
+  .suppliers-page .crm-stat span {
+    font-size: .64rem;
+    line-height: 1.15;
+  }
+
+  .suppliers-page .crm-stat strong {
+    font-size: 1.05rem;
+  }
+
+  .suppliers-page .crm-panel {
+    border-radius: 14px;
+  }
+
+  .suppliers-page .crm-toolbar {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .suppliers-page .crm-search {
+    gap: 5px;
+    font-size: .74rem;
+  }
+
+  .suppliers-page .crm-search input {
+    min-height: 44px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
+
+  .suppliers-page .crm-check {
+    min-height: 36px;
+    padding-inline: 2px;
+    font-size: .75rem;
+  }
+
+  .suppliers-page .crm-table-wrap {
+    padding: 8px;
+  }
+
+  .suppliers-page .crm-table {
+    border-spacing: 0 8px;
+  }
+
+  .suppliers-page .crm-table tr {
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgb(82 52 39 / .055);
+  }
+
+  .suppliers-page .crm-table td {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 7px;
+    padding: 5px 0;
+  }
+
+  .suppliers-page .crm-table td::before {
+    font-size: .67rem;
+    letter-spacing: .01em;
+  }
+
+  .suppliers-page .crm-table td[data-label="Nhà cung cấp"] {
+    display: block;
+    padding: 1px 0 7px;
+    border-bottom: 1px solid #eee3d9;
+  }
+
+  .suppliers-page .crm-table td[data-label="Nhà cung cấp"]::before {
+    display: none;
+  }
+
+  .suppliers-page .crm-table td[data-label="Nhà cung cấp"] > strong {
+    display: block;
+    color: #47362f;
+    font-size: .94rem;
+    line-height: 1.2;
+  }
+
+  .suppliers-page .crm-table td[data-label="Nhà cung cấp"] .crm-sub {
+    margin-top: 2px;
+    font-size: .7rem;
+  }
+
+  .suppliers-page .crm-table td[data-label="Liên hệ"] > span:first-child {
+    font-weight: 760;
+    color: #4b3932;
+  }
+
+  .suppliers-page .crm-table td[data-label="Liên hệ"] .crm-sub {
+    margin-top: 1px;
+    font-size: .7rem;
+  }
+
+  .suppliers-page .crm-table td[data-label="Mã số thuế"] {
+    overflow-wrap: anywhere;
+  }
+
+  .suppliers-page .crm-table td[data-label="Trạng thái"] {
+    align-items: center;
+  }
+
+  .suppliers-page .crm-status {
+    width: fit-content;
+    min-height: 26px;
+    padding: 4px 8px;
+    font-size: .68rem;
+  }
+
+  .suppliers-page .crm-row-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding-top: 7px !important;
+    border-top: 1px solid #eee3d9 !important;
+  }
+
+  .suppliers-page .crm-row-actions::before {
+    display: none;
+  }
+
+  .suppliers-page .crm-row-actions .crm-text-button {
+    min-height: 40px;
+    border: 1px solid #eadfd5;
+    background: #fffaf5;
+    font-size: .76rem;
+  }
+
+  .suppliers-page .crm-editor {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .suppliers-page .crm-section-heading {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .suppliers-page .crm-section-heading p {
+    font-size: .75rem;
+  }
+
+  .suppliers-page .crm-form {
+    gap: 10px;
+  }
+
+  .suppliers-page .crm-form label {
+    gap: 5px;
+    font-size: .78rem;
+  }
+
+  .suppliers-page .crm-form input,
+  .suppliers-page .crm-form textarea {
+    font-size: 16px;
+  }
+
+  .suppliers-page .crm-actions {
+    gap: 7px;
+  }
+}
+
+@media (max-width: 390px) {
+  .suppliers-page .crm-heading {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .suppliers-page .crm-heading .button {
+    width: 100%;
+  }
+
+  .suppliers-page .crm-stat {
+    padding-inline: 7px;
+  }
+
+  .suppliers-page .crm-stat span {
+    font-size: .6rem;
+  }
+
+  .suppliers-page .crm-table td {
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+}

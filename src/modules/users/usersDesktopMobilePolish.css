@@ -1,0 +1,268 @@
+/* Users — desktop + mobile presentation only. Tablet keeps the shared layout. */
+@media (min-width: 1025px) {
+  .users-page { gap: 14px; }
+  .users-page__header { padding: 16px 18px; border-radius: 16px; }
+  .users-page__header .eyebrow { margin-bottom: 5px; }
+  .users-page__header h1 { font-size: 1.65rem; }
+  .users-page__header p:last-child { margin-top: 4px; font-size: .88rem; }
+  .users-grid { grid-template-columns: minmax(420px, .92fr) minmax(420px, 1.08fr); gap: 12px; }
+  .users-card { padding: 15px; border-radius: 16px !important; }
+  .users-card__title { gap: 12px; margin-bottom: 12px; }
+  .users-card__title h2, .users-editor h2 { font-size: 1.08rem; }
+  .users-card__title p, .users-editor > p { font-size: .8rem; line-height: 1.35; }
+  .users-field { gap: 5px; margin-bottom: 10px; font-size: .8rem; }
+  .users-field input { min-height: 40px; padding: 8px 10px; }
+  .users-permissions { margin: 3px 0 12px; padding: 10px; }
+  .users-permissions legend { font-size: .8rem; }
+  .users-permissions__grid { gap: 5px 10px; margin-top: 5px; }
+  .users-permission, .users-active-toggle { min-height: 34px; gap: 8px; font-size: .78rem; }
+  .users-list { gap: 6px; max-height: 480px; overflow: auto; padding-right: 2px; }
+  .users-list__item { min-height: 56px; padding: 9px 10px; }
+  .users-list__item strong { font-size: .86rem; }
+  .users-list__item small { font-size: .7rem; }
+  .users-list__meta b { font-size: .75rem; color: var(--brand-red-deep); }
+  .users-editor { gap: 3px; }
+  .users-message { padding: 9px 12px; font-size: .82rem; }
+}
+@media (max-width: 760px) {
+  .users-page { gap: 10px; padding-bottom: 18px; }
+  .users-page__header { padding: 12px; border-radius: 14px; }
+  .users-page__header .eyebrow, .users-page__header p:last-child { display: none; }
+  .users-page__header h1 { margin: 0; font-size: 1.24rem; line-height: 1.15; color: var(--brand-red-deep); }
+  .users-grid { gap: 9px; }
+  .users-card { padding: 10px; border-radius: 14px !important; }
+  .users-card__title { gap: 8px; margin-bottom: 9px; }
+  .users-card__title h2, .users-editor h2 { font-size: .98rem; }
+  .users-card__title p, .users-editor > p { margin-top: 3px; font-size: .7rem; line-height: 1.3; }
+  .users-field { gap: 4px; margin-bottom: 8px; font-size: .72rem; }
+  .users-field input { min-height: 44px; padding: 8px 9px; border-radius: 10px; font-size: 16px; }
+  .users-permissions { margin: 2px 0 9px; padding: 8px; border-radius: 10px; }
+  .users-permissions legend { font-size: .72rem; }
+  .users-permissions__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 7px; margin-top: 5px; }
+  .users-permission, .users-active-toggle { min-height: 40px; gap: 7px; font-size: .7rem; line-height: 1.15; }
+  .users-permission input, .users-active-toggle input { width: 20px; height: 20px; flex: 0 0 auto; }
+  .users-card > .button { width: 100%; min-height: 44px; }
+  .users-list { gap: 6px; max-height: 48dvh; overflow: auto; overscroll-behavior: contain; }
+  .users-list__item { min-height: 0; gap: 5px; padding: 9px; border-radius: 10px !important; }
+  .users-list__item strong { font-size: .82rem; }
+  .users-list__item small { font-size: .67rem; overflow-wrap: anywhere; }
+  .users-list__meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; }
+  .users-list__meta b { font-size: .7rem; color: var(--brand-red-deep); }
+  .users-editor .users-card__title { display: grid; }
+  .users-active-toggle { padding: 0 2px; }
+  .users-message { padding: 9px 10px; border-radius: 10px; font-size: .76rem; }
+}
+@media (max-width: 390px) {
+  .users-permissions__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .users-page *, .users-page *::before, .users-page *::after { transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+
+.users-launchers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.users-dialog-form, .users-list-dialog { display: grid; gap: 12px; }
+.users-dialog-copy { margin: 0; color: var(--ui-text-muted); font-size: .82rem; line-height: 1.45; }
+.users-list-dialog .users-list { max-height: 42dvh; }
+.users-modal__editor { margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--ui-border); }
+@media (max-width: 760px) {
+  .users-launchers { grid-template-columns: 1fr; gap: 8px; }
+  .users-dialog-form, .users-list-dialog { gap: 9px; }
+  .users-dialog-copy { font-size: .72rem; }
+  .users-list-dialog .users-list { max-height: 40dvh; }
+  .users-dialog-form > .ui-button, .users-modal__editor > .ui-button { width: 100%; }
+}
+
+
+/* Users dialogs: keep the popup surface fully opaque and consistent with the app shell. */
+.users-page .ui-dialog {
+  background: #fffdfa !important;
+  opacity: 1;
+  isolation: isolate;
+  border-color: var(--ui-border) !important;
+  box-shadow: 0 24px 64px rgb(74 48 36 / 0.28);
+}
+.users-page .ui-dialog__header,
+.users-page .ui-dialog__body {
+  background: #fffdfa !important;
+}
+.users-page .ui-dialog__header {
+  border-bottom-color: var(--ui-border);
+}
+.users-page .ui-dialog__body {
+  color: var(--ui-text);
+}
+.users-page .users-permissions,
+.users-page .users-modal__editor {
+  background: #ffffff;
+}
+.users-page .users-list__item {
+  background: #ffffff !important;
+}
+
+
+/* Mobile user list repair: let each card grow with its content and keep all metadata inside. */
+@media (max-width: 760px) {
+  .users-page .users-list {
+    gap: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .users-page .users-list__item {
+    height: auto !important;
+    min-height: 74px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    align-content: start !important;
+    gap: 7px !important;
+    padding: 10px 12px !important;
+    overflow: visible !important;
+    border: 1px solid var(--ui-border) !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .users-page .users-list__item > span:first-child {
+    min-width: 0;
+    display: grid !important;
+    gap: 3px !important;
+  }
+
+  .users-page .users-list__item strong,
+  .users-page .users-list__item small,
+  .users-page .users-list__meta b {
+    position: static !important;
+    max-width: 100%;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  .users-page .users-list__item strong {
+    color: var(--ui-text);
+    font-size: .84rem !important;
+  }
+
+  .users-page .users-list__item small {
+    color: var(--ui-text-muted);
+    font-size: .7rem !important;
+  }
+
+  .users-page .users-list__meta {
+    min-width: 0;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px 10px !important;
+    text-align: left !important;
+  }
+
+  .users-page .users-list__meta b {
+    color: var(--brand-red-deep) !important;
+    font-size: .72rem !important;
+  }
+
+  .users-page .users-list__item.is-selected {
+    border-color: var(--brand-red) !important;
+    background: color-mix(in srgb, var(--brand-red) 5%, #ffffff) !important;
+  }
+
+  .users-page .users-list__item:focus-visible {
+    outline: 3px solid var(--ui-focus-ring) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+
+.users-editor--standalone {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+@media (max-width: 760px) {
+  .users-editor--standalone .users-card__title {
+    display: grid;
+    gap: 8px;
+  }
+}
+
+
+/* Mobile list dialog should use the full phone viewport instead of a half-height panel. */
+@media (max-width: 760px) {
+  .users-page .ui-dialog-backdrop {
+    place-items: stretch !important;
+    padding: 0 !important;
+  }
+
+  .users-page .ui-dialog.ui-dialog--fullscreen-mobile {
+    width: 100% !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .users-page .ui-dialog__body {
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden !important;
+  }
+
+  .users-page .users-list-dialog {
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .users-page .users-list-dialog .users-list {
+    min-height: 0;
+    flex: 1 1 auto;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+
+/* Mobile density pass: reduce vertical whitespace inside user cards. */
+@media (max-width: 760px) {
+  .users-page .users-list {
+    gap: 6px !important;
+  }
+
+  .users-page .users-list__item {
+    min-height: 0 !important;
+    padding: 8px 10px !important;
+    gap: 4px !important;
+    align-content: center !important;
+  }
+
+  .users-page .users-list__item > span:first-child {
+    gap: 2px !important;
+  }
+
+  .users-page .users-list__meta {
+    gap: 3px 8px !important;
+  }
+
+  .users-page .users-list__item strong {
+    font-size: .82rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .users-page .users-list__item small,
+  .users-page .users-list__meta b {
+    line-height: 1.2 !important;
+  }
+}
