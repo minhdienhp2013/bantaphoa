@@ -1,0 +1,75 @@
+/* UI-01: smooth mobile reveal/dismiss for normal search and AI/alias fallback. */
+@media (min-width: 761px) {
+  .sales-search-results.is-search-cluster-dismissed,
+  .sales-chat-card.is-search-cluster-dismissed {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  @keyframes sales-search-cluster-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scaleY(.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  .sales-search-results,
+  .sales-pos-shell > .sales-chat-card {
+    transform-origin: top center;
+    will-change: max-height, opacity, transform;
+    transition:
+      max-height 740ms cubic-bezier(.22, 1, .36, 1),
+      opacity 550ms ease,
+      transform 740ms cubic-bezier(.22, 1, .36, 1),
+      margin-top 740ms cubic-bezier(.22, 1, .36, 1),
+      padding-top 740ms cubic-bezier(.22, 1, .36, 1),
+      padding-bottom 740ms cubic-bezier(.22, 1, .36, 1),
+      border-color 550ms ease;
+    animation: sales-search-cluster-reveal 650ms cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .sales-search-results {
+    overflow-y: auto;
+  }
+
+  .sales-search-results.is-search-cluster-dismissed {
+    max-height: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+    border-top-color: transparent !important;
+    opacity: 0;
+    transform: translateY(-9px) scaleY(.97);
+    pointer-events: none;
+    animation: none;
+  }
+
+  .sales-pos-shell > .sales-chat-card.is-search-cluster-dismissed {
+    max-height: 0 !important;
+    min-height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+    border-color: transparent !important;
+    opacity: 0;
+    transform: translateY(-9px) scaleY(.97);
+    pointer-events: none;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sales-search-results,
+  .sales-pos-shell > .sales-chat-card {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+}

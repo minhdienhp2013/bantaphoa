@@ -1,0 +1,563 @@
+@import './salesUnifiedSearchBase.css';
+
+/* Scanner opens as a modal-style window; the existing SalesPage scan handler still adds the product and closes it after a successful scan. */
+.sales-scanner-panel {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  z-index: 1250 !important;
+  width: min(520px, calc(100vw - 24px)) !important;
+  max-height: min(82dvh, 720px) !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  overflow: auto !important;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--ui-border);
+  border-radius: 16px !important;
+  background: var(--ui-surface);
+  box-shadow: 0 0 0 100vmax rgb(25 20 18 / .58), var(--ui-shadow-dialog);
+  overscroll-behavior: contain;
+}
+
+body:has(.sales-scanner-panel) {
+  overflow: hidden;
+}
+
+.sales-scanner-panel__head {
+  position: sticky;
+  top: -12px;
+  z-index: 2;
+  margin: -12px -12px 10px;
+  padding: 10px 12px;
+  background: var(--ui-surface);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.sales-scanner-panel__head > button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.sales-scanner-panel .qr-section-heading {
+  display: none;
+}
+
+.sales-scanner-panel .qr-video-shell {
+  width: 100% !important;
+  max-height: min(52dvh, 360px) !important;
+  margin: 0 auto !important;
+  aspect-ratio: 4 / 3 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sales-scanner-panel .qr-status,
+.sales-scanner-panel .qr-error {
+  margin: 8px 0 0;
+}
+
+.sales-scanner-panel .qr-scanner-actions {
+  margin-top: 8px;
+}
+
+.sales-scanner-panel .qr-scanner--sales-auto .qr-scanner-actions {
+  justify-content: center;
+}
+
+/* UI-01 mobile minimal chrome — presentation only. */
+@media (max-width: 760px) {
+  /* Compact only the Sales topbar visually; keep the menu hit target at 44px. */
+  body:has(.sales-shell) .topbar {
+    min-height: 48px !important;
+    padding: 2px 8px !important;
+    gap: 7px !important;
+  }
+
+  body:has(.sales-shell) .shell-menu-button {
+    position: relative;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    border: 0 !important;
+    background: transparent !important;
+    font-size: .92rem !important;
+  }
+
+  body:has(.sales-shell) .shell-menu-button::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid var(--ui-border, #cbd5e1);
+    border-radius: 8px;
+    background: var(--ui-surface, #fff);
+  }
+
+  body:has(.sales-shell) .shell-menu-button > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  body:has(.sales-shell) .topbar__context strong {
+    font-size: .78rem !important;
+    line-height: 1.05;
+  }
+
+  body:has(.sales-shell) .topbar__sub {
+    display: none !important;
+  }
+
+  body:has(.sales-shell) .role-badge {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+    font-size: .54rem !important;
+    letter-spacing: .04em !important;
+  }
+
+  /* Header/session context is redundant on a phone. */
+  .sales-pos-context {
+    display: none !important;
+  }
+
+  /* Search + Ask + Mic + QR stay on one compact row. */
+  .sales-unified-search-row {
+    grid-template-columns: minmax(0, 1fr) 44px 44px 44px !important;
+    gap: 4px;
+  }
+
+  .sales-unified-search-row .sales-search-box {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .sales-unified-search__ask,
+  .sales-unified-search__mic,
+  .sales-scan-button {
+    grid-row: 1 !important;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 !important;
+  }
+
+  .sales-unified-search__ask {
+    grid-column: 2 !important;
+    font-size: 0 !important;
+  }
+
+  .sales-unified-search__ask::before {
+    content: '⌕';
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .sales-unified-search__mic {
+    grid-column: 3 !important;
+  }
+
+  .sales-scan-button {
+    grid-column: 4 !important;
+  }
+
+  .sales-scan-button > strong {
+    display: none !important;
+  }
+
+  /* Mobile Safari focus: keep the gold highlight inside the same rounded search control instead of drawing a square input outline. */
+  .sales-search-box {
+    overflow: hidden;
+    border: 1px solid #dfc69d !important;
+    border-radius: 11px !important;
+    box-shadow: inset 0 0 0 1px rgb(163 59 50 / .025) !important;
+  }
+
+  .sales-search-box:focus-within {
+    border-color: var(--brand-gold) !important;
+    border-radius: 11px !important;
+    box-shadow: 0 0 0 2px rgb(211 161 59 / .18) !important;
+  }
+
+  .sales-search-box input,
+  .sales-search-box input:focus,
+  .sales-search-box input:focus-visible {
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Remove redundant instructional copy only; keep the actual features. */
+  .sales-empty--cart,
+  .sales-contract-note,
+  .sales-invoice-title {
+    display: none !important;
+  }
+
+  .sales-invoice-header {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    margin-bottom: 4px;
+  }
+
+  .sales-customer-picker {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: stretch;
+  }
+
+  .sales-clear-cart {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  /* Quick-service amount: keep the existing x1000 behavior, show a subtle inline suffix instead of a second preview box. */
+  .sales-note-field > .sales-field-heading,
+  .sales-quick-amount-preview {
+    display: none !important;
+  }
+
+  .sales-quick-amount-input-row {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .sales-quick-amount-input-row input {
+    padding-right: 64px !important;
+  }
+
+  .sales-quick-amount-input-row::after {
+    content: '000 đ';
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--ui-text-muted);
+    opacity: .48;
+    font-size: .82rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .sales-scanner-panel {
+    width: min(94vw, 480px) !important;
+    max-height: 78dvh !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .sales-scanner-panel__head {
+    top: -10px;
+    margin: -10px -10px 8px;
+    padding: 8px 10px;
+  }
+
+  .sales-scanner-panel .qr-video-shell {
+    max-height: 48dvh !important;
+  }
+
+  /* Six quick-service tiles: about 30% taller than compact mode, with the icon/text enlarged as far as the tile safely allows. */
+  .sales-service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px !important;
+  }
+
+  .sales-service-tile {
+    min-height: 84px !important;
+    max-height: 92px;
+    overflow: hidden;
+    padding: 6px 4px !important;
+    gap: 3px !important;
+    justify-content: center;
+    border-radius: 11px !important;
+  }
+
+  .sales-service-tile__icon {
+    min-height: 36px !important;
+    max-height: 42px;
+    font-size: clamp(1.9rem, 8.5vw, 2.35rem) !important;
+    line-height: .95 !important;
+    overflow: hidden;
+  }
+
+  .sales-service-tile__copy {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .sales-service-tile__copy strong {
+    display: block;
+    max-width: 100%;
+    font-size: clamp(.78rem, 3.35vw, .92rem) !important;
+    line-height: 1.08 !important;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .sales-service-tile__copy small {
+    display: none !important;
+  }
+
+  /* Recent transaction rows: full readable label on the left, status + cancel grouped at the top-right. */
+  .sales-recent-row {
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    grid-template-rows: auto auto;
+    column-gap: 6px !important;
+    row-gap: 2px !important;
+    align-items: center;
+    padding: 7px 4px !important;
+  }
+
+  .sales-recent-row__main {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    align-self: start;
+  }
+
+  .sales-recent-row__main strong,
+  .sales-recent-row__main small {
+    display: block;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  .sales-recent-row__main strong {
+    line-height: 1.2;
+  }
+
+  .sales-recent-row__main small {
+    margin-top: 2px;
+    line-height: 1.25;
+  }
+
+  .sales-recent-row__amount {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    white-space: nowrap;
+  }
+
+  .sales-recent-row > .sales-status {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .sales-recent-row > .sales-link-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    align-self: center;
+    min-width: 44px;
+    white-space: nowrap;
+  }
+
+  .sales-recent-header h2,
+  .sales-recent-header h2 small {
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .sales-service-tile {
+    min-height: 80px !important;
+    max-height: 88px;
+    padding-inline: 3px !important;
+  }
+
+  .sales-service-tile__icon {
+    min-height: 34px !important;
+    font-size: clamp(1.75rem, 9vw, 2.05rem) !important;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: clamp(.73rem, 3.55vw, .84rem) !important;
+  }
+}
+
+
+/* Larger search thumbnails + overflow-aware product-name marquee. */
+.sales-product-name-marquee {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+.sales-product-name-marquee > span {
+  display: inline-block;
+  min-width: max-content;
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.sales-product-name-marquee.is-overflowing > span {
+  animation: sales-product-name-pan 6.4s ease-in-out .7s infinite alternate;
+}
+
+@keyframes sales-product-name-pan {
+  0%,
+  14% {
+    transform: translateX(0);
+  }
+
+  86%,
+  100% {
+    transform: translateX(calc(-1 * var(--sales-product-name-shift, 0px)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sales-product-name-marquee.is-overflowing > span {
+    animation: none;
+  }
+}
+
+
+/* Continuous ticker variant used by the tablet cart tiles.
+   Two identical labels are separated by a fixed gap so the next name enters from the right
+   while the previous copy is still leaving on the left. */
+.sales-product-name-marquee.is-continuous > .sales-product-name-marquee__track {
+  --sales-product-name-loop-gap: 28px;
+  display: inline-flex;
+  min-width: max-content;
+  gap: var(--sales-product-name-loop-gap);
+  padding-right: 0 !important;
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.sales-product-name-marquee.is-continuous > .sales-product-name-marquee__track > span {
+  display: inline-block;
+  min-width: max-content;
+  padding-right: 0;
+}
+
+.sales-product-name-marquee.is-continuous.is-overflowing > .sales-product-name-marquee__track {
+  animation: sales-product-name-loop 7.2s linear infinite;
+}
+
+@keyframes sales-product-name-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-1 * var(--sales-product-name-loop-shift, 0px)), 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sales-product-name-marquee.is-continuous.is-overflowing > .sales-product-name-marquee__track {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .sales-search-result {
+    min-height: 66px !important;
+    grid-template-columns: 52px minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    padding-block: 6px !important;
+  }
+
+  .sales-search-result .sales-product-thumb {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 10px !important;
+  }
+
+  .sales-search-result__identity {
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 390px) {
+  .sales-search-result {
+    grid-template-columns: 50px minmax(0, 1fr) auto !important;
+  }
+
+  .sales-search-result .sales-product-thumb {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+
+/* Final unified search-icon pass.
+   Replace the legacy text glyph with the same outline SVG language as Mic and QR. */
+.sales-search-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+  line-height: 0;
+}
+
+.sales-search-icon .sales-action-icon,
+.sales-unified-search__ask .sales-action-icon {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.sales-unified-search__ask {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+@media (max-width: 760px) {
+  .sales-unified-search__ask {
+    font-size: inherit !important;
+    gap: 0 !important;
+  }
+
+  .sales-unified-search__ask::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .sales-unified-search__ask-label {
+    display: none !important;
+  }
+
+  .sales-search-icon .sales-action-icon,
+  .sales-unified-search__ask .sales-action-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .sales-search-icon .sales-action-icon svg,
+  .sales-unified-search__ask .sales-action-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+  }
+}
+
+
+/* Keep the Sales credit visible on phone without changing the topbar geometry. */
+@media (max-width: 760px) {
+  body:has(.sales-shell) .topbar__sub--sales-credit {
+    display: block !important;
+    font-size: .6rem !important;
+    line-height: 1 !important;
+    letter-spacing: .01em;
+    white-space: nowrap;
+  }
+}

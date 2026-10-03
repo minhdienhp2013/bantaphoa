@@ -1,0 +1,3919 @@
+.sales-discount-field .vnd-money-input {
+  gap: 5px;
+}
+
+.sales-discount-field .sales-discount-label {
+  color: #586a84;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.sales-discount-field .vnd-money-input__field {
+  min-height: 44px;
+  border: 1px solid #cbd9ea;
+  border-radius: 9px;
+  background: #fff;
+  padding: 5px 8px;
+  color: #132846;
+  font-weight: 800;
+}
+
+.sales-discount-field .vnd-money-input__steps {
+  display: none;
+}
+
+.sales-error button,
+.sales-recent-header > button,
+.sales-remove-line,
+.sales-link-button,
+.sales-history-footer button,
+.sales-danger-actions button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.sales-link-button[aria-disabled="true"],
+.sales-danger-actions button[aria-disabled="true"] {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.sales-remove-line {
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+}
+
+.sales-recent-row {
+  grid-template-columns: 58px minmax(0, 1fr) auto auto auto auto;
+}
+
+.sales-chat-card {
+  min-width: 0;
+  border: 1px solid #dfe7f2;
+  border-radius: 16px;
+  background: #fff;
+  padding: 12px;
+  box-shadow: 0 8px 30px rgba(39, 86, 150, 0.06);
+}
+
+.sales-chat-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sales-chat-heading > span {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #eef7ff;
+  color: #0874e7;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.sales-chat-heading h2,
+.sales-chat-response p {
+  margin: 0;
+}
+
+.sales-chat-heading h2 {
+  color: #17243a;
+  font-size: 1rem;
+}
+
+.sales-chat-heading small,
+.sales-chat-response {
+  color: #66758a;
+  font-size: 0.78rem;
+}
+
+.sales-chat-form {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px auto;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sales-chat-form input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #c7d7ea;
+  border-radius: 10px;
+  padding: 8px 11px;
+  color: #173052;
+}
+
+.sales-chat-form button,
+.sales-chat-candidates button {
+  min-height: 44px;
+  border: 1px solid #b8d5f4;
+  border-radius: 10px;
+  background: #eef7ff;
+  color: #086bd3;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sales-chat-form button {
+  min-width: 72px;
+  padding: 8px 14px;
+}
+
+.sales-chat-form .sales-chat-mic {
+  min-width: 44px;
+  width: 44px;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.sales-chat-form .sales-chat-mic[aria-pressed="true"] {
+  border-color: #e36d6d;
+  background: #fff0f0;
+  color: #c52222;
+}
+
+.sales-chat-voice-status {
+  min-height: 20px;
+  margin: 7px 0 0;
+  color: #34577f;
+  font-size: 0.78rem;
+}
+
+.sales-chat-response {
+  display: grid;
+  gap: 4px;
+  margin-top: 9px;
+  border-radius: 10px;
+  background: #f7faff;
+  padding: 9px 10px;
+  line-height: 1.4;
+}
+
+.sales-chat-response strong {
+  color: #33445f;
+}
+
+.sales-chat-candidates {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.sales-chat-candidates button {
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.sales-chat-candidates button > span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.sales-chat-candidates button > span:last-child {
+  justify-items: end;
+  text-align: right;
+}
+
+.sales-chat-candidate__image {
+  width: 44px;
+  height: 44px;
+}
+
+.sales-chat-candidate__identity,
+.sales-chat-candidate__meta {
+  min-width: 0;
+}
+
+
+.sales-chat-candidates strong,
+.sales-chat-candidates small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sales-chat-candidates small {
+  color: #65758c;
+  font-size: 0.72rem;
+}
+
+.sales-chat-market,
+.sales-chat-market-error {
+  margin-top: 8px;
+}
+
+.sales-chat-market {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #e3d5c7;
+  border-radius: 10px;
+  background: #fffdf9;
+  padding: 10px;
+}
+
+.sales-chat-market__summary {
+  display: grid;
+  gap: 3px;
+  color: #5b463d;
+  font-size: 0.8rem;
+}
+
+.sales-chat-market__summary strong {
+  color: var(--brand-red-deep);
+}
+
+.sales-chat-market__sources {
+  display: grid;
+  gap: 6px;
+}
+
+.sales-chat-market__sources a {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #eadfd5;
+  border-radius: 8px;
+  padding: 7px 8px;
+  color: #4b3932;
+  background: #fff;
+  text-decoration: none;
+}
+
+.sales-chat-market__sources a:hover,
+.sales-chat-market__sources a:focus-visible {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.sales-chat-market__sources span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sales-chat-market__sources strong {
+  color: var(--brand-red-deep);
+  white-space: nowrap;
+}
+
+.sales-chat-market > small {
+  color: #806f67;
+  line-height: 1.35;
+}
+
+.sales-chat-market-error {
+  color: var(--ui-danger);
+  font-size: 0.78rem;
+}
+
+.sales-chat-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sales-chat-confirm button {
+  min-height: 44px;
+  border: 1px solid #dfc880;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: var(--brand-red-deep);
+  background: #fff6dc;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sales-chat-confirm button:hover:not(:disabled) {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.sales-chat-confirm .sales-chat-confirm__cancel {
+  border-color: var(--ui-border);
+  color: var(--ui-text-muted);
+  background: var(--ui-surface);
+}
+
+/* Minh Dien branded Sales / POS presentation layer. Business behavior stays in SalesPage and salesService. */
+.sales-pos-shell {
+  width: min(1180px, 100%);
+  gap: 16px;
+  color: var(--ui-text);
+}
+
+.sales-pos-context {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 16px;
+  border: 1px solid #ead8c5;
+  border-radius: var(--ui-radius-lg);
+  background:
+    radial-gradient(circle at 93% 18%, rgb(211 161 59 / .17), transparent 32%),
+    linear-gradient(135deg, #fffdfa 0%, #fff8ee 64%, #f9eee2 100%);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.sales-pos-context::after {
+  content: '';
+  position: absolute;
+  right: -42px;
+  bottom: -74px;
+  width: 150px;
+  height: 150px;
+  border: 20px solid rgb(163 59 50 / .05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sales-pos-context > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sales-pos-context__label {
+  color: #866f65;
+  font-weight: 800;
+}
+
+.sales-pos-context strong {
+  color: var(--brand-red-deep);
+}
+
+.sales-search-area,
+.sales-chat-card,
+.sales-invoice-card,
+.sales-recent-card,
+.sales-history,
+.sales-detail {
+  border-color: var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.sales-search-area {
+  padding: 13px;
+  background: linear-gradient(180deg, #fffdfa, #fbf7f2);
+}
+
+.sales-search-box {
+  border-color: #dfc69d;
+  background: #fffdfa;
+  box-shadow: inset 0 0 0 1px rgb(163 59 50 / .025);
+}
+
+.sales-search-box:focus-within {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 3px rgb(211 161 59 / .18);
+}
+
+.sales-search-icon {
+  color: var(--brand-red-deep);
+}
+
+.sales-search-box input {
+  color: #4b3932;
+}
+
+.sales-search-box input::placeholder {
+  color: #9b8b83;
+}
+
+.sales-search-box button {
+  color: var(--brand-red-deep);
+  background: var(--brand-gold-soft);
+}
+
+.sales-search-box button:hover:not(:disabled) {
+  background: #f8e6ad;
+}
+
+.sales-scan-button {
+  border-color: #d8b96d;
+  color: var(--brand-red-deep);
+  background: #fff9e9;
+}
+
+.sales-scan-button:hover:not(:disabled),
+.sales-scan-button.is-active {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.sales-search-results {
+  border-top-color: #eee2d7;
+}
+
+.sales-search-result {
+  border-color: #eadfd5;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.sales-search-result:hover:not(:disabled),
+.sales-search-result:focus-visible:not(:disabled) {
+  border-color: #d9b96f;
+  background: #fff9eb;
+}
+
+.sales-search-result__identity small,
+.sales-search-result__meta small {
+  color: #7d6e67;
+}
+
+.sales-product-thumb {
+  color: var(--brand-red-deep);
+  background: linear-gradient(145deg, #fff8ed, #f5e5d5);
+}
+
+.sales-product-thumb--image {
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid #eadfd5;
+  padding: 0;
+  object-fit: cover;
+}
+
+img.sales-product-thumb--image {
+  display: block;
+}
+
+.product-image-placeholder.sales-product-thumb--image {
+  color: #8a786f;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sales-chat-resolved-product {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.sales-chat-resolved-product__image {
+  width: 48px;
+  height: 48px;
+}
+
+.sales-chat-resolved-product > span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.sales-chat-resolved-product strong,
+.sales-chat-resolved-product small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sales-chat-resolved-product small {
+  color: #806f67;
+}
+
+.sales-scanner-panel {
+  border-color: #e1c98a;
+  background: #fffaf0;
+}
+
+.sales-scanner-panel__head span,
+.sales-scanner-panel .qr-status {
+  color: #7c6c64;
+}
+
+.sales-scanner-panel__head button,
+.sales-scanner-panel .qr-field select {
+  border-color: #e1d2c3;
+  color: #5f463d;
+  background: #fffdfa;
+}
+
+.sales-chat-card {
+  padding: 13px;
+  background:
+    linear-gradient(180deg, rgb(255 253 250 / .98), rgb(250 246 241 / .98));
+}
+
+.sales-chat-heading > span,
+.sales-invoice-icon,
+.sales-recent-icon {
+  color: var(--brand-red-deep);
+  background: linear-gradient(145deg, #fff3d3, #f8e5ba);
+}
+
+.sales-chat-heading h2,
+.sales-invoice-title h1,
+.sales-recent-header h2 {
+  color: #4a352d;
+}
+
+.sales-chat-heading small,
+.sales-chat-response,
+.sales-invoice-title span,
+.sales-recent-header h2 small {
+  color: #7a6b64;
+}
+
+.sales-chat-form input {
+  border-color: #dfd0c3;
+  color: #4c3932;
+  background: #fffdfa;
+}
+
+.sales-chat-form input:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .16);
+  outline-offset: 0;
+}
+
+.sales-chat-form button,
+.sales-chat-candidates button {
+  border-color: #dfc880;
+  color: var(--brand-red-deep);
+  background: #fff6dc;
+}
+
+.sales-chat-form button:hover:not(:disabled),
+.sales-chat-candidates button:hover:not(:disabled) {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.sales-chat-form .sales-chat-mic[aria-pressed="true"] {
+  border-color: #d78f88;
+  color: var(--ui-danger);
+  background: #fff0ed;
+}
+
+.sales-chat-voice-status {
+  color: #765f55;
+}
+
+.sales-chat-response {
+  border: 1px solid #eee2d7;
+  background: #fbf7f2;
+}
+
+.sales-chat-response strong {
+  color: #523e36;
+}
+
+.sales-chat-candidates small {
+  color: #806f67;
+}
+
+.sales-service-grid {
+  gap: 11px;
+}
+
+.sales-service-tile {
+  border-color: transparent;
+  box-shadow: 0 5px 16px rgb(83 54 42 / .055), inset 0 0 0 1px rgb(107 77 63 / .055);
+}
+
+.sales-service-tile:hover,
+.sales-service-tile:focus-visible {
+  border-color: #e0c786;
+  box-shadow: 0 8px 24px rgb(111 72 50 / .10);
+}
+
+.sales-service-tile.is-selected {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 3px rgb(163 59 50 / .12), 0 8px 24px rgb(111 72 50 / .10);
+}
+
+.sales-service-tile--blue {
+  background: linear-gradient(135deg, #eff8fb, #e4f1f5);
+}
+
+.sales-service-tile--violet {
+  background: linear-gradient(135deg, #f6f1f8, #ece4f0);
+}
+
+.sales-service-tile--mint {
+  background: linear-gradient(135deg, #eef8f2, #e2f1e8);
+}
+
+.sales-service-tile--amber {
+  background: linear-gradient(135deg, #fff9e9, #faedc8);
+}
+
+.sales-service-tile--rose {
+  background: linear-gradient(135deg, #fff2ef, #f8e2dc);
+}
+
+.sales-service-tile--slate {
+  background: linear-gradient(135deg, #f8f5f2, #eee9e5);
+}
+
+.sales-service-tile__icon {
+  width: 64px;
+  height: 64px;
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-red-deep);
+  filter: drop-shadow(0 4px 7px rgb(89 57 42 / .10));
+}
+
+.sales-service-tile__icon svg {
+  width: 58px;
+  height: 58px;
+  overflow: visible;
+}
+
+.quick-service-icon__body,
+.quick-service-icon__paper,
+.quick-service-icon__tray,
+.quick-service-icon__screen,
+.quick-service-icon__detail,
+.quick-service-icon__accent,
+.quick-service-icon__scanline {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.quick-service-icon__body {
+  fill: rgb(255 253 250 / .9);
+  stroke: currentColor;
+  stroke-width: 2.6;
+}
+
+.quick-service-icon__paper,
+.quick-service-icon__screen {
+  fill: #fff;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.quick-service-icon__tray {
+  fill: rgb(211 161 59 / .11);
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.quick-service-icon__detail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+}
+
+.quick-service-icon__accent,
+.quick-service-icon__scanline {
+  fill: none;
+  stroke: var(--brand-gold);
+  stroke-width: 2.8;
+}
+
+.quick-service-icon__accent-fill {
+  fill: var(--brand-gold);
+}
+
+.quick-service-icon__scanline {
+  filter: drop-shadow(0 0 2px rgb(211 161 59 / .38));
+}
+
+.quick-service-icon__spark {
+  stroke-width: 2.4;
+}
+
+.quick-service-icon__plus {
+  stroke-width: 3.2;
+}
+
+.sales-service-tile.is-selected .sales-service-tile__icon {
+  transform: scale(1.04);
+}
+
+.sales-service-tile__copy strong {
+  color: #4c3932;
+}
+
+.sales-service-tile__copy {
+  gap: 0;
+}
+
+.sales-invoice-card,
+.sales-recent-card {
+  background: linear-gradient(180deg, #fffdfa, #fdfaf7);
+}
+
+.sales-customer-picker {
+  color: var(--brand-red-deep);
+}
+
+.sales-customer-picker select {
+  border-color: #e0c98b;
+  color: #6a493c;
+  background: #fff7df;
+}
+
+.sales-clear-cart,
+.sales-remove-line {
+  color: var(--ui-danger);
+  background: #fff0ed;
+}
+
+.sales-empty {
+  border-color: #dfd3ca;
+  color: #7c6d66;
+  background: #fdfaf7;
+}
+
+.sales-cart-list {
+  border-color: #eadfd5;
+  background: #fffdfa;
+}
+
+.sales-cart-line {
+  border-bottom-color: #eee4dc;
+}
+
+.sales-cart-line--invalid {
+  background: #fff6f4;
+}
+
+.sales-cart-line__identity strong,
+.sales-cart-line__price strong {
+  color: #4b3932;
+}
+
+.sales-cart-line__identity span,
+.sales-cart-line__price small {
+  color: #776861;
+}
+
+.sales-qty-control {
+  border-color: #dfcfbf;
+  background: #fbf6f0;
+}
+
+.sales-qty-control button {
+  color: var(--brand-red-deep);
+  background: #fff2d5;
+}
+
+.sales-qty-control input {
+  border-inline-color: #eadbc9;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.sales-quick-amount-card,
+.sales-note-field {
+  border: 1px solid #eadfd5;
+  background: linear-gradient(180deg, #fffaf2, #fbf6ef);
+}
+
+.sales-field-heading {
+  color: #4b3932;
+}
+
+.sales-field-heading > span:first-child {
+  color: var(--brand-red-deep);
+}
+
+.sales-field-heading small {
+  color: #7b6d66;
+}
+
+.sales-quick-amount-input-row input,
+.sales-note-field textarea,
+.sales-discount-field .vnd-money-input__field {
+  border-color: #dfd0c3;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.sales-quick-amount-input-row input:focus,
+.sales-note-field textarea:focus,
+.sales-discount-field .vnd-money-input__field:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .16);
+  outline-offset: 0;
+}
+
+.sales-quick-amount-input-row input:disabled {
+  background: #f0ebe6;
+  color: #9b918b;
+}
+
+.sales-quick-amount-preview {
+  border-color: #e0ca8f;
+  color: var(--brand-red-deep);
+  background: #fff7df;
+}
+
+.sales-discount-field .sales-discount-label,
+.sales-summary span,
+.sales-discount-field > span {
+  color: #776861;
+}
+
+.sales-summary {
+  border-top-color: #eadfd5;
+}
+
+.sales-summary > div,
+.sales-discount-field {
+  border-right-color: #eadfd5;
+}
+
+.sales-summary strong {
+  color: #4b3932;
+}
+
+.sales-summary__payable {
+  border: 1px solid #e1c77c;
+  background: linear-gradient(135deg, #fff8e7, #f8e7b7);
+}
+
+.sales-summary__payable strong {
+  color: var(--brand-red-deep);
+}
+
+/* Payment states stay semantic: green cash, blue bank transfer. */
+.sales-payment-button--cash {
+  background: linear-gradient(135deg, #16844d, #2da566);
+}
+
+.sales-payment-button--bank {
+  background: linear-gradient(135deg, #315f9f, #4a66a9);
+}
+
+.sales-payment-button.is-selected {
+  box-shadow: 0 0 0 3px rgb(211 161 59 / .22), 0 8px 18px rgb(71 61 54 / .14);
+}
+
+.sales-secondary-actions button,
+.sales-recent-header > button,
+.sales-secondary-button,
+.sales-link-button,
+.sales-history-footer button {
+  border-color: #dfc98b;
+  color: var(--brand-red-deep);
+  background: #fff8e5;
+}
+
+.sales-secondary-actions button:hover:not(:disabled),
+.sales-recent-header > button:hover:not(:disabled),
+.sales-secondary-button:hover:not(:disabled),
+.sales-link-button:hover:not(:disabled),
+.sales-history-footer button:hover:not(:disabled) {
+  border-color: var(--brand-gold);
+  background: var(--brand-gold-soft);
+}
+
+.sales-secondary-actions small,
+.sales-checkout-hint,
+.sales-recent-note,
+.sales-recent-row time,
+.sales-recent-row__qty,
+.sales-recent-row__main small {
+  color: #7b6d66;
+}
+
+.sales-recent-list {
+  border-color: #eadfd5;
+}
+
+.sales-recent-row {
+  border-bottom-color: #eee4dc;
+}
+
+.sales-recent-row__amount {
+  color: #4b3932;
+}
+
+/* History view follows the same brand system while keeping status/destructive semantics. */
+.sales-history,
+.sales-detail {
+  background: #fffdfa;
+}
+
+.sales-section-heading h2,
+.sales-detail h3 {
+  color: #4b3932;
+}
+
+.sales-section-heading p,
+.sales-detail__header p,
+.sales-eyebrow {
+  color: #7a6b64 !important;
+}
+
+.sales-filter-grid label {
+  color: #5b4942;
+}
+
+.sales-filter-grid input,
+.sales-filter-grid select {
+  border-color: #ded0c4;
+  color: #4b3932;
+  background: #fffdfa;
+}
+
+.sales-filter-grid input:focus,
+.sales-filter-grid select:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .15);
+  outline-offset: 0;
+}
+
+.sales-history-table-wrap,
+.sales-history-card {
+  border-color: #e9ddd2;
+}
+
+.sales-history-table th {
+  color: #74645d;
+  background: #faf5ef;
+}
+
+.sales-history-table th,
+.sales-history-table td,
+.sales-detail__item,
+.sales-danger-actions {
+  border-color: #eee4dc;
+}
+
+.sales-detail__summary span {
+  color: #756861;
+  background: #faf5ef;
+}
+
+.sales-detail__summary strong {
+  color: #4b3932;
+}
+
+.sales-note {
+  color: #665650;
+}
+
+.sales-danger-actions button {
+  border-color: #e4aaa3;
+  color: var(--ui-danger);
+  background: #fff4f2;
+}
+
+@media (max-width: 760px) {
+  .sales-pos-shell {
+    gap: 12px;
+  }
+
+  .sales-pos-context {
+    padding: 11px 12px;
+    border-radius: 14px;
+  }
+
+  .sales-search-area,
+  .sales-chat-card,
+  .sales-invoice-card,
+  .sales-recent-card,
+  .sales-history,
+  .sales-detail {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sales-pos-context {
+    padding-inline: 10px;
+  }
+
+  .sales-search-area,
+  .sales-chat-card,
+  .sales-invoice-card,
+  .sales-recent-card {
+    padding: 9px;
+  }
+
+  .sales-service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .sales-service-tile {
+    min-height: 98px;
+    gap: 3px;
+    padding: 8px 5px;
+  }
+
+  .sales-service-tile__icon {
+    width: 52px;
+    height: 52px;
+    min-height: 52px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: .82rem;
+    line-height: 1.12;
+  }
+
+  .sales-recent-row {
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+  }
+
+  .sales-recent-row .sales-status {
+    grid-column: 2;
+  }
+
+  .sales-recent-row .sales-link-button {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: end;
+  }
+
+  .sales-chat-form {
+    grid-template-columns: minmax(0, 1fr) 44px 68px;
+  }
+
+  .sales-chat-form button {
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  .sales-chat-candidates button {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .sales-chat-candidates .sales-chat-candidate__image {
+    width: 40px;
+    height: 40px;
+    grid-row: 1 / span 2;
+  }
+
+  .sales-chat-candidates .sales-chat-candidate__meta {
+    grid-column: 2;
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 390px) {
+  .sales-service-grid {
+    gap: 6px;
+  }
+
+  .sales-service-tile {
+    min-height: 92px;
+  }
+
+  .sales-service-tile__icon {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .sales-invoice-card,
+  .sales-recent-card,
+  .sales-search-area,
+  .sales-chat-card {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 340px) {
+  .sales-discount-field .sales-discount-label {
+    font-size: 0.66rem;
+  }
+
+  .sales-chat-form {
+    grid-template-columns: minmax(0, 1fr) 44px 68px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sales-service-tile,
+  .sales-search-result,
+  .sales-payment-button,
+  .sales-secondary-actions button,
+  .sales-recent-header > button {
+    transition: none;
+  }
+}
+
+.sales-chat-understanding,
+.sales-manual-correction-status,
+.sales-chat-learning-confirm {
+  border: 1px solid var(--border, #d8dde6);
+  border-radius: 10px;
+  background: var(--surface-muted, #f7f8fa);
+  padding: 10px 12px;
+}
+
+.sales-chat-understanding {
+  margin: 8px 0 0;
+  font-size: 0.92rem;
+}
+
+.sales-chat-manual-button {
+  justify-self: start;
+  min-height: 38px;
+  margin-top: 8px;
+}
+
+.sales-manual-correction-status {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.sales-chat-learning-confirm {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.sales-chat-learning-confirm > div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .sales-manual-correction-status {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sales-chat-manual-button {
+    width: 100%;
+  }
+}
+
+
+
+/* Quick service illustrated cards — approved reference 2026-09-24 */
+.sales-service-grid {
+  gap: 10px;
+}
+
+.sales-service-tile,
+.sales-service-tile--blue,
+.sales-service-tile--violet,
+.sales-service-tile--mint,
+.sales-service-tile--amber,
+.sales-service-tile--rose,
+.sales-service-tile--slate {
+  min-height: 122px;
+  gap: 7px;
+  padding: 11px 8px 12px;
+  border: 1px solid #eee3d6;
+  border-radius: 18px;
+  color: var(--brand-red-deep);
+  background: linear-gradient(180deg, #fffefa 0%, #fffaf3 100%);
+  box-shadow: 0 7px 20px rgb(80 48 34 / .065);
+}
+
+.sales-service-tile:hover,
+.sales-service-tile:focus-visible {
+  border-color: #dfc995;
+  background: linear-gradient(180deg, #fffefa 0%, #fff7e9 100%);
+  box-shadow: 0 10px 24px rgb(80 48 34 / .095);
+}
+
+.sales-service-tile:focus-visible {
+  outline: 3px solid rgb(211 161 59 / .22);
+  outline-offset: 2px;
+}
+
+.sales-service-tile.is-selected {
+  border-color: var(--brand-red);
+  background: linear-gradient(180deg, #fffdf8 0%, #fff3d8 100%);
+  box-shadow: 0 0 0 2px rgb(163 59 50 / .09), 0 10px 24px rgb(80 48 34 / .09);
+}
+
+.sales-service-tile__icon {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  min-height: 68px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-red-deep);
+  filter: none;
+  transition: transform 140ms ease;
+}
+
+.sales-service-tile__icon::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 35%, #fff8e8 0%, #faedcf 70%, #f6e3bd 100%);
+  box-shadow: inset 0 0 0 1px rgb(211 161 59 / .12);
+}
+
+.sales-service-tile__icon svg {
+  position: relative;
+  z-index: 1;
+  width: 57px;
+  height: 57px;
+  overflow: visible;
+}
+
+.qsi-line,
+.qsi-panel,
+.qsi-paper,
+.qsi-accent-line,
+.qsi-plus-mark {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.qsi-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.35;
+}
+
+.qsi-panel {
+  fill: #fff2cf;
+  stroke: currentColor;
+  stroke-width: 3.5;
+}
+
+.qsi-paper {
+  fill: #fffdf8;
+  stroke: currentColor;
+  stroke-width: 3.35;
+}
+
+.qsi-accent-line {
+  fill: none;
+  stroke: var(--brand-gold);
+  stroke-width: 3;
+}
+
+.qsi-accent-fill {
+  fill: var(--brand-red);
+}
+
+.qsi-plus-disc {
+  fill: var(--brand-red);
+  stroke: #fffaf0;
+  stroke-width: 1.5;
+}
+
+.qsi-plus-mark {
+  fill: none;
+  stroke: #fffaf0;
+  stroke-width: 3.8;
+}
+
+.sales-service-tile.is-selected .sales-service-tile__icon {
+  transform: scale(1.035);
+}
+
+.sales-service-tile__copy {
+  gap: 0;
+}
+
+.sales-service-tile__copy strong {
+  color: var(--brand-red-deep);
+  font-size: .96rem;
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -.015em;
+  text-align: center;
+}
+
+@media (min-width: 1025px) {
+  .sales-service-grid {
+    gap: 18px;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 188px;
+    gap: 10px;
+    padding: 17px 14px 18px;
+    border-radius: 27px;
+    box-shadow: 0 12px 30px rgb(80 48 34 / .07);
+  }
+
+  .sales-service-tile__icon {
+    width: 124px;
+    height: 124px;
+    min-height: 124px;
+  }
+
+  .sales-service-tile__icon::before {
+    inset: 5px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 104px;
+    height: 104px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: 1.42rem;
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 560px) {
+  .sales-service-grid {
+    gap: 7px;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 98px;
+    gap: 4px;
+    padding: 7px 4px 8px;
+    border-radius: 14px;
+    box-shadow: 0 5px 14px rgb(80 48 34 / .06);
+  }
+
+  .sales-service-tile__icon {
+    width: 54px;
+    height: 54px;
+    min-height: 54px;
+  }
+
+  .sales-service-tile__icon::before {
+    inset: 1px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 47px;
+    height: 47px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: .78rem;
+    line-height: 1.06;
+  }
+}
+
+@media (max-width: 390px) {
+  .sales-service-grid {
+    gap: 6px;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 92px;
+    padding-inline: 3px;
+  }
+
+  .sales-service-tile__icon {
+    width: 49px;
+    height: 49px;
+    min-height: 49px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: .74rem;
+  }
+}
+
+
+/* Tablet POS: preserve touch density without inheriting oversized desktop service tiles. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell {
+    width: 100%;
+  }
+
+  .sales-service-grid {
+    gap: 10px;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 126px;
+    gap: 6px;
+    padding: 10px 8px 11px;
+    border-radius: 18px;
+  }
+
+  .sales-service-tile__icon {
+    width: 72px;
+    height: 72px;
+    min-height: 72px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 61px;
+    height: 61px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: .98rem;
+    line-height: 1.08;
+  }
+}
+
+
+.sales-tablet-keypad {
+  display: none;
+}
+
+/* iPad/tablet POS density tuned from the 1024px landscape reference. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell {
+    gap: 10px;
+  }
+
+  .sales-pos-context,
+  .sales-search-area,
+  .sales-invoice-card,
+  .sales-recent-card {
+    border-radius: 14px;
+  }
+
+  .sales-pos-context {
+    padding: 10px 14px;
+  }
+
+  .sales-search-area,
+  .sales-invoice-card {
+    padding: 12px;
+  }
+
+  .sales-service-grid {
+    gap: 8px;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 108px;
+    gap: 4px;
+    padding: 8px 6px 9px;
+    border-radius: 15px;
+  }
+
+  .sales-service-tile__icon {
+    width: 60px;
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: .9rem;
+  }
+
+  .sales-quick-amount-card,
+  .sales-note-field {
+    padding: 10px;
+  }
+
+  .sales-note-field textarea {
+    min-height: 70px;
+  }
+
+  .sales-payment-button {
+    min-height: 60px;
+  }
+
+  .sales-tablet-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .sales-tablet-keypad button {
+    min-height: 48px;
+    border: 1px solid #dfc98b;
+    border-radius: 10px;
+    color: var(--brand-red-deep);
+    background: #fffaf0;
+    font-size: 1.05rem;
+    font-weight: 850;
+    cursor: pointer;
+  }
+
+  .sales-tablet-keypad button:active:not(:disabled) {
+    transform: translateY(1px);
+    background: var(--brand-gold-soft);
+  }
+
+  .sales-tablet-keypad button:disabled {
+    opacity: .42;
+    cursor: default;
+  }
+}
+
+
+/* Tablet: the shell header already carries account/role context, so reclaim this POS strip. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-context {
+    display: none;
+  }
+}
+
+
+/* Tablet: pin the primary find/scan controls directly below the app header. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-area {
+    order: -100;
+    margin-top: 0;
+  }
+
+  .sales-unified-search-row {
+    align-items: stretch;
+  }
+
+  .sales-search-box,
+  .sales-scan-button,
+  .sales-unified-search__mic,
+  .sales-unified-search__ask {
+    min-height: 48px;
+  }
+}
+
+
+/* Tablet flow: search first, then the six quick-service tiles, then invoice/checkout. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-service-grid {
+    order: -90;
+    margin-top: 0;
+  }
+}
+
+
+/* Tablet compact flow: remove excess vertical whitespace between search, services and invoice. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell {
+    gap: 6px !important;
+  }
+
+  .sales-search-area {
+    padding: 7px 9px !important;
+  }
+
+  .sales-service-grid {
+    gap: 6px !important;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 96px !important;
+    padding: 6px 5px 7px !important;
+    gap: 3px !important;
+  }
+
+  .sales-service-tile__icon {
+    width: 54px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 47px !important;
+    height: 47px !important;
+  }
+
+  .sales-invoice-card {
+    margin-top: 0 !important;
+    padding: 9px 10px !important;
+  }
+}
+
+
+/* Tablet POS sits directly under the app header. When search is active, prioritize results over quick services. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .page-content:has(.sales-pos-shell) {
+    padding-top: 6px !important;
+  }
+
+  .sales-pos-shell {
+    gap: 5px !important;
+  }
+
+  .sales-search-area {
+    position: relative;
+    z-index: 4;
+  }
+
+  .sales-search-area:has(.sales-search-results) + .sales-service-grid {
+    display: none;
+  }
+}
+
+
+/* iPad/tablet: make search + six service shortcuts a compact block directly below the Bán hàng topbar. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  body:has(.sales-pos-shell) .page-content {
+    padding-top: 0 !important;
+  }
+
+  .sales-pos-shell {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    align-content: start;
+    row-gap: 4px !important;
+  }
+
+  .sales-search-area {
+    margin-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .sales-service-grid {
+    margin: 0 !important;
+    align-self: start;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    min-height: 88px !important;
+    padding-top: 4px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .sales-service-tile__icon {
+    width: 49px !important;
+    height: 49px !important;
+    min-height: 49px !important;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 43px !important;
+    height: 43px !important;
+  }
+}
+
+
+/* Tablet-only copies: hidden elsewhere so desktop/mobile keep the original invoice structure. */
+.sales-note-field--tablet,
+.sales-invoice-overview--tablet {
+  display: none;
+}
+
+/* 1024px tablet keeps the horizontal POS. Search/services/note + compact invoice/customer row stay left;
+   cart/quick amount/summary stay in the right column. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell {
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 470px) !important;
+    grid-template-areas:
+      "search invoice"
+      "services invoice"
+      "note invoice"
+      "invoice-title invoice"
+      "recent invoice"
+      "chat invoice" !important;
+    grid-template-rows: auto auto auto auto auto auto !important;
+    align-items: start !important;
+    align-content: start !important;
+    column-gap: 6px !important;
+    row-gap: 4px !important;
+  }
+
+  .sales-pos-shell > .sales-search-area {
+    grid-area: search !important;
+    order: initial !important;
+    align-self: start !important;
+  }
+
+  .sales-pos-shell > .sales-service-grid {
+    grid-area: services !important;
+    order: initial !important;
+    align-self: start !important;
+  }
+
+  .sales-pos-shell > .sales-note-field--tablet {
+    display: grid !important;
+    grid-area: note !important;
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 7px 9px !important;
+    gap: 5px !important;
+  }
+
+  .sales-pos-shell > .sales-note-field--tablet textarea {
+    min-height: 54px !important;
+    resize: none;
+  }
+
+  .sales-pos-shell > .sales-invoice-overview--tablet {
+    display: grid !important;
+    grid-area: invoice-title !important;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 1fr);
+    align-items: stretch;
+    gap: 6px;
+    margin: 0 !important;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet {
+    display: flex !important;
+    min-width: 0;
+    align-items: center;
+    gap: 7px;
+    margin: 0 !important;
+    padding: 5px 8px !important;
+    border: 1px solid var(--ui-border);
+    border-radius: 11px;
+    background: var(--ui-surface);
+    box-shadow: var(--ui-shadow-sm);
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet > div {
+    min-width: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet strong {
+    color: #4b3932;
+    font-size: .9rem;
+    line-height: 1.05;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet span:last-child {
+    color: #7c6d66;
+    font-size: .64rem;
+    line-height: 1.05;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-icon {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+    font-size: .9rem;
+  }
+
+  .sales-invoice-overview--tablet .sales-customer-picker--tablet {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+  }
+
+  .sales-invoice-overview--tablet .sales-customer-picker--tablet select {
+    width: 100% !important;
+    min-height: 40px !important;
+    height: 100%;
+    padding: 6px 9px !important;
+  }
+
+  .sales-invoice-card > .sales-note-field--invoice,
+  .sales-invoice-card .sales-invoice-title--invoice,
+  .sales-invoice-card .sales-customer-picker,
+  .sales-invoice-card .sales-clear-cart,
+  .sales-invoice-card .sales-empty--cart {
+    display: none !important;
+  }
+
+  .sales-invoice-card .sales-invoice-header {
+    display: none !important;
+    margin: 0 !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card {
+    grid-area: chat !important;
+  }
+
+  .sales-pos-shell > .sales-invoice-card {
+    grid-area: invoice !important;
+    align-self: start !important;
+  }
+
+  .sales-pos-shell > .sales-recent-card {
+    grid-area: recent !important;
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    border-radius: 11px !important;
+  }
+
+  /* Use the blank space under Hóa đơn 1 / Khách lẻ for a compact 4-row history. */
+  .sales-recent-card .sales-recent-header {
+    gap: 6px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .sales-recent-card .sales-recent-header > div {
+    gap: 6px !important;
+  }
+
+  .sales-recent-card .sales-recent-icon {
+    width: 28px !important;
+    height: 28px !important;
+    flex-basis: 28px !important;
+    border-radius: 8px !important;
+    font-size: .9rem !important;
+  }
+
+  .sales-recent-card .sales-recent-header h2 {
+    font-size: .86rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .sales-recent-card .sales-recent-header h2 small {
+    font-size: .62rem !important;
+  }
+
+  .sales-recent-card .sales-recent-header > button {
+    min-width: 0 !important;
+    min-height: 30px !important;
+    padding: 3px 7px !important;
+    border-radius: 8px !important;
+    font-size: .68rem !important;
+  }
+
+  .sales-recent-card .sales-recent-list {
+    border-radius: 9px !important;
+  }
+
+  .sales-recent-card .sales-recent-row {
+    grid-template-columns: minmax(0, 1fr) auto auto auto !important;
+    gap: 4px !important;
+    min-height: 32px !important;
+    padding: 4px 5px !important;
+  }
+
+  .sales-recent-card .sales-recent-row time,
+  .sales-recent-card .sales-recent-row__qty,
+  .sales-recent-card .sales-recent-row__main small,
+  .sales-recent-card .sales-recent-note {
+    display: none !important;
+  }
+
+  .sales-recent-card .sales-recent-row__main strong {
+    font-size: .72rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .sales-recent-card .sales-recent-row__amount {
+    font-size: .72rem !important;
+  }
+
+  .sales-recent-card .sales-status {
+    min-height: 20px !important;
+    padding: 2px 5px !important;
+    font-size: .58rem !important;
+  }
+
+  .sales-recent-card .sales-link-button {
+    min-width: 32px !important;
+    min-height: 28px !important;
+    padding: 2px 5px !important;
+    border-radius: 7px !important;
+    font-size: .62rem !important;
+  }
+
+  /* The dormant Quick Ask result card should not consume tablet height. It returns only when it has real content. */
+  .sales-pos-shell > .sales-chat-card:not(:has(
+    .sales-chat-voice-status,
+    .sales-chat-candidates,
+    .sales-chat-market,
+    .sales-chat-market-error,
+    .sales-chat-confirm,
+    .sales-chat-understanding,
+    .sales-chat-manual-button,
+    .sales-chat-response > *
+  )) {
+    display: none !important;
+  }
+}
+
+
+/* Tablet: keep "Khách cần trả" readable without the amount overflowing its summary cell. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-summary__payable {
+    padding: 6px 8px !important;
+  }
+
+  .sales-summary__payable > span {
+    font-size: .7rem !important;
+    line-height: 1.05 !important;
+    white-space: nowrap;
+  }
+
+  .sales-summary__payable > strong {
+    font-size: clamp(1.18rem, 2.35vw, 1.5rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+  }
+}
+
+
+/* Tablet: reuse the removed helper-copy height by stretching only the numeric keypad. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-tablet-keypad button {
+    min-height: 57px !important;
+  }
+}
+
+
+/* Tablet search actions: icon-only in the order Search -> Mic -> QR. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-unified-search-row {
+    grid-template-columns: minmax(0, 1fr) 46px 46px 46px !important;
+    gap: 6px !important;
+  }
+
+  .sales-unified-search-row .sales-search-box {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .sales-unified-search__ask,
+  .sales-unified-search__mic,
+  .sales-scan-button {
+    grid-row: 1 !important;
+    width: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sales-unified-search__ask {
+    grid-column: 2 !important;
+    font-size: 0 !important;
+  }
+
+  .sales-unified-search__ask::before {
+    content: '⌕';
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .sales-unified-search__mic {
+    grid-column: 3 !important;
+  }
+
+  .sales-scan-button {
+    grid-column: 4 !important;
+  }
+
+  .sales-scan-button > strong {
+    display: none !important;
+  }
+
+  .sales-scan-button > span,
+  .sales-unified-search__mic > span {
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+  }
+}
+
+
+/* Tablet search suggestions float over the POS instead of increasing page height. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-area {
+    position: relative !important;
+    z-index: 40 !important;
+    overflow: visible !important;
+  }
+
+  .sales-search-area .sales-search-results {
+    position: absolute !important;
+    top: calc(100% - 1px);
+    left: 0;
+    z-index: 80;
+    width: 100%;
+    max-height: min(56dvh, 420px) !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    border: 1px solid #dfc98b !important;
+    border-top: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+    background: #fffdfa !important;
+    box-shadow: 0 18px 34px rgb(71 48 35 / .22) !important;
+  }
+
+  .sales-search-area:has(.sales-search-results) + .sales-service-grid,
+  .sales-service-grid {
+    display: grid !important;
+  }
+}
+
+
+/* Tablet POS notices live in the unused topbar space between page title and OWNER/STAFF. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  body:has(.sales-pos-shell) .topbar__context {
+    flex: 0 0 230px !important;
+  }
+
+  body:has(.sales-pos-shell) .topbar__notification-slot {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sales-topbar-notices {
+    min-width: 0;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .sales-topbar-notices > * {
+    min-width: 0;
+    margin: 0 !important;
+    max-height: 46px;
+    overflow: hidden;
+    padding: 6px 10px !important;
+    border-radius: 10px !important;
+    font-size: .76rem !important;
+    line-height: 1.25 !important;
+    box-shadow: none !important;
+  }
+
+  .sales-topbar-notices .sales-success,
+  .sales-topbar-notices .sales-error,
+  .sales-topbar-notices .sales-warning,
+  .sales-topbar-notices .sales-inline-warning {
+    width: 100%;
+  }
+
+  .sales-topbar-notices .sales-success,
+  .sales-topbar-notices .sales-inline-warning {
+    display: block;
+  }
+
+  .sales-topbar-notices .sales-error,
+  .sales-topbar-notices .sales-warning {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sales-topbar-notices span,
+  .sales-topbar-notices strong,
+  .sales-topbar-notices div {
+    min-width: 0;
+  }
+}
+
+
+/* Tablet: keep the selected quick-service label on the same line as "Nhập nhanh số tiền". */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-quick-amount-card > .sales-field-heading > div {
+    display: flex !important;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .sales-quick-amount-card > .sales-field-heading strong,
+  .sales-quick-amount-card > .sales-field-heading small {
+    white-space: nowrap;
+  }
+
+  .sales-quick-amount-card > .sales-field-heading small {
+    margin: 0 !important;
+    font-size: .72rem !important;
+  }
+}
+
+
+/* Tablet: lock the search/action bar size and restore matching rounded top corners. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell > .sales-search-area {
+    box-sizing: border-box;
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    padding: 5px 9px !important;
+    border-top-left-radius: 14px !important;
+    border-top-right-radius: 14px !important;
+  }
+
+  .sales-unified-search-row {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+  }
+
+  .sales-unified-search-row .sales-search-box,
+  .sales-unified-search__ask,
+  .sales-unified-search__mic,
+  .sales-scan-button {
+    box-sizing: border-box;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+  }
+}
+
+
+/* Tablet: transparent safety layer while product search results are open.
+   The first tap outside search only dismisses results and never reaches POS controls underneath. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-dismiss-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    background: transparent;
+    cursor: default;
+    touch-action: manipulation;
+  }
+
+  .sales-pos-shell > .sales-search-area {
+    z-index: 40 !important;
+  }
+
+  .sales-search-area .sales-search-results {
+    z-index: 80 !important;
+  }
+}
+
+
+/* Strong tablet search shield: stay above every POS control so the first outside tap can only dismiss search. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-dismiss-layer {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+  }
+
+  .sales-pos-shell > .sales-search-area {
+    z-index: 10000 !important;
+  }
+
+  .sales-search-area .sales-search-results {
+    z-index: 10001 !important;
+  }
+}
+
+
+/* Tablet search overlay: normal product matches first, AI/Quick Ask directly below.
+   Both float above the POS and never change page height. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  body:has(.sales-pos-shell) {
+    overflow: hidden !important;
+  }
+
+  body:has(.sales-pos-shell) .workspace__main {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  body:has(.sales-pos-shell) .page-content {
+    height: calc(100dvh - 60px) !important;
+    max-height: calc(100dvh - 60px) !important;
+    overflow: hidden !important;
+    padding-bottom: 0 !important;
+  }
+
+  .sales-pos-shell {
+    min-height: 0 !important;
+    max-height: 100% !important;
+  }
+
+  .sales-search-overlay-stack {
+    position: absolute !important;
+    top: calc(100% - 1px);
+    left: 0;
+    z-index: 10001 !important;
+    width: 100%;
+    max-height: calc(100dvh - 126px);
+    display: grid;
+    gap: 6px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 0 8px;
+    pointer-events: none;
+  }
+
+  .sales-search-overlay-stack:not(:has(.sales-search-results, .sales-search-ai-host > .sales-chat-card)) {
+    display: none !important;
+  }
+
+  .sales-search-overlay-stack > .sales-search-results {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    overflow: visible !important;
+    border: 1px solid #dfc98b !important;
+    border-top: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+    background: #fffdfa !important;
+    box-shadow: 0 18px 34px rgb(71 48 35 / .22) !important;
+    pointer-events: auto;
+  }
+
+  .sales-search-ai-host {
+    min-width: 0;
+    pointer-events: none;
+  }
+
+  .sales-search-ai-host > .sales-chat-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 1px solid #dfc98b !important;
+    border-radius: 12px !important;
+    background: #fffdfa !important;
+    box-shadow: 0 16px 30px rgb(71 48 35 / .18) !important;
+    pointer-events: auto;
+  }
+
+  .sales-search-ai-host .sales-chat-heading,
+  .sales-search-ai-host .sales-chat-form {
+    display: none !important;
+  }
+
+  .sales-search-ai-host > .sales-chat-card:not(:has(
+    .sales-chat-voice-status,
+    .sales-chat-candidates,
+    .sales-chat-market,
+    .sales-chat-market-error,
+    .sales-chat-confirm,
+    .sales-chat-understanding,
+    .sales-chat-manual-button,
+    .sales-chat-response > *
+  )) {
+    display: none !important;
+  }
+
+  /* The tablet AI card is portaled into the overlay; never let its old grid slot consume height. */
+  .sales-pos-shell > .sales-chat-card {
+    display: none !important;
+  }
+
+  /* Normal results are now owned by the shared overlay stack. */
+  .sales-search-area > .sales-search-results {
+    position: static !important;
+  }
+
+  /* If invoice content grows, scroll only inside the invoice card, never the page. */
+  .sales-pos-shell > .sales-invoice-card {
+    max-height: calc(100dvh - 68px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+}
+
+
+/* Tablet: keep the empty-search notice softly rounded inside the floating results panel. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-overlay-stack > .sales-search-results > .sales-empty {
+    border-radius: 14px !important;
+    overflow: hidden;
+  }
+}
+
+
+/* Tablet: round the entire floating search-results panel, including both top corners. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-overlay-stack > .sales-search-results {
+    border-top: 1px solid #dfc98b !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+}
+
+
+/* Tablet: add a small visual gap below the search bar before the floating results notice. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-overlay-stack > .sales-search-results {
+    margin-top: 4px !important;
+  }
+}
+
+
+/* Tablet: hide the browser-native clear X so only the app's clear button remains. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-search-box input[type="search"]::-webkit-search-cancel-button,
+  .sales-search-box input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+}
+
+
+/* Tablet: use one rounded focus ring on the outer search box, never a square ring on the input itself. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-unified-search-row .sales-search-box {
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  .sales-unified-search-row .sales-search-box input,
+  .sales-unified-search-row .sales-search-box input:focus,
+  .sales-unified-search-row .sales-search-box input:focus-visible {
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .sales-unified-search-row .sales-search-box:focus-within {
+    border-radius: 14px !important;
+    border-color: var(--brand-gold) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgb(211 161 59 / .18) !important;
+  }
+}
+
+
+/* Tablet one-screen fill: use the remaining 1024x768 height without allowing page scroll.
+   High-frequency targets (six quick services + numeric keypad) receive most of the extra space. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  body:has(.sales-pos-shell) .page-content {
+    min-height: 0 !important;
+  }
+
+  .sales-pos-shell {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    grid-template-rows:
+      60px
+      minmax(190px, 1.6fr)
+      minmax(110px, .9fr)
+      46px
+      minmax(180px, 1.1fr)
+      0 !important;
+    align-content: stretch !important;
+    align-items: stretch !important;
+  }
+
+  /* Priority 1: six quick-service tiles absorb most of the free left-column height. */
+  .sales-pos-shell > .sales-service-grid {
+    height: 100% !important;
+    min-height: 0 !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    align-self: stretch !important;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    height: 100% !important;
+    min-height: 0 !important;
+    padding-block: 7px !important;
+  }
+
+  .sales-service-tile__icon {
+    width: 55px !important;
+    height: 55px !important;
+    min-height: 55px !important;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 49px !important;
+    height: 49px !important;
+  }
+
+  /* Secondary left-column panels stretch too, but less aggressively. */
+  .sales-pos-shell > .sales-note-field--tablet {
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+  }
+
+  .sales-pos-shell > .sales-note-field--tablet textarea {
+    height: 100% !important;
+    min-height: 66px !important;
+  }
+
+  .sales-pos-shell > .sales-invoice-overview--tablet {
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+  }
+
+  .sales-pos-shell > .sales-recent-card {
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    overflow: hidden !important;
+  }
+
+  .sales-recent-card .sales-recent-row {
+    min-height: 35px !important;
+  }
+
+  /* Right column fills the same viewport height; only this card may internally scroll if a long cart needs it. */
+  .sales-pos-shell > .sales-invoice-card {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    align-self: stretch !important;
+    overflow-y: auto !important;
+    padding: 10px !important;
+  }
+
+  /* Priority 2: enlarge the numeric keypad more than the surrounding controls. */
+  .sales-quick-amount-card {
+    padding: 11px !important;
+  }
+
+  .sales-quick-amount-input-row input,
+  .sales-quick-amount-preview {
+    min-height: 51px !important;
+  }
+
+  .sales-tablet-keypad {
+    gap: 7px !important;
+    margin-top: 9px !important;
+  }
+
+  .sales-tablet-keypad button {
+    min-height: 72px !important;
+    height: 72px !important;
+    font-size: 1.12rem !important;
+  }
+
+  /* Remaining checkout controls grow modestly so the whole right column feels balanced. */
+  .sales-summary {
+    margin-top: 14px !important;
+    padding-top: 14px !important;
+  }
+
+  .sales-summary > div,
+  .sales-discount-field {
+    padding-block: 4px !important;
+  }
+
+  .sales-payment-grid {
+    margin-top: 14px !important;
+    gap: 8px !important;
+  }
+
+  .sales-payment-button {
+    min-height: 70px !important;
+  }
+
+  .sales-secondary-actions {
+    margin-top: 9px !important;
+  }
+
+  .sales-secondary-actions button {
+    min-height: 54px !important;
+  }
+}
+
+
+/* Tablet: keep the entire right checkout column centered and fixed in one screen.
+   Left column is untouched; the right card itself must never scroll. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell > .sales-invoice-card {
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    scrollbar-width: none;
+  }
+
+  .sales-pos-shell > .sales-invoice-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sales-invoice-card > .sales-quick-amount-card,
+  .sales-invoice-card > .sales-summary,
+  .sales-invoice-card > .sales-payment-grid,
+  .sales-invoice-card > .sales-secondary-actions {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Product rows, when present, may manage their own compact area without making the whole right column scroll. */
+  .sales-invoice-card > .sales-cart-list {
+    flex: 0 1 auto;
+    min-height: 0;
+    max-height: 128px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+
+/* Tablet Sales: shrink the top app bar by ~10% to reclaim vertical space. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  body:has(.sales-pos-shell) .topbar {
+    min-height: 54px !important;
+    height: 54px !important;
+    padding: 6px 11px !important;
+    gap: 9px !important;
+  }
+
+  body:has(.sales-pos-shell) .shell-menu-button {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    font-size: 1.08rem !important;
+  }
+
+  body:has(.sales-pos-shell) .topbar__context {
+    gap: 1px !important;
+  }
+
+  body:has(.sales-pos-shell) .topbar__context strong {
+    font-size: .9rem !important;
+  }
+
+  body:has(.sales-pos-shell) .topbar__sub {
+    font-size: .72rem !important;
+  }
+
+  body:has(.sales-pos-shell) .role-badge {
+    min-height: 25px !important;
+    padding: 4px 8px !important;
+    font-size: .64rem !important;
+  }
+
+  body:has(.sales-pos-shell) .page-content {
+    height: calc(100dvh - 54px) !important;
+    max-height: calc(100dvh - 54px) !important;
+  }
+
+  .sales-search-overlay-stack {
+    max-height: calc(100dvh - 120px) !important;
+  }
+}
+
+
+/* Tablet: once Product items are chosen, reuse the 3x2 quick-service grid as a rolling six-item cart preview.
+   The newest six distinct products remain visible; adding a seventh shifts slots 2→1, 3→2, etc. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-service-grid--products {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .sales-selected-product-tile {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: grid;
+    grid-template-rows: minmax(42px, 1fr) auto auto;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    overflow: hidden;
+    border: 1px solid #eee3d6;
+    border-radius: 18px;
+    padding: 6px 8px 8px;
+    color: var(--brand-red-deep);
+    background: linear-gradient(180deg, #fffefa 0%, #fffaf3 100%);
+    box-shadow: 0 7px 20px rgb(80 48 34 / .065);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .sales-selected-product-tile:hover,
+  .sales-selected-product-tile:focus-visible {
+    border-color: #dfc995;
+    background: linear-gradient(180deg, #fffefa 0%, #fff7e9 100%);
+    box-shadow: 0 10px 24px rgb(80 48 34 / .095);
+  }
+
+  .sales-selected-product-tile:focus-visible {
+    outline: 3px solid rgb(211 161 59 / .22);
+    outline-offset: 2px;
+  }
+
+  .sales-selected-product-tile__image {
+    width: 54px !important;
+    height: 54px !important;
+    max-width: 54px;
+    max-height: 54px;
+    display: block;
+    place-self: center;
+    overflow: hidden;
+    border: 1px solid #eadfd5;
+    border-radius: 13px;
+    background: #fff8ed;
+    object-fit: cover;
+  }
+
+  .sales-selected-product-tile__name {
+    width: 100%;
+    overflow: hidden;
+    color: #7f201b;
+    font-size: .82rem;
+    font-weight: 850;
+    line-height: 1.08;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sales-selected-product-tile__price {
+    max-width: calc(100% - 34px);
+    overflow: hidden;
+    color: #4b3932;
+    font-size: .72rem;
+    line-height: 1.05;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sales-selected-product-tile__qty {
+    position: absolute;
+    right: 7px;
+    bottom: 6px;
+    min-width: 27px;
+    min-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfc98b;
+    border-radius: 999px;
+    padding: 2px 6px;
+    color: var(--brand-red-deep);
+    background: #fff2cf;
+    font-size: .66rem;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 2px 7px rgb(80 48 34 / .08);
+  }
+}
+
+
+/* Tablet: selected products are already represented in the 3x2 product tiles, so hide the duplicate cart list in the right column. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-pos-shell > .sales-invoice-card > .sales-cart-list {
+    display: none !important;
+  }
+}
+
+
+/* Tablet product tiles: visible remove X in the top-right corner without nesting buttons. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-selected-product-tile {
+    position: relative;
+  }
+
+  .sales-selected-product-tile__open {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .sales-selected-product-tile__open:focus-visible {
+    outline: 3px solid rgb(211 161 59 / .22);
+    outline-offset: -3px;
+  }
+
+  .sales-selected-product-tile__image,
+  .sales-selected-product-tile__name,
+  .sales-selected-product-tile__price {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__qty {
+    position: absolute !important;
+    right: 7px !important;
+    bottom: 6px !important;
+    z-index: 3;
+    min-width: 27px;
+    min-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfc98b;
+    border-radius: 999px;
+    padding: 2px 6px;
+    color: var(--brand-red-deep);
+    background: #fff2cf;
+    font-size: .66rem;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 2px 7px rgb(80 48 34 / .08);
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__remove {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 4;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2b7a8;
+    border-radius: 999px;
+    padding: 0;
+    color: #9b2c24;
+    background: #fff3ef;
+    box-shadow: 0 2px 7px rgb(80 48 34 / .10);
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .sales-selected-product-tile__remove:hover,
+  .sales-selected-product-tile__remove:focus-visible {
+    border-color: #cf8f79;
+    background: #ffe5dc;
+    outline: none;
+  }
+}
+
+
+/* Tablet product tile balance: keep remove X top-right and quantity badge bottom-right. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-selected-product-tile {
+    grid-template-rows: minmax(46px, 1fr) auto auto !important;
+    padding: 7px 38px 10px 10px !important;
+  }
+
+  .sales-selected-product-tile__image {
+    width: 56px !important;
+    height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+  }
+
+  .sales-selected-product-tile__name {
+    padding-inline: 2px;
+  }
+
+  .sales-selected-product-tile__price {
+    justify-self: start;
+    max-width: calc(100% - 6px) !important;
+    padding-left: 2px;
+    text-align: left;
+  }
+
+  .sales-selected-product-tile__qty {
+    right: 8px !important;
+    bottom: 8px !important;
+  }
+
+  .sales-selected-product-tile__remove {
+    top: 7px !important;
+    right: 7px !important;
+  }
+}
+
+
+/* Tablet product tiles: move image/name upward and let long names pan horizontally. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-selected-product-tile {
+    grid-template-rows: 58px 20px auto !important;
+    align-content: start !important;
+    gap: 1px !important;
+    padding: 3px 38px 8px 10px !important;
+  }
+
+  .sales-selected-product-tile__image {
+    align-self: start !important;
+    margin-top: 0 !important;
+  }
+
+  .sales-selected-product-tile__name {
+    width: 100% !important;
+    min-width: 0;
+    align-self: start !important;
+    overflow: hidden;
+    padding-inline: 0 !important;
+    text-align: left;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee {
+    width: 100%;
+    color: #7f201b;
+    font-size: .82rem;
+    font-weight: 850;
+    line-height: 1.08;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee > span {
+    padding-right: 10px;
+  }
+
+  .sales-selected-product-tile__price {
+    align-self: start !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Tablet product tiles: vertically balance image/name/price and keep the continuous ticker readable. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-selected-product-tile {
+    grid-template-rows: 56px 20px auto !important;
+    align-content: center !important;
+    gap: 2px !important;
+    padding: 6px 38px 6px 10px !important;
+  }
+
+  .sales-selected-product-tile__image {
+    align-self: center !important;
+    margin-top: 0 !important;
+  }
+
+  .sales-selected-product-tile__name {
+    align-self: center !important;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee {
+    overflow: hidden !important;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee.is-continuous > .sales-product-name-marquee__track {
+    --sales-product-name-loop-gap: 28px;
+  }
+
+  .sales-selected-product-tile__price {
+    align-self: center !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Tablet: show all selected products in swipeable 6-item pages.
+   Each page preserves the existing 3x2 tile layout and horizontal swipes stay inside this area. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-service-grid--products {
+    display: block !important;
+    overflow: hidden !important;
+    touch-action: pan-x;
+  }
+
+  .sales-selected-product-pages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .sales-selected-product-pages::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sales-selected-product-page {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+
+/* Tablet: replace the discount helper text with a compact red clear-order action. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-quick-amount-card > .sales-field-heading > div {
+    width: 100%;
+  }
+
+  .sales-clear-product-order {
+    min-height: 28px;
+    margin-left: 2px;
+    border: 1px solid #9f221b;
+    border-radius: 9px;
+    padding: 4px 10px;
+    color: #fff;
+    background: linear-gradient(180deg, #d7362b, #b42318);
+    box-shadow: 0 3px 8px rgb(180 35 24 / .18);
+    font-size: .72rem;
+    font-weight: 850;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .sales-clear-product-order:hover,
+  .sales-clear-product-order:focus-visible {
+    background: linear-gradient(180deg, #c92d24, #981b15);
+    outline: 2px solid rgb(180 35 24 / .18);
+    outline-offset: 2px;
+  }
+
+  .sales-clear-product-order:active {
+    transform: translateY(1px);
+  }
+}
+
+
+/* Tablet: slightly reduce the large summary amounts so long totals fit more comfortably. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-summary > div:first-child > strong {
+    font-size: 1.35rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.015em;
+    white-space: nowrap;
+  }
+
+  .sales-summary__payable > strong {
+    font-size: 1.35rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.015em;
+    white-space: nowrap;
+  }
+}
+
+
+/* Tablet POS action icons: same outline language as desktop/mobile, slightly compact for 1024x768. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-action-icon {
+    flex-basis: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+  }
+
+  .sales-action-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+  }
+}
+
+
+/* Tablet: keep mic and QR icons compact inside the 46px search actions. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-unified-search__mic .sales-action-icon,
+  .sales-scan-button .sales-action-icon {
+    flex-basis: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .sales-unified-search__mic .sales-action-icon svg,
+  .sales-scan-button .sales-action-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+    stroke-width: 1.8 !important;
+  }
+}
+
+
+/* Tablet: unified search icon replaces the old text glyph and matches Mic / QR styling. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-unified-search__ask {
+    font-size: inherit !important;
+    gap: 0 !important;
+  }
+
+  .sales-unified-search__ask::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .sales-unified-search__ask-label {
+    display: none !important;
+  }
+
+  .sales-search-icon {
+    transform: none !important;
+  }
+
+  .sales-search-icon .sales-action-icon,
+  .sales-unified-search__ask .sales-action-icon {
+    flex-basis: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .sales-search-icon .sales-action-icon svg,
+  .sales-unified-search__ask .sales-action-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+    stroke-width: 1.8 !important;
+  }
+}
+
+
+/* Desktop POS: reuse the approved tablet composition, scaled up for wide PC screens.
+   Business behavior stays unchanged; this block only changes the Sales presentation. */
+@media (min-width: 1181px) {
+  body:has(.sales-pos-shell) .page-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    height: calc(100dvh - 66px);
+    max-height: calc(100dvh - 66px);
+    overflow: hidden;
+    padding: 10px 16px 14px;
+  }
+
+  .sales-pos-shell {
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(500px, 0.82fr) !important;
+    grid-template-areas:
+      "search invoice"
+      "services invoice"
+      "note invoice"
+      "invoice-title invoice"
+      "recent invoice"
+      "chat invoice" !important;
+    grid-template-rows:
+      68px
+      minmax(260px, 1.65fr)
+      minmax(130px, .8fr)
+      58px
+      minmax(190px, 1.05fr)
+      0 !important;
+    align-items: stretch !important;
+    align-content: stretch !important;
+    column-gap: 12px !important;
+    row-gap: 8px !important;
+  }
+
+  .sales-pos-context {
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-search-area {
+    grid-area: search !important;
+    align-self: stretch !important;
+    position: relative !important;
+    z-index: 40 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 15px !important;
+    overflow: visible !important;
+  }
+
+  .sales-unified-search-row {
+    height: 52px !important;
+    min-height: 52px !important;
+    grid-template-columns: minmax(0, 1fr) 52px 52px 52px !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+  }
+
+  .sales-unified-search-row .sales-search-box,
+  .sales-unified-search__ask,
+  .sales-unified-search__mic,
+  .sales-scan-button {
+    box-sizing: border-box;
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .sales-unified-search-row .sales-search-box {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  .sales-unified-search__ask,
+  .sales-unified-search__mic,
+  .sales-scan-button {
+    grid-row: 1 !important;
+    width: 52px !important;
+    min-width: 52px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sales-unified-search__ask {
+    grid-column: 2 !important;
+    gap: 0 !important;
+    font-size: inherit !important;
+  }
+
+  .sales-unified-search__ask::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .sales-unified-search__ask-label,
+  .sales-scan-button > strong {
+    display: none !important;
+  }
+
+  .sales-unified-search__mic {
+    grid-column: 3 !important;
+  }
+
+  .sales-scan-button {
+    grid-column: 4 !important;
+  }
+
+  .sales-search-icon .sales-action-icon,
+  .sales-unified-search__ask .sales-action-icon,
+  .sales-unified-search__mic .sales-action-icon,
+  .sales-scan-button .sales-action-icon {
+    flex-basis: 25px !important;
+    width: 25px !important;
+    height: 25px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .sales-search-icon .sales-action-icon svg,
+  .sales-unified-search__ask .sales-action-icon svg,
+  .sales-unified-search__mic .sales-action-icon svg,
+  .sales-scan-button .sales-action-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .sales-search-area .sales-search-overlay-stack {
+    position: absolute !important;
+    top: calc(100% - 1px);
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    max-height: min(62dvh, 620px);
+    overflow: visible;
+  }
+
+  .sales-search-area .sales-search-results,
+  .sales-search-area .sales-chat-card {
+    margin-top: 0 !important;
+  }
+
+  .sales-search-dismiss-layer {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+  }
+
+  .sales-pos-shell > .sales-search-area {
+    z-index: 10000 !important;
+  }
+
+  .sales-pos-shell > .sales-service-grid {
+    grid-area: services !important;
+    align-self: stretch !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .sales-service-tile,
+  .sales-service-tile--blue,
+  .sales-service-tile--violet,
+  .sales-service-tile--mint,
+  .sales-service-tile--amber,
+  .sales-service-tile--rose,
+  .sales-service-tile--slate {
+    height: 100% !important;
+    min-height: 0 !important;
+    gap: 7px !important;
+    padding: 12px 10px !important;
+    border-radius: 20px !important;
+  }
+
+  .sales-service-tile__icon {
+    width: 78px !important;
+    height: 78px !important;
+    min-height: 78px !important;
+  }
+
+  .sales-service-tile__icon svg {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .sales-service-tile__copy strong {
+    font-size: 1.02rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .sales-pos-shell > .sales-note-field--tablet {
+    display: grid !important;
+    grid-area: note !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    grid-template-rows: auto minmax(0, 1fr) auto !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 11px 13px !important;
+    border-radius: 14px !important;
+  }
+
+  .sales-pos-shell > .sales-note-field--tablet textarea {
+    height: 100% !important;
+    min-height: 78px !important;
+    resize: none;
+    font-size: .94rem;
+  }
+
+  .sales-pos-shell > .sales-invoice-overview--tablet {
+    display: grid !important;
+    grid-area: invoice-title !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    grid-template-columns: minmax(0, 1fr) minmax(210px, .85fr);
+    align-items: stretch;
+    gap: 10px;
+    margin: 0 !important;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet {
+    display: flex !important;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    border: 1px solid var(--ui-border);
+    border-radius: 13px;
+    background: var(--ui-surface);
+    box-shadow: var(--ui-shadow-sm);
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet > div {
+    min-width: 0;
+    display: grid;
+    gap: 1px;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet strong {
+    color: #4b3932;
+    font-size: 1rem;
+    line-height: 1.08;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-title--tablet span:last-child {
+    color: #7c6d66;
+    font-size: .72rem;
+    line-height: 1.08;
+  }
+
+  .sales-invoice-overview--tablet .sales-invoice-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    font-size: 1rem;
+  }
+
+  .sales-invoice-overview--tablet .sales-customer-picker--tablet {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+  }
+
+  .sales-invoice-overview--tablet .sales-customer-picker--tablet select {
+    width: 100% !important;
+    min-height: 48px !important;
+    height: 100%;
+    padding: 7px 11px !important;
+    font-size: .92rem;
+  }
+
+  .sales-pos-shell > .sales-recent-card {
+    grid-area: recent !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    margin: 0 !important;
+    padding: 11px !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+  }
+
+  .sales-recent-card .sales-recent-header {
+    gap: 8px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .sales-recent-card .sales-recent-header > div {
+    gap: 8px !important;
+  }
+
+  .sales-recent-card .sales-recent-icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    border-radius: 9px !important;
+    font-size: 1rem !important;
+  }
+
+  .sales-recent-card .sales-recent-header h2 {
+    font-size: .98rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .sales-recent-card .sales-recent-header h2 small {
+    font-size: .7rem !important;
+  }
+
+  .sales-recent-card .sales-recent-header > button {
+    min-height: 34px !important;
+    padding: 4px 9px !important;
+    border-radius: 9px !important;
+    font-size: .74rem !important;
+  }
+
+  .sales-recent-card .sales-recent-list {
+    border-radius: 10px !important;
+  }
+
+  .sales-recent-card .sales-recent-row {
+    grid-template-columns: minmax(0, 1fr) auto auto auto !important;
+    gap: 6px !important;
+    min-height: 39px !important;
+    padding: 5px 7px !important;
+  }
+
+  .sales-recent-card .sales-recent-row time,
+  .sales-recent-card .sales-recent-row__qty,
+  .sales-recent-card .sales-recent-row__main small,
+  .sales-recent-card .sales-recent-note {
+    display: none !important;
+  }
+
+  .sales-recent-card .sales-recent-row__main strong,
+  .sales-recent-card .sales-recent-row__amount {
+    font-size: .78rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .sales-recent-card .sales-status {
+    min-height: 22px !important;
+    padding: 2px 6px !important;
+    font-size: .62rem !important;
+  }
+
+  .sales-recent-card .sales-link-button {
+    min-width: 36px !important;
+    min-height: 30px !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    font-size: .66rem !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card {
+    grid-area: chat !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card:not(:has(
+    .sales-chat-voice-status,
+    .sales-chat-candidates,
+    .sales-chat-market,
+    .sales-chat-market-error,
+    .sales-chat-confirm,
+    .sales-chat-understanding,
+    .sales-chat-manual-button,
+    .sales-chat-response > *
+  )) {
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-invoice-card {
+    grid-area: invoice !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    align-self: stretch !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+    scrollbar-width: none;
+  }
+
+  .sales-pos-shell > .sales-invoice-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sales-invoice-card > .sales-note-field--invoice,
+  .sales-invoice-card .sales-invoice-title--invoice,
+  .sales-invoice-card .sales-customer-picker,
+  .sales-invoice-card .sales-clear-cart,
+  .sales-invoice-card .sales-empty--cart,
+  .sales-invoice-card .sales-invoice-header,
+  .sales-pos-shell > .sales-invoice-card > .sales-cart-list {
+    display: none !important;
+  }
+
+  .sales-invoice-card > .sales-quick-amount-card,
+  .sales-invoice-card > .sales-summary,
+  .sales-invoice-card > .sales-payment-grid,
+  .sales-invoice-card > .sales-secondary-actions {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .sales-quick-amount-card {
+    padding: 15px !important;
+    border-radius: 15px !important;
+  }
+
+  .sales-quick-amount-card .sales-field-heading strong {
+    font-size: 1rem;
+  }
+
+  .sales-quick-amount-input-row input,
+  .sales-quick-amount-preview {
+    min-height: 58px !important;
+    font-size: 1.05rem;
+  }
+
+  .sales-tablet-keypad {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px !important;
+    margin-top: 11px !important;
+  }
+
+  .sales-tablet-keypad button {
+    height: 82px !important;
+    min-height: 82px !important;
+    border: 1px solid #dfc98b;
+    border-radius: 12px;
+    color: var(--brand-red-deep);
+    background: #fffaf0;
+    font-size: 1.28rem !important;
+    font-weight: 850;
+    cursor: pointer;
+  }
+
+  .sales-tablet-keypad button:hover:not(:disabled) {
+    background: var(--brand-gold-soft);
+  }
+
+  .sales-tablet-keypad button:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  .sales-tablet-keypad button:disabled {
+    opacity: .42;
+    cursor: default;
+  }
+
+  .sales-summary {
+    margin-top: 18px !important;
+    padding-top: 16px !important;
+  }
+
+  .sales-summary > div,
+  .sales-discount-field {
+    padding-block: 7px !important;
+  }
+
+  .sales-summary > div:first-child > strong,
+  .sales-summary__payable > strong {
+    font-size: 1.55rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.015em;
+    white-space: nowrap;
+  }
+
+  .sales-summary span,
+  .sales-discount-label {
+    font-size: .8rem !important;
+  }
+
+  .sales-payment-grid {
+    margin-top: 18px !important;
+    gap: 10px !important;
+  }
+
+  .sales-payment-button {
+    min-height: 80px !important;
+    padding: 11px 14px !important;
+  }
+
+  .sales-payment-button strong {
+    font-size: 1rem !important;
+  }
+
+  .sales-payment-button small {
+    font-size: .74rem !important;
+  }
+
+  .sales-secondary-actions {
+    margin-top: 11px !important;
+  }
+
+  .sales-secondary-actions button {
+    min-height: 60px !important;
+  }
+
+  .sales-action-icon {
+    flex-basis: 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 11px !important;
+  }
+
+  .sales-action-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .sales-unified-search__mic .sales-action-icon,
+  .sales-scan-button .sales-action-icon,
+  .sales-search-icon .sales-action-icon,
+  .sales-unified-search__ask .sales-action-icon {
+    flex-basis: 25px !important;
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 0 !important;
+  }
+
+  .sales-clear-product-order {
+    min-height: 32px;
+    margin-left: 4px;
+    border: 1px solid #9f221b;
+    border-radius: 9px;
+    padding: 5px 12px;
+    color: #fff;
+    background: linear-gradient(180deg, #d7362b, #b42318);
+    box-shadow: 0 3px 8px rgb(180 35 24 / .18);
+    font-size: .76rem;
+    font-weight: 850;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .sales-service-grid--products {
+    display: block !important;
+    overflow: hidden !important;
+  }
+
+  .sales-selected-product-pages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .sales-selected-product-pages::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sales-selected-product-page {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .sales-selected-product-tile {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 74px 24px auto !important;
+    align-content: center !important;
+    gap: 4px !important;
+    overflow: hidden;
+    border: 1px solid #eee3d6;
+    border-radius: 20px;
+    padding: 9px 46px 9px 14px !important;
+    color: var(--brand-red-deep);
+    background: linear-gradient(180deg, #fffefa 0%, #fffaf3 100%);
+    box-shadow: 0 7px 20px rgb(80 48 34 / .065);
+    text-align: center;
+  }
+
+  .sales-selected-product-tile__open {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .sales-selected-product-tile__open:focus-visible {
+    outline: 3px solid rgb(211 161 59 / .22);
+    outline-offset: -3px;
+  }
+
+  .sales-selected-product-tile__image {
+    position: relative;
+    z-index: 2;
+    width: 72px !important;
+    height: 72px !important;
+    max-width: 72px !important;
+    max-height: 72px !important;
+    place-self: center;
+    overflow: hidden;
+    border: 1px solid #eadfd5;
+    border-radius: 15px;
+    background: #fff8ed;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__name {
+    position: relative;
+    z-index: 2;
+    width: 100% !important;
+    min-width: 0;
+    overflow: hidden;
+    color: #7f201b;
+    font-size: .92rem;
+    font-weight: 850;
+    line-height: 1.08;
+    text-align: left;
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee {
+    width: 100%;
+    overflow: hidden !important;
+    color: #7f201b;
+    font-size: .92rem;
+    font-weight: 850;
+    line-height: 1.08;
+  }
+
+  .sales-selected-product-tile__name > .sales-product-name-marquee.is-continuous > .sales-product-name-marquee__track {
+    --sales-product-name-loop-gap: 34px;
+  }
+
+  .sales-selected-product-tile__price {
+    position: relative;
+    z-index: 2;
+    justify-self: start;
+    max-width: calc(100% - 8px) !important;
+    overflow: hidden;
+    color: #4b3932;
+    font-size: .82rem;
+    line-height: 1.05;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__qty {
+    position: absolute !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    z-index: 3;
+    min-width: 31px;
+    min-height: 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfc98b;
+    border-radius: 999px;
+    padding: 2px 7px;
+    color: var(--brand-red-deep);
+    background: #fff2cf;
+    font-size: .72rem;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .sales-selected-product-tile__remove {
+    position: absolute;
+    top: 9px !important;
+    right: 9px !important;
+    z-index: 4;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2b7a8;
+    border-radius: 999px;
+    padding: 0;
+    color: #9b2c24;
+    background: #fff3ef;
+    box-shadow: 0 2px 7px rgb(80 48 34 / .10);
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .sales-selected-product-tile__remove:hover,
+  .sales-selected-product-tile__remove:focus-visible {
+    border-color: #cf8f79;
+    background: #ffe5dc;
+    outline: none;
+  }
+}
+
+
+/* Numpad latency pass: react on pointer-down with no tap animation/transition delay.
+   C, 0 and backspace use the same immediate path as the other digits. */
+.sales-tablet-keypad button {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: none !important;
+}
+
+.sales-tablet-keypad button:active:not(:disabled) {
+  transform: none !important;
+}
+
+
+/* Completed-sale notice: keep only the requested product/SKU/amount copy compact.
+   Receipt print and paper-size controls keep their existing behavior and styling. */
+.sales-topbar-notices .sales-order-notice {
+  min-width: 0;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  padding-block: 4px !important;
+}
+
+.sales-topbar-notices .sales-order-notice__summary {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  color: inherit;
+  font-size: .68rem !important;
+  font-weight: 700;
+  line-height: 1.15 !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sales-topbar-notices .sales-order-notice > .receipt-print-control {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .sales-topbar-notices .sales-order-notice {
+    gap: 5px;
+    padding-inline: 6px !important;
+  }
+
+  .sales-topbar-notices .sales-order-notice__summary {
+    font-size: .58rem !important;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .sales-topbar-notices .sales-order-notice__summary {
+    font-size: .64rem !important;
+  }
+}
+
+@media (min-width: 1181px) {
+  .sales-topbar-notices .sales-order-notice__summary {
+    font-size: .7rem !important;
+  }
+}

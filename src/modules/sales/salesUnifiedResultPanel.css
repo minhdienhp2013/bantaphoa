@@ -1,0 +1,108 @@
+/* UI-01: normal Search Core results + AI/alias fallback read as one compact mobile result window. */
+@media (max-width: 760px) {
+  /* Leave roughly 1 cm on each side of the phone so there is a clear outside-tap gutter. */
+  .sales-search-results,
+  .sales-pos-shell > .sales-chat-card {
+    width: min(calc(100vw - 20mm), 100%) !important;
+    margin-inline: auto !important;
+  }
+
+  /* The result panel should sit directly below the search controls, not as a separate card. */
+  .sales-pos-shell > .sales-search-area {
+    padding-bottom: 0 !important;
+  }
+
+  .sales-search-results {
+    padding: 4px !important;
+    border: 1px solid #ddd4c7 !important;
+    border-radius: 11px !important;
+    background: #fff !important;
+    box-shadow: 0 5px 16px rgb(56 43 25 / .08) !important;
+  }
+
+  /* AI/alias is the lower section of the same result window. */
+  .sales-pos-shell > .sales-chat-card {
+    margin-top: -15px !important; /* cancels the POS shell gap */
+    padding: 5px 6px 6px !important;
+    border: 1px solid #ddd4c7 !important;
+    border-radius: 11px !important;
+    background: #fffaf0 !important;
+    box-shadow: 0 5px 16px rgb(56 43 25 / .08) !important;
+  }
+
+  /* When both result sources are visible, fuse their touching edges into one outer card. */
+  .sales-pos-shell:has(.sales-search-results > .sales-search-result):has(> .sales-chat-card .sales-chat-response > p > strong)
+    .sales-search-results:not(.is-search-cluster-dismissed) {
+    border-bottom-color: #ead9a2 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .sales-pos-shell:has(.sales-search-results > .sales-search-result):has(> .sales-chat-card .sales-chat-response > p > strong)
+    > .sales-chat-card:not(.is-search-cluster-dismissed) {
+    border-top: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    box-shadow: 0 6px 16px rgb(56 43 25 / .08) !important;
+  }
+
+  /* Keep normal Search Core rows visually first and neutral. */
+  .sales-search-result {
+    background: #fff !important;
+  }
+
+  /* AI/alias remains clearly marked by a soft yellow lower section, but is no longer a second window. */
+  .sales-pos-shell > .sales-chat-card .sales-chat-response,
+  .sales-pos-shell > .sales-chat-card .sales-chat-resolved-product,
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidates button {
+    border-color: #dfbd55 !important;
+    background: #fff4c9 !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response {
+    position: relative;
+    padding-top: 22px !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response::before {
+    content: 'AI / Alias';
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    color: #8a651d;
+    font-size: .62rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+
+
+  /* Keep the search result window product-only on phones: remove informational copy, preserve product cards/actions. */
+  .sales-pos-shell > .sales-chat-card > .sales-chat-voice-status,
+  .sales-pos-shell > .sales-chat-card > .sales-chat-understanding,
+  .sales-pos-shell > .sales-chat-card .sales-chat-response > p {
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response {
+    padding-top: 6px !important;
+  }
+
+  .sales-pos-shell > .sales-chat-card .sales-chat-response:not(:has(.sales-chat-resolved-product)) {
+    display: none !important;
+  }
+
+  /* The compact window still scrolls internally instead of stretching the whole POS. */
+  .sales-search-results,
+  .sales-pos-shell > .sales-chat-card,
+  .sales-pos-shell > .sales-chat-card .sales-chat-candidates {
+    overscroll-behavior: contain;
+  }
+}
