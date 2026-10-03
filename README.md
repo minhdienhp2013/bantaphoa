@@ -26,6 +26,8 @@ Installer xuất vào `release/`. Bản Linux cần Wine nếu đóng gói Windo
 
 Tạo Firebase Project mới, bật Authentication và Realtime Database. Copy `.env.example` thành `.env.local`, chỉ điền cấu hình project tạp hóa. Không commit `.env.local`. Áp dụng `database.rules.json` vào project mới sau khi cấu hình tài khoản Owner. Không cấu hình sẽ hiển thị trang hướng dẫn thay vì khởi tạo Firebase.
 
+Owner đầu tiên được tạo bằng Firebase Console/Admin trong **project mới**: tạo tài khoản Authentication, lấy UID rồi tạo `/users/<UID mới>` trong Realtime Database với `uid` đúng UID đó, `displayName` là tên chủ cửa hàng, `role: "owner"`, `active: true`, `createdAt` và `updatedAt` là thời gian mili giây (giá trị `Date.now()`). Có thể thêm `email`. Console/Admin bỏ qua client Rules; không mở quyền database để bootstrap. Sau đó đăng nhập Owner và tạo Staff trong ứng dụng. Client không thể tự tạo Owner hoặc nâng Staff thành Owner; Owner hiện có không thể tự hạ vai trò/khóa mình qua ứng dụng.
+
 Cloudflare Pages dùng project mới, repo này, lệnh `npm run build`, thư mục output `dist`. Chỉ cấu hình dịch vụ ảnh Worker/R2 riêng nếu cần.
 
 Không dùng Firebase, Pages, Worker/R2 hoặc dữ liệu production của Minh Điến. Bản này không thay đổi repo cũ.

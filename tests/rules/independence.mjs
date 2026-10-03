@@ -59,3 +59,18 @@ test('service sale cannot be written into product sales', async () => {
   updates['sales/s1'] = { ...sale, saleKind: 'quick_service', serviceCategory: 'photo' };
   await assertFails(update(ref(env.authenticatedContext('staff').database()), updates));
 });
+
+test('only existing owner can manage staff; no client owner bootstrap or promotion', async () => {
+  const ownerDb = env.authenticatedContext('owner').database();
+  const staffDb = env.authenticatedContext('staff').database();
+  const profile = { uid: 'new-user', displayName: 'New', role: 'owner', active: true, createdAt: 1, updatedAt: 1 };
+  await assertFails(set(ref(env.authenticatedContext('new-user').database(), 'users/new-user'), profile));
+  await assertFails(set(ref(ownerDb, 'users/new-user'), profile));
+  await assertFails(update(ref(staffDb, 'users/staff'), { role: 'owner' }));
+  await assertFails(update(ref(staffDb, 'users/staff/permissions'), { reports: true }));
+  await assertSucceeds(set(ref(ownerDb, 'users/new-user'), { ...profile, role: 'staff', permissions: { sales: true } }));
+  await assertFails(update(ref(ownerDb, 'users/new-user'), { role: 'owner', permissions: null }));
+  await assertSucceeds(update(ref(ownerDb, 'users/owner'), { displayName: 'Chủ cửa hàng mới' }));
+  await assertFails(update(ref(ownerDb, 'users/owner'), { role: 'staff' }));
+  await assertFails(update(ref(ownerDb, 'users/owner'), { active: false }));
+});

@@ -7,10 +7,9 @@ import {
   type ReactNode,
 } from 'react';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
-import { get, onValue, ref, set } from 'firebase/database';
+import { get, onValue, ref } from 'firebase/database';
 import { auth, db } from '../firebase/client';
 import { clearReferenceCache } from '../shared/data/referenceDataCache';
-import { isOwnerUid } from '../config/security';
 import type { AppUser } from '../types/models';
 import { normalizeModulePermissions } from './permissions';
 
@@ -48,7 +47,7 @@ function normalizeProfile(profile: AppUser): AppUser {
   return { ...profile, permissions: normalizeModulePermissions(profile.permissions) };
 }
 
-async function loadOrBootstrapProfile(user: User): Promise<AppUser> {
+async function loadProfile(user: User): Promise<AppUser> {
   if (!db) {
     throw new Error('Realtime Database chưa được cấu hình cho ứng dụng.');
   }
@@ -64,23 +63,8 @@ async function loadOrBootstrapProfile(user: User): Promise<AppUser> {
     return normalizeProfile(profile);
   }
 
-  if (!isOwnerUid(user.uid)) {
-    throw new Error('Tài khoản chưa được Chủ cửa hàng cấp quyền sử dụng hệ thống.');
-  }
+  throw new Error('Tài khoản chưa được Chủ cửa hàng cấp quyền sử dụng hệ thống.');
 
-  const now = Date.now();
-  const ownerProfile: AppUser = {
-    uid: user.uid,
-    displayName: user.displayName?.trim() || 'Chủ cửa hàng',
-    role: 'owner',
-    active: true,
-    createdAt: now,
-    updatedAt: now,
-    ...(user.email ? { email: user.email } : {}),
-  };
-
-  await set(userRef, ownerProfile);
-  return ownerProfile;
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -126,7 +110,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       try {
-        const profile = await loadOrBootstrapProfile(user);
+        const profile = await loadProfile(user);
         if (cancelled) return;
         applyProfile(profile);
 
