@@ -1,0 +1,9 @@
+.vnd-money-input{display:grid;gap:6px;min-width:0}
+:where(.vnd-money-input__label){display:block;color:#344054;font-size:.86rem;font-weight:700}
+.vnd-money-input .vnd-money-input__field{width:100%;min-width:0;min-height:44px;appearance:textfield;-moz-appearance:textfield}
+.vnd-money-input__field::-webkit-outer-spin-button,.vnd-money-input__field::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.vnd-money-input__steps{display:grid;grid-template-columns:repeat(2,minmax(44px,1fr));gap:6px;min-width:0}
+.vnd-money-input__step{min-width:44px;min-height:44px;border:1px solid #cfd7e3;border-radius:8px;background:#fff;color:#344054;font:inherit;font-weight:800;cursor:pointer}
+.vnd-money-input__step:hover:not(:disabled){background:#f1f5f9}
+.vnd-money-input__step:focus-visible{outline:3px solid rgba(49,105,198,.3);outline-offset:2px}
+.vnd-money-input__step:disabled{cursor:not-allowed;opacity:.55}

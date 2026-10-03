@@ -1,0 +1,130 @@
+.camera-permission-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: rgb(35 27 23 / .58);
+  backdrop-filter: blur(3px);
+}
+
+.camera-permission-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2210;
+  width: min(92vw, 520px);
+  max-height: min(86dvh, 680px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border: 1px solid #e4d7ca;
+  border-radius: 18px;
+  color: var(--ui-text);
+  background: #fffdfa;
+  box-shadow: 0 28px 80px rgb(35 27 23 / .34);
+}
+
+.camera-permission-dialog__header {
+  position: relative;
+  min-width: 0;
+  padding: 16px 70px 13px 16px;
+  border-bottom: 1px solid #eadfd5;
+  background: linear-gradient(180deg, #fffdf9, #fff8ef);
+}
+
+.camera-permission-dialog__header span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ui-text-muted);
+  font-size: .72rem;
+  font-weight: 780;
+}
+
+.camera-permission-dialog__header h2 {
+  margin: 0;
+  color: var(--brand-red-deep);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.camera-permission-dialog__close {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #eadfd5;
+  border-radius: 11px;
+  padding: 0;
+  color: #705d55;
+  background: #fff;
+  font: inherit;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.camera-permission-dialog__body {
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.camera-permission-dialog__body p {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.camera-permission-dialog__hint {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #5d5049;
+  background: #fff4df;
+}
+
+.camera-permission-dialog__error {
+  padding: 10px 12px;
+  border: 1px solid #efc4be;
+  border-radius: 10px;
+  color: #8e2f28;
+  background: #fff2ef;
+}
+
+.camera-permission-dialog__actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr);
+  gap: 8px;
+  padding: 11px 14px calc(11px + env(safe-area-inset-bottom));
+  border-top: 1px solid #eadfd5;
+  background: rgb(255 253 250 / .98);
+}
+
+.camera-permission-dialog__actions .button {
+  min-height: 44px;
+}
+
+@media (max-width: 760px) {
+  .camera-permission-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 16px;
+  }
+
+  .camera-permission-dialog__header {
+    padding: 13px 64px 11px 13px;
+  }
+
+  .camera-permission-dialog__body {
+    padding: 13px;
+  }
+
+  .camera-permission-dialog__actions {
+    grid-template-columns: 1fr;
+    padding-inline: 12px;
+  }
+}
