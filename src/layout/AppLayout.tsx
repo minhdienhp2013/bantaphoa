@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { hasModulePermission } from '../auth/permissions';
-import brandLogo from '../assets/minh-dien-logo.jpg';
 import NavigationIcon, { type NavigationIconName } from './NavigationIcon';
 import type { AppModulePermission } from '../types/models';
 
@@ -34,7 +33,7 @@ const navigation: NavigationItem[] = [
 
 const pageDescriptions: Record<string, string> = {
   '/dashboard': 'Theo dõi nhanh hoạt động của cửa hàng',
-  '/sales': 'Power by TienHoang',
+  '/sales': 'Bán hàng nhanh bằng mã vạch',
   '/products': 'Danh mục hàng hóa, giá và thông tin sản phẩm',
   '/customers': 'Quản lý khách hàng và thông tin liên hệ',
   '/suppliers': 'Quản lý nhà cung cấp',
@@ -48,7 +47,6 @@ const pageDescriptions: Record<string, string> = {
   '/reports': 'Đơn hàng, báo cáo kinh doanh và sao lưu dữ liệu',
   '/users': 'Phân quyền tài khoản sử dụng',
   '/settings': 'Thiết lập hệ thống',
-  '/ui-lab': 'Thử nghiệm Design System nội bộ',
 };
 
 const FOCUSABLE_SELECTOR = [
@@ -61,10 +59,6 @@ const FOCUSABLE_SELECTOR = [
 ].join(',');
 
 function getPageContext(pathname: string) {
-  if (pathname === '/ui-lab') {
-    return { title: 'UI Lab', description: pageDescriptions['/ui-lab'] };
-  }
-
   const item = navigation.find((candidate) =>
     candidate.to === '/' ? pathname === '/' : pathname === candidate.to || pathname.startsWith(`${candidate.to}/`),
   );
@@ -182,10 +176,10 @@ export default function AppLayout() {
     <div className="workspace">
       <aside className="sidebar sidebar--desktop" aria-label="Thanh điều hướng chính">
         <div className="sidebar__brand">
-          <img className="sidebar__brand-logo" src={brandLogo} alt="" aria-hidden="true" />
+          <span className="sidebar__brand-logo" aria-hidden="true">🛒</span>
           <div>
             <p className="sidebar__eyebrow">Quản lý bán hàng</p>
-            <h2 className="sidebar__title">Minh Điến</h2>
+            <h2 className="sidebar__title">Bán Tạp Hóa</h2>
           </div>
         </div>
 
@@ -251,10 +245,10 @@ export default function AppLayout() {
           >
             <header className="mobile-drawer__header">
               <div className="sidebar__brand">
-                <img className="sidebar__brand-logo" src={brandLogo} alt="" aria-hidden="true" />
+                <span className="sidebar__brand-logo" aria-hidden="true">🛒</span>
                 <div>
                   <p className="sidebar__eyebrow">Quản lý bán hàng</p>
-                  <strong>Minh Điến</strong>
+                  <strong>Bán Tạp Hóa</strong>
                 </div>
               </div>
               <button

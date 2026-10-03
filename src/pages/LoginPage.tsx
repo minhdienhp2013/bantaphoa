@@ -2,7 +2,6 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { FirebaseError } from 'firebase/app';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
-import brandLogo from '../assets/minh-dien-logo.jpg';
 import { auth } from '../firebase/client';
 import { useAuth } from '../auth/AuthContext';
 import AuthLoadingScreen from '../auth/AuthLoadingScreen';
@@ -80,9 +79,9 @@ export default function LoginPage() {
     <main className="login-screen">
       <section className="auth-card">
         <div className="brand-login">
-          <img className="brand-login__logo" src={brandLogo} alt="Logo Minh Điến" />
-          <p className="brand-login__name">Minh Điến</p>
-          <p className="brand-login__tagline">Nâng niu giấc ngủ – kiến tạo tổ ấm</p>
+          <span className="brand-login__logo" aria-hidden="true">🛒</span>
+          <p className="brand-login__name">Bán Tạp Hóa</p>
+          <p className="brand-login__tagline">Bán nhanh · Quản lý kho chính xác</p>
         </div>
 
         <p className="eyebrow">Hệ thống quản lý bán hàng</p>

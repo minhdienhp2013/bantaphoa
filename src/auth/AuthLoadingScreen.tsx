@@ -1,4 +1,3 @@
-import brandLogo from '../assets/minh-dien-loading-hq.webp';
 import './authLoadingScreen.css';
 
 type AuthLoadingScreenProps = {
@@ -12,7 +11,7 @@ export default function AuthLoadingScreen({ displayName }: AuthLoadingScreenProp
     <main className="auth-loading-screen" role="status" aria-live="polite" aria-busy="true">
       <section className="auth-loading-screen__content">
         <div className="auth-loading-screen__artwork" aria-hidden="true">
-          <img src={brandLogo} alt="" />
+          <span aria-hidden="true">🛒</span>
         </div>
 
         <div className="auth-loading-screen__copy">
@@ -24,7 +23,7 @@ export default function AuthLoadingScreen({ displayName }: AuthLoadingScreenProp
           </span>
         </div>
 
-        <small className="auth-loading-screen__powered">Power by TienHoang</small>
+        <small className="auth-loading-screen__powered">Bán Tạp Hóa</small>
       </section>
     </main>
   );

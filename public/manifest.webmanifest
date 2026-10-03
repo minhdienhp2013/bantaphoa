@@ -1,7 +1,7 @@
 {
-  "name": "Minh Điến",
-  "short_name": "Minh Điến",
-  "description": "Phần mềm quản lý bán hàng Minh Điến",
+  "name": "Bán Tạp Hóa",
+  "short_name": "Tạp Hóa",
+  "description": "Phần mềm quản lý bán hàng tạp hóa",
   "lang": "vi",
   "start_url": "/",
   "scope": "/",
@@ -10,16 +10,10 @@
   "theme_color": "#a33b32",
   "icons": [
     {
-      "src": "/minh-dien-icon.svg",
+      "src": "/app-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/minh-dien-maskable.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }

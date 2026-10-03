@@ -27,7 +27,6 @@ import SuppliersPage from './modules/suppliers/SuppliersPage';
 import UsersPage from './modules/users/UsersPage';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
-import UiLabPage from './pages/UiLabPage';
 import './tabletUiPolish.css';
 
 function HomeRoute() {
@@ -64,7 +63,6 @@ export default function App() {
               <Route element={<RequirePermission permission="dashboard" />}>
                 <Route path="dashboard" element={<DashboardPage />} />
               </Route>
-              <Route path="ui-lab" element={<UiLabPage />} />
 
               <Route element={<RequirePermission permission="products" />}>
                 <Route path="products" element={<ProductsWorkspacePage />} />

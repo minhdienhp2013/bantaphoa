@@ -1,5 +1,5 @@
 {
-  "name": "quan-ly-ban-hang-web",
+  "name": "ban-tap-hoa",
   "private": true,
   "version": "0.3.0",
   "type": "module",
@@ -38,8 +38,8 @@
   },
   "main": "electron/main.cjs",
   "build": {
-    "appId": "vn.minhdien.sales",
-    "productName": "Minh Điến - Quản lý bán hàng",
+    "appId": "vn.bantaphoa.sales",
+    "productName": "Bán Tạp Hóa - Quản lý bán hàng",
     "directories": {
       "output": "release",
       "buildResources": "build"
@@ -54,7 +54,7 @@
       "target": [
         "nsis"
       ],
-      "artifactName": "Minh-Dien-Quan-Ly-Ban-Hang-${version}-Setup.${ext}",
+      "artifactName": "Ban-Tap-Hoa-${version}-Setup.${ext}",
       "icon": "build/icon.ico"
     },
     "nsis": {
@@ -62,10 +62,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Minh Điến - Quản lý bán hàng",
-      "installerIcon": "build/icon.ico",
-      "uninstallerIcon": "build/icon.ico",
-      "installerHeaderIcon": "build/icon.ico"
+      "shortcutName": "Bán Tạp Hóa - Quản lý bán hàng",
     }
   }
 }

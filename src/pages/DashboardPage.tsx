@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { hasModulePermission } from '../auth/permissions';
-import BusinessAiAssistant from '../modules/dashboard/BusinessAiAssistant';
 import DashboardRankings from '../modules/dashboard/DashboardRankings';
 import DashboardRevenueChart from '../modules/dashboard/DashboardRevenueChart';
 import DashboardStockWarnings from '../modules/dashboard/DashboardStockWarnings';
@@ -81,7 +80,6 @@ export default function DashboardPage() {
   const [data, setData] = useState<DashboardDataBundle | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [assistantOpen, setAssistantOpen] = useState(false);
 
   const ranges = useMemo(() => {
     const now = new Date();
@@ -160,16 +158,6 @@ export default function DashboardPage() {
           </p>
         </div>
         <div className="dashboard-header-actions">
-          {appUser.role === 'owner' ? (
-            <button
-              className="dashboard-ai-button"
-              type="button"
-              onClick={() => setAssistantOpen(true)}
-            >
-              <span aria-hidden="true">✦</span>
-              Trợ lý kinh doanh AI
-            </button>
-          ) : null}
           <button
             className="dashboard-refresh"
             type="button"
@@ -384,10 +372,6 @@ export default function DashboardPage() {
           ) : null}
 
         </>
-      ) : null}
-
-      {appUser.role === 'owner' ? (
-        <BusinessAiAssistant open={assistantOpen} onClose={() => setAssistantOpen(false)} />
       ) : null}
     </div>
   );

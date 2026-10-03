@@ -1734,8 +1734,8 @@ export default function SalesPage() {
         />
       ) : null}
 
-      <section className="sales-search-area" aria-label="Tìm hàng hóa và hỏi nhanh">
-        <form className="sales-search-row sales-unified-search-row" onSubmit={handleSalesChatSubmit}>
+      <section className="sales-search-area" aria-label="Tìm hàng hóa">
+        <div className="sales-search-row sales-unified-search-row">
           <div className="sales-search-box">
             <span className="sales-search-icon" aria-hidden="true"><PosActionIcon name="search" /></span>
             <input
@@ -1749,28 +1749,13 @@ export default function SalesPage() {
                 setChatQuery(event.target.value);
               }}
               onKeyDown={handleSearchKeyDown}
-              placeholder="Tìm hàng / hỏi giá / tồn kho / tên gọi khác… (F3)"
-              aria-label="Tìm hàng hóa hoặc hỏi nhanh bằng tên, SKU, barcode, QR, alias hay câu hỏi tự nhiên"
+              placeholder="Tìm hàng theo tên, SKU, barcode hoặc QR… (F3)"
+              aria-label="Tìm hàng hóa bằng tên, SKU, barcode hoặc QR"
             />
             {search ? (
               <button type="button" onClick={() => { setSearch(''); setChatQuery(''); }} aria-label="Xóa tìm kiếm">×</button>
             ) : null}
           </div>
-          <button
-            className="sales-unified-search__mic"
-            type="button"
-            aria-label="Nhập bằng giọng nói"
-            aria-pressed={voiceListening}
-            aria-busy={voiceListening}
-            disabled={chatProcessing}
-            onClick={handleVoiceInput}
-          >
-            <PosActionIcon name="voice" />
-          </button>
-          <button className="sales-unified-search__ask" type="submit" disabled={chatProcessing || !search.trim()}>
-            <PosActionIcon name="search" />
-            <span className="sales-unified-search__ask-label">{chatProcessing ? 'Đang phân tích…' : 'Hỏi / tìm'}</span>
-          </button>
           <button
             className={`sales-scan-button${scannerOpen ? ' is-active' : ''}`}
             type="button"
@@ -1780,7 +1765,7 @@ export default function SalesPage() {
             <PosActionIcon name="qrScanner" />
             <strong>Quét mã</strong>
           </button>
-        </form>
+        </div>
         {manualCorrectionContext ? (
           <div className="sales-manual-correction-status" role="status">
             <span>
@@ -1804,7 +1789,7 @@ export default function SalesPage() {
             {productsLoading ? (
               <div className="sales-empty">Đang tải sản phẩm...</div>
             ) : searchResults.length === 0 ? (
-              <div className="sales-empty">Chưa có kết quả tìm thường. Bấm “Hỏi / tìm” hoặc Enter để dùng Quick Ask.</div>
+              <div className="sales-empty">Không tìm thấy hàng hóa phù hợp.</div>
             ) : (
               searchResults.map(({ product, kind }) => {
                 const outOfStock = Number(product.stockQuantity) <= 0;
@@ -1858,10 +1843,6 @@ export default function SalesPage() {
         ) : null}
       </section>
 
-      {widePosLayout && searchAiHost
-        ? createPortal(renderSalesChatCard(), searchAiHost)
-        : renderSalesChatCard()}
-
       <section
         className={`sales-service-grid${widePosLayout && tabletCartLines.length > 0 ? ' sales-service-grid--products' : ''}`}
         aria-label={widePosLayout && tabletCartLines.length > 0 ? 'Hàng hóa đang chọn' : 'Dịch vụ nhập nhanh'}
@@ -1912,24 +1893,8 @@ export default function SalesPage() {
             ))}
           </div>
         ) : (
-          FIXED_SERVICE_TILES.map((service) => (
-            <button
-              type="button"
-              key={service.id}
-              className={`sales-service-tile sales-service-tile--${service.tone}${selectedServiceId === service.id ? ' is-selected' : ''}`}
-              aria-pressed={selectedServiceId === service.id}
-              disabled={cashExpenseAvailable && cashExpenseLocked}
-              onClick={() => handleQuickServiceSelect(service.id)}
-            >
-              <span className="sales-service-tile__icon" aria-hidden="true">
-                <QuickServiceIcon serviceId={service.id} />
-              </span>
-              <span className="sales-service-tile__copy">
-                <strong>{service.label}</strong>
-              </span>
-            </button>
-          ))
-        )}
+          <div className="sales-empty">Quét mã hoặc tìm hàng để thêm vào hóa đơn.</div>
+        }
       </section>
 
       <div className="sales-note-field sales-note-field--tablet sales-cash-expense-slot">
