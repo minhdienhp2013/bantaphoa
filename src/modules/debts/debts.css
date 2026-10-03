@@ -1,0 +1,355 @@
+.debts-page {
+  display: grid;
+  gap: 20px;
+}
+
+.debts-header h1 {
+  margin: 4px 0 6px;
+}
+
+.debts-header p {
+  margin: 0;
+  max-width: 760px;
+}
+
+.debt-message {
+  border: 1px solid var(--border, #d8dee8);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--surface, #fff);
+}
+
+.debt-message--error {
+  border-color: #dca6a6;
+}
+
+.debt-tabs,
+.debt-mode-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.debt-tabs button,
+.debt-mode-switch button {
+  min-height: 44px;
+  border: 1px solid var(--border, #d8dee8);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: var(--surface, #fff);
+  cursor: pointer;
+  font: inherit;
+}
+
+.debt-tabs button.is-active,
+.debt-mode-switch button.is-active {
+  border-color: currentColor;
+  font-weight: 700;
+}
+
+.debt-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.debt-summary-card,
+.debt-card {
+  border: 1px solid var(--border, #d8dee8);
+  border-radius: 16px;
+  background: var(--surface, #fff);
+  box-shadow: var(--shadow-sm, 0 1px 2px rgb(0 0 0 / 0.05));
+}
+
+.debt-summary-card {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+}
+
+.debt-summary-card span,
+.debt-summary-card small,
+.debt-list-item small,
+.debt-card__heading p,
+.debt-detail-stats dt,
+.debt-history-item small,
+.loan-schedule__row small {
+  color: var(--text-muted, #64748b);
+}
+
+.debt-summary-card strong {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+}
+
+.debt-summary-card--danger strong,
+.is-overdue {
+  color: #b42318;
+}
+
+.debt-summary-card--warning strong {
+  color: #9a6700;
+}
+
+.debt-workspace,
+.debt-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.debt-card {
+  padding: 16px;
+}
+
+.debt-card--full {
+  grid-column: 1 / -1;
+}
+
+.debt-card__heading {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.debt-card__heading h2,
+.debt-card__heading h3 {
+  margin: 0 0 4px;
+}
+
+.debt-card__heading p {
+  margin: 0;
+}
+
+.debt-create-card {
+  display: grid;
+  gap: 12px;
+}
+
+.debt-field {
+  display: grid;
+  gap: 6px;
+}
+
+.debt-field span {
+  font-weight: 600;
+}
+
+.debt-field input,
+.debt-field select,
+.debt-field textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--border, #cbd5e1);
+  border-radius: 10px;
+  padding: 9px 11px;
+  background: var(--surface, #fff);
+  color: inherit;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.debt-field textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.debt-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.debt-list-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(160px, 0.6fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.debt-list {
+  display: grid;
+  gap: 8px;
+  max-height: 620px;
+  overflow: auto;
+}
+
+.debt-list-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+  border: 1px solid var(--border, #d8dee8);
+  border-radius: 12px;
+  padding: 11px 12px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.debt-list-item.is-selected {
+  border-color: currentColor;
+  box-shadow: 0 0 0 1px currentColor inset;
+}
+
+.debt-list-item__main,
+.debt-list-item__money,
+.debt-history-item > span,
+.loan-schedule__row > span {
+  display: grid;
+  gap: 3px;
+}
+
+.debt-list-item__money {
+  text-align: right;
+  flex: 0 0 auto;
+}
+
+.debt-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.debt-detail-stats div {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.debt-detail-stats dt,
+.debt-detail-stats dd {
+  margin: 0;
+}
+
+.debt-detail-stats dd {
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.debt-payment-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, #e2e8f0);
+}
+
+.debt-payment-form h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.debt-field--wide {
+  grid-column: 1 / -1;
+}
+
+.debt-history,
+.loan-schedule {
+  display: grid;
+  gap: 8px;
+}
+
+.debt-history-item,
+.loan-schedule__row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.debt-history-item__actions {
+  justify-items: end;
+}
+
+.loan-schedule {
+  max-height: 520px;
+  overflow: auto;
+}
+
+.loan-schedule__row {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) minmax(110px, auto) minmax(110px, auto);
+}
+
+.loan-schedule__row > span:not(:first-child) {
+  text-align: right;
+}
+
+.debt-empty {
+  margin: 8px 0;
+  color: var(--text-muted, #64748b);
+}
+
+@media (max-width: 1050px) {
+  .debt-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .debt-workspace,
+  .debt-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .debt-card--full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .debts-page {
+    gap: 14px;
+  }
+
+  .debt-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .debt-card,
+  .debt-summary-card {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .debt-form-row,
+  .debt-payment-form,
+  .debt-detail-stats,
+  .debt-list-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .debt-payment-form h3,
+  .debt-field--wide {
+    grid-column: auto;
+  }
+
+  .debt-card__heading,
+  .debt-list-item,
+  .debt-history-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .debt-list-item__money,
+  .debt-history-item__actions {
+    text-align: left;
+    justify-items: start;
+  }
+
+  .loan-schedule__row {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-schedule__row > span:not(:first-child) {
+    text-align: left;
+  }
+}

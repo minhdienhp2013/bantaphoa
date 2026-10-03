@@ -1,0 +1,654 @@
+/*
+ * DEBTS — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ */
+
+@media (min-width: 1025px) {
+  .debts-page {
+    gap: 10px;
+  }
+
+  .debts-header {
+    padding: 13px 15px;
+    border: 1px solid #ead8c5;
+    border-radius: 14px;
+    background:
+      radial-gradient(circle at 94% 12%, rgb(211 161 59 / .12), transparent 30%),
+      linear-gradient(135deg, #fffdfa, #fff8ee 72%, #f8eee4);
+    box-shadow: 0 3px 12px rgb(82 52 39 / .05);
+  }
+
+  .debts-header .eyebrow {
+    margin-bottom: 2px;
+    font-size: .68rem;
+  }
+
+  .debts-header h1 {
+    margin: 1px 0 3px;
+    color: var(--brand-red-deep);
+    font-size: clamp(1.35rem, 1.8vw, 1.72rem);
+  }
+
+  .debts-header p {
+    max-width: none;
+    font-size: .84rem;
+    line-height: 1.3;
+  }
+
+  .debt-message {
+    padding: 9px 11px;
+    border-radius: 10px;
+    font-size: .78rem;
+  }
+
+  .debt-tabs {
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid #eadfd5;
+    border-radius: 12px;
+    background: #fffdfa;
+  }
+
+  .debt-tabs button {
+    min-height: 38px;
+    padding: 6px 11px;
+    border-radius: 9px;
+    border-color: transparent;
+    font-size: .78rem;
+  }
+
+  .debt-tabs button.is-active {
+    color: var(--brand-red-deep);
+    border-color: #d8b36a;
+    background: #fff4de;
+  }
+
+  .debt-summary-grid {
+    gap: 7px;
+  }
+
+  .debt-summary-card {
+    min-height: 94px;
+    gap: 4px;
+    padding: 10px 11px;
+    border-color: #eadfd5;
+    border-radius: 11px;
+    box-shadow: none;
+  }
+
+  .debt-summary-card span {
+    font-size: .72rem;
+    line-height: 1.15;
+  }
+
+  .debt-summary-card strong {
+    font-size: clamp(1rem, 1.35vw, 1.25rem);
+    line-height: 1.1;
+  }
+
+  .debt-summary-card small {
+    font-size: .67rem;
+    line-height: 1.15;
+  }
+
+  .debt-workspace,
+  .debt-detail-grid {
+    grid-template-columns: minmax(290px, .72fr) minmax(0, 1.28fr);
+    gap: 9px;
+  }
+
+  .debt-card {
+    padding: 11px 12px;
+    border-color: #eadfd5;
+    border-radius: 11px;
+    box-shadow: none;
+  }
+
+  .debt-card__heading {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .debt-card__heading h2,
+  .debt-card__heading h3 {
+    margin-bottom: 2px;
+    font-size: 1rem;
+  }
+
+  .debt-card__heading p {
+    font-size: .72rem;
+    line-height: 1.2;
+  }
+
+  .debt-create-card {
+    gap: 8px;
+    align-self: start;
+  }
+
+  .debt-mode-switch {
+    gap: 5px;
+  }
+
+  .debt-mode-switch button {
+    min-height: 36px;
+    padding: 6px 9px;
+    border-radius: 8px;
+    font-size: .72rem;
+  }
+
+  .debt-field {
+    gap: 4px;
+  }
+
+  .debt-field span {
+    font-size: .72rem;
+  }
+
+  .debt-field input,
+  .debt-field select,
+  .debt-field textarea {
+    min-height: 39px;
+    padding: 7px 9px;
+    border-color: #ded0c4;
+    border-radius: 8px;
+    background: #fffdfa;
+    font-size: .78rem;
+  }
+
+  .debt-field textarea {
+    min-height: 62px;
+  }
+
+  .debt-form-row {
+    gap: 7px;
+  }
+
+  .debt-create-card > .button,
+  .debt-payment-form > .button {
+    min-height: 40px;
+  }
+
+  .debt-list-filters {
+    grid-template-columns: minmax(0, 1.5fr) minmax(150px, .5fr);
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+
+  .debt-list {
+    gap: 5px;
+    max-height: 430px;
+    padding-right: 2px;
+    scrollbar-width: thin;
+  }
+
+  .debt-list-item {
+    min-height: 54px;
+    gap: 8px;
+    padding: 8px 9px;
+    border-color: #e8ddd4;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .debt-list-item:hover {
+    border-color: #d9b96f;
+    background: #fff8ed;
+  }
+
+  .debt-list-item__main,
+  .debt-list-item__money {
+    gap: 2px;
+  }
+
+  .debt-list-item__main strong,
+  .debt-list-item__money strong {
+    font-size: .8rem;
+    line-height: 1.15;
+  }
+
+  .debt-list-item small {
+    font-size: .65rem;
+    line-height: 1.15;
+  }
+
+  .debt-detail-stats {
+    gap: 6px;
+    margin-bottom: 9px;
+  }
+
+  .debt-detail-stats div {
+    padding: 8px 9px;
+    border-color: #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .debt-detail-stats dt {
+    font-size: .68rem;
+  }
+
+  .debt-detail-stats dd {
+    margin-top: 2px;
+    font-size: .82rem;
+  }
+
+  .debt-payment-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding-top: 9px;
+  }
+
+  .debt-payment-form h3 {
+    font-size: .9rem;
+  }
+
+  .debt-history,
+  .loan-schedule {
+    gap: 5px;
+  }
+
+  .debt-history {
+    max-height: 310px;
+    overflow-y: auto;
+    padding-right: 2px;
+    scrollbar-width: thin;
+  }
+
+  .debt-history-item,
+  .loan-schedule__row {
+    gap: 8px;
+    padding: 7px 9px;
+    border-color: #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .debt-history-item strong,
+  .loan-schedule__row strong {
+    font-size: .76rem;
+    line-height: 1.15;
+  }
+
+  .debt-history-item small,
+  .loan-schedule__row small {
+    font-size: .64rem;
+  }
+
+  .debt-history-item .button {
+    min-height: 36px;
+    padding: 5px 8px;
+    font-size: .7rem;
+  }
+
+  .loan-schedule {
+    max-height: 360px;
+    scrollbar-width: thin;
+  }
+
+  .loan-schedule__row {
+    grid-template-columns: minmax(78px, 1fr) minmax(96px, auto) minmax(96px, auto);
+  }
+}
+
+@media (max-width: 760px) {
+  .debts-page {
+    gap: 8px;
+  }
+
+  .debts-header {
+    padding: 9px 10px;
+    border: 1px solid #eadfd5;
+    border-radius: 10px;
+    background: #fffdfa;
+  }
+
+  .debts-header .eyebrow,
+  .debts-header > div > p:last-child {
+    display: none;
+  }
+
+  .debts-header h1 {
+    margin: 0;
+    color: var(--brand-red-deep);
+    font-size: 1.08rem;
+  }
+
+  .debt-message {
+    padding: 8px 9px;
+    border-radius: 9px;
+    font-size: .72rem;
+    line-height: 1.2;
+  }
+
+  .debt-tabs {
+    flex-wrap: nowrap;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 3px 1px 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .debt-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .debt-tabs button {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    font-size: .69rem;
+    white-space: nowrap;
+  }
+
+  .debt-tabs button.is-active {
+    color: var(--brand-red-deep);
+    border-color: #d8b36a;
+    background: #fff4de;
+  }
+
+  .debt-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .debt-summary-card {
+    min-height: 82px;
+    gap: 3px;
+    padding: 8px;
+    border-color: #eadfd5;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .debt-summary-card span {
+    font-size: .62rem;
+    line-height: 1.1;
+  }
+
+  .debt-summary-card strong {
+    font-size: .9rem;
+    line-height: 1.08;
+  }
+
+  .debt-summary-card small {
+    font-size: .6rem;
+    line-height: 1.1;
+  }
+
+  .debt-workspace,
+  .debt-detail-grid {
+    gap: 7px;
+  }
+
+  .debt-card {
+    padding: 9px;
+    border-color: #eadfd5;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .debt-card__heading {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .debt-card__heading h2,
+  .debt-card__heading h3 {
+    margin-bottom: 2px;
+    font-size: .91rem;
+    line-height: 1.15;
+  }
+
+  .debt-card__heading p {
+    font-size: .64rem;
+    line-height: 1.15;
+  }
+
+  .debt-create-card {
+    gap: 7px;
+  }
+
+  .debt-mode-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .debt-mode-switch button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 7px;
+    border-radius: 8px;
+    font-size: .68rem;
+  }
+
+  .debt-field {
+    gap: 3px;
+  }
+
+  .debt-field span {
+    font-size: .67rem;
+  }
+
+  .debt-field input,
+  .debt-field select,
+  .debt-field textarea {
+    min-height: 44px;
+    padding: 8px 9px;
+    border-color: #ded0c4;
+    border-radius: 9px;
+    background: #fffdfa;
+    font-size: 16px;
+  }
+
+  .debt-field textarea {
+    min-height: 64px;
+  }
+
+  .debt-form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .debt-create-card > .button,
+  .debt-payment-form > .button {
+    min-height: 46px;
+    width: 100%;
+  }
+
+  .debt-list-filters {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .debt-list {
+    gap: 5px;
+    max-height: 330px;
+    padding-right: 1px;
+    scrollbar-width: thin;
+  }
+
+  .debt-list-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 62px;
+    gap: 6px;
+    padding: 8px;
+    border-color: #eadfd5;
+    border-radius: 9px;
+    background: #fffdfa;
+  }
+
+  .debt-list-item__main,
+  .debt-list-item__money {
+    gap: 2px;
+  }
+
+  .debt-list-item__main strong {
+    font-size: .76rem;
+    line-height: 1.15;
+  }
+
+  .debt-list-item__main small,
+  .debt-list-item__money small {
+    font-size: .61rem;
+    line-height: 1.15;
+  }
+
+  .debt-list-item__money {
+    align-self: center;
+    text-align: right;
+    justify-items: end;
+  }
+
+  .debt-list-item__money strong {
+    color: var(--brand-red-deep);
+    font-size: .77rem;
+  }
+
+  .debt-detail-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    margin-bottom: 7px;
+  }
+
+  .debt-detail-stats div {
+    padding: 7px 8px;
+    border-color: #eadfd5;
+    border-radius: 8px;
+    background: #fffdfa;
+  }
+
+  .debt-detail-stats dt {
+    font-size: .61rem;
+  }
+
+  .debt-detail-stats dd {
+    margin-top: 2px;
+    font-size: .76rem;
+    line-height: 1.1;
+  }
+
+  .debt-payment-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding-top: 8px;
+  }
+
+  .debt-payment-form h3 {
+    font-size: .82rem;
+  }
+
+  .debt-payment-form .debt-field--wide,
+  .debt-payment-form h3,
+  .debt-payment-form > .button {
+    grid-column: 1 / -1;
+  }
+
+  .debt-history {
+    max-height: 260px;
+    overflow-y: auto;
+    gap: 5px;
+    scrollbar-width: thin;
+  }
+
+  .debt-history-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 7px 8px;
+    border-color: #eadfd5;
+    border-radius: 8px;
+    background: #fffdfa;
+  }
+
+  .debt-history-item strong {
+    font-size: .7rem;
+    line-height: 1.15;
+  }
+
+  .debt-history-item small {
+    font-size: .6rem;
+    line-height: 1.15;
+  }
+
+  .debt-history-item__actions {
+    align-self: center;
+    justify-items: end;
+  }
+
+  .debt-history-item .button {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: .66rem;
+  }
+
+  .loan-schedule {
+    max-height: 270px;
+    overflow-y: auto;
+    gap: 5px;
+    scrollbar-width: thin;
+  }
+
+  .loan-schedule__row {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 6px;
+    padding: 7px 8px;
+    border-color: #eadfd5;
+    border-radius: 8px;
+    background: #fffdfa;
+  }
+
+  .loan-schedule__row > span:not(:first-child) {
+    text-align: right;
+  }
+
+  .loan-schedule__row strong {
+    font-size: .69rem;
+  }
+
+  .loan-schedule__row small {
+    font-size: .59rem;
+  }
+
+  .debt-empty {
+    margin: 4px 0;
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .debt-form-row,
+  .debt-payment-form,
+  .debt-detail-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .debt-payment-form .debt-field--wide,
+  .debt-payment-form h3,
+  .debt-payment-form > .button {
+    grid-column: auto;
+  }
+
+  .debt-list-item,
+  .debt-history-item {
+    grid-template-columns: 1fr;
+  }
+
+  .debt-list-item__money,
+  .debt-history-item__actions {
+    text-align: left;
+    justify-items: start;
+  }
+
+  .loan-schedule__row {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-schedule__row > span:not(:first-child) {
+    text-align: left;
+  }
+}
