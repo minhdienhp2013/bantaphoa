@@ -1,0 +1,296 @@
+/*
+ * CUSTOMERS — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ */
+
+@media (min-width: 1025px) {
+  .customers-page {
+    gap: 14px;
+  }
+
+  .customers-page .crm-heading {
+    align-items: center;
+    padding: 16px 18px;
+  }
+
+  .customers-page .crm-heading h1 {
+    margin-bottom: 4px;
+  }
+
+  .customers-page .crm-heading .button {
+    flex: 0 0 auto;
+    min-width: 154px;
+  }
+
+  .customers-page .crm-stats {
+    gap: 10px;
+  }
+
+  .customers-page .crm-stat {
+    min-height: 78px;
+    padding: 12px 16px;
+  }
+
+  .customers-page .crm-stat strong {
+    font-size: 1.4rem;
+  }
+
+  .customers-page .crm-toolbar {
+    align-items: center;
+    padding: 12px 14px;
+  }
+
+  .customers-page .crm-search {
+    width: min(620px, 100%);
+  }
+
+  .customers-page .crm-search input {
+    min-height: 44px;
+  }
+
+  .customers-page .crm-table th,
+  .customers-page .crm-table td {
+    padding-block: 10px;
+  }
+
+  .customers-page .crm-table tbody tr {
+    height: 62px;
+  }
+
+  .customers-page .crm-row-actions {
+    min-width: 154px;
+  }
+
+  .customers-page .crm-text-button {
+    min-height: 36px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .customers-page {
+    gap: 10px;
+  }
+
+  .customers-page .crm-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .customers-page .crm-heading::after,
+  .customers-page .crm-heading .eyebrow,
+  .customers-page .crm-heading .muted {
+    display: none;
+  }
+
+  .customers-page .crm-heading h1 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .customers-page .crm-heading .button {
+    width: auto;
+    min-width: 0;
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: .8rem;
+    white-space: nowrap;
+  }
+
+  .customers-page .crm-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .customers-page .crm-stat {
+    min-height: 66px;
+    gap: 3px;
+    padding: 9px 8px 9px 11px;
+    border-radius: 12px;
+  }
+
+  .customers-page .crm-stat span {
+    font-size: .65rem;
+    line-height: 1.15;
+  }
+
+  .customers-page .crm-stat strong {
+    font-size: 1.05rem;
+  }
+
+  .customers-page .crm-panel {
+    border-radius: 14px;
+  }
+
+  .customers-page .crm-toolbar {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .customers-page .crm-search {
+    gap: 5px;
+    font-size: .74rem;
+  }
+
+  .customers-page .crm-search input {
+    min-height: 44px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
+
+  .customers-page .crm-check {
+    min-height: 36px;
+    padding-inline: 2px;
+    font-size: .76rem;
+  }
+
+  .customers-page .crm-table-wrap {
+    padding: 8px;
+  }
+
+  .customers-page .crm-table {
+    border-spacing: 0 8px;
+  }
+
+  .customers-page .crm-table tr {
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgb(82 52 39 / .055);
+  }
+
+  .customers-page .crm-table td {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 7px;
+    padding: 5px 0;
+  }
+
+  .customers-page .crm-table td::before {
+    font-size: .67rem;
+    letter-spacing: .01em;
+  }
+
+  .customers-page .crm-table td[data-label="Khách hàng"] {
+    display: block;
+    padding: 1px 0 7px;
+    border-bottom: 1px solid #eee3d9;
+  }
+
+  .customers-page .crm-table td[data-label="Khách hàng"]::before {
+    display: none;
+  }
+
+  .customers-page .crm-table td[data-label="Khách hàng"] > strong {
+    display: block;
+    color: #47362f;
+    font-size: .94rem;
+    line-height: 1.2;
+  }
+
+  .customers-page .crm-table td[data-label="Khách hàng"] .crm-sub {
+    margin-top: 2px;
+    font-size: .7rem;
+  }
+
+  .customers-page .crm-table td[data-label="Liên hệ"] > span:first-child {
+    font-weight: 760;
+    color: #4b3932;
+  }
+
+  .customers-page .crm-table td[data-label="Liên hệ"] .crm-sub {
+    margin-top: 1px;
+    font-size: .7rem;
+  }
+
+  .customers-page .crm-table td[data-label="Địa chỉ"] {
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .customers-page .crm-table td[data-label="Trạng thái"] {
+    align-items: center;
+  }
+
+  .customers-page .crm-status {
+    width: fit-content;
+    min-height: 26px;
+    padding: 4px 8px;
+    font-size: .68rem;
+  }
+
+  .customers-page .crm-row-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding-top: 7px !important;
+    border-top: 1px solid #eee3d9 !important;
+  }
+
+  .customers-page .crm-row-actions::before {
+    display: none;
+  }
+
+  .customers-page .crm-row-actions .crm-text-button {
+    min-height: 40px;
+    border: 1px solid #eadfd5;
+    background: #fffaf5;
+    font-size: .76rem;
+  }
+
+  .customers-page .crm-editor {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .customers-page .crm-section-heading {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .customers-page .crm-section-heading p {
+    font-size: .75rem;
+  }
+
+  .customers-page .crm-form {
+    gap: 10px;
+  }
+
+  .customers-page .crm-form label {
+    gap: 5px;
+    font-size: .78rem;
+  }
+
+  .customers-page .crm-form input,
+  .customers-page .crm-form textarea {
+    font-size: 16px;
+  }
+
+  .customers-page .crm-actions {
+    gap: 7px;
+  }
+}
+
+@media (max-width: 390px) {
+  .customers-page .crm-heading {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .customers-page .crm-heading .button {
+    width: 100%;
+  }
+
+  .customers-page .crm-stat {
+    padding-inline: 7px;
+  }
+
+  .customers-page .crm-stat span {
+    font-size: .61rem;
+  }
+
+  .customers-page .crm-table td {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,88 @@
+/* Minh Dien branded CRM presentation. Customer, supplier and expense business logic remains untouched. */
+.crm-page { color: var(--ui-text); }
+
+.crm-heading {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border: 1px solid #ead8c5;
+  border-radius: var(--ui-radius-lg);
+  background: radial-gradient(circle at 92% 18%, rgb(211 161 59 / .16), transparent 34%), linear-gradient(135deg, #fffdfa 0%, #fff8ee 64%, #f8eee4 100%);
+  box-shadow: var(--ui-shadow-sm);
+}
+.crm-heading::after {
+  content: '';
+  position: absolute;
+  right: -48px;
+  bottom: -82px;
+  width: 170px;
+  height: 170px;
+  border: 22px solid rgb(163 59 50 / .045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.crm-heading > * { position: relative; z-index: 1; }
+.crm-heading .eyebrow, .crm-heading h1 { color: var(--brand-red-deep); }
+.crm-heading .muted { color: #7a6b64; }
+
+.crm-stat, .crm-editor, .crm-panel {
+  border-color: var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  background: linear-gradient(180deg, #fffdfa, #fdfaf7);
+  box-shadow: var(--ui-shadow-sm);
+}
+.crm-stat { position: relative; overflow: hidden; }
+.crm-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--brand-red), var(--brand-gold));
+}
+.crm-stat span, .crm-section-heading p { color: #786a63; }
+.crm-stat strong, .crm-section-heading h2 { color: #4b3932; }
+
+.crm-form input, .crm-form textarea, .crm-form select,
+.crm-search input, .crm-filter input, .crm-filter select {
+  border-color: #ded0c4;
+  color: #4b3932;
+  background: #fffdfa;
+}
+.crm-form input:focus, .crm-form textarea:focus, .crm-form select:focus,
+.crm-search input:focus, .crm-filter input:focus, .crm-filter select:focus {
+  border-color: var(--brand-gold);
+  outline: 3px solid rgb(211 161 59 / .16);
+}
+
+.crm-toolbar { border-bottom-color: #eadfd5; background: #fffaf5; }
+.crm-table th { color: #725f56; background: #fbf3ea; }
+.crm-table td { border-bottom-color: #eee3d9; }
+.crm-table tbody tr:hover { background: #fff8ef; }
+.crm-sub { color: #8a7a72; }
+.crm-text-button { color: var(--brand-red-deep); }
+.crm-text-button:hover:not(:disabled) { background: #f9eee6; }
+.crm-text-button-danger { color: var(--ui-danger); }
+.crm-check { color: #675750; }
+
+.crm-touch:focus-visible, .crm-text-button:focus-visible,
+.crm-check input:focus-visible {
+  outline: 3px solid rgb(211 161 59 / .28);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .crm-heading { padding: 16px; }
+  .crm-stat { padding: 14px 16px; }
+  .crm-panel { border-radius: var(--ui-radius-md); }
+  .crm-table tr { border-color: #eadfd5; background: #fffdfa; box-shadow: 0 4px 14px rgb(82 52 39 / .05); }
+}
+
+@media (max-width: 430px) {
+  .crm-heading { padding: 14px; }
+  .crm-toolbar { padding: 14px; }
+  .crm-table-wrap { padding: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-page *, .crm-page *::before, .crm-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

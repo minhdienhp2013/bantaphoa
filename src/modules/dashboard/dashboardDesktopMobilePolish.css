@@ -1,0 +1,1522 @@
+/*
+ * DASHBOARD — DESKTOP + MOBILE POLISH
+ * Tablet 761px–1024px intentionally untouched.
+ */
+
+@media (min-width: 1025px) {
+  .dashboard-shell {
+    gap: 14px;
+  }
+
+  .dashboard-header {
+    align-items: center;
+    padding: 16px 18px;
+  }
+
+  .dashboard-header h1 {
+    font-size: clamp(1.42rem, 2.2vw, 1.9rem);
+    margin-bottom: 4px;
+  }
+
+  .dashboard-subtitle {
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+
+  .dashboard-header-actions {
+    flex-wrap: nowrap;
+  }
+
+  .dashboard-ai-button,
+  .dashboard-refresh {
+    min-height: 40px;
+    padding: 8px 12px;
+  }
+
+  .dashboard-period-bar {
+    padding: 9px 11px;
+  }
+
+  .dashboard-period-chip {
+    min-height: 38px;
+    padding: 7px 12px;
+  }
+
+  .dashboard-kpi-grid {
+    gap: 10px;
+  }
+
+  .dashboard-kpi-card {
+    min-height: 112px;
+    gap: 6px;
+    padding: 14px 15px;
+  }
+
+  .dashboard-kpi-card > span {
+    min-height: 2.15em;
+    font-size: .79rem;
+  }
+
+  .dashboard-kpi-card > strong {
+    font-size: clamp(1.08rem, 1.7vw, 1.45rem);
+  }
+
+  .dashboard-kpi-card small {
+    font-size: .72rem;
+  }
+
+  .dashboard-primary-grid {
+    grid-template-columns: minmax(0, 1.75fr) minmax(290px, .75fr);
+    gap: 12px;
+  }
+
+  .dashboard-card {
+    padding: 16px;
+  }
+
+  .dashboard-section-heading {
+    margin-bottom: 12px;
+  }
+
+  .dashboard-chart {
+    min-height: 210px;
+  }
+
+  .dashboard-mini-stats {
+    gap: 8px;
+  }
+
+  .dashboard-mini-stats > div {
+    padding: 11px 12px;
+  }
+
+  .dashboard-rankings,
+  .dashboard-lower-grid {
+    gap: 12px;
+  }
+
+  .dashboard-ranking-list li,
+  .dashboard-activity-list li {
+    padding-block: 8px;
+  }
+
+  .dashboard-action-grid {
+    gap: 8px;
+  }
+
+  .dashboard-action-card {
+    min-height: 74px;
+    padding-block: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-shell {
+    gap: 10px;
+  }
+
+  .dashboard-header {
+    gap: 9px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .dashboard-header::after,
+  .dashboard-kicker,
+  .dashboard-subtitle {
+    display: none;
+  }
+
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 1.22rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-header-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .72fr);
+    gap: 6px;
+  }
+
+  .dashboard-ai-button,
+  .dashboard-refresh {
+    min-width: 0;
+    min-height: 40px;
+    padding: 7px 8px;
+    font-size: .76rem;
+    justify-content: center;
+  }
+
+  .dashboard-period-bar {
+    display: grid;
+    gap: 7px;
+    padding: 8px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .dashboard-period-chips {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dashboard-period-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dashboard-period-chip,
+  .dashboard-period-chip:last-child:nth-child(odd) {
+    grid-column: auto;
+    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: .73rem;
+    white-space: nowrap;
+  }
+
+  .dashboard-range-label {
+    justify-self: start;
+    padding-inline: 2px;
+    font-size: .72rem;
+  }
+
+  .dashboard-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .dashboard-kpi-card {
+    min-height: 106px;
+    gap: 5px;
+    padding: 11px 10px;
+    border-radius: 13px;
+  }
+
+  .dashboard-kpi-card > span {
+    min-height: 2.2em;
+    font-size: .69rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-kpi-card > strong {
+    font-size: .96rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-kpi-card > div {
+    gap: 4px;
+  }
+
+  .dashboard-comparison {
+    min-height: 22px;
+    padding: 2px 6px;
+    font-size: .66rem;
+  }
+
+  .dashboard-kpi-card small {
+    font-size: .64rem;
+    line-height: 1.18;
+  }
+
+  .dashboard-card {
+    padding: 11px;
+    border-radius: 14px;
+  }
+
+  .dashboard-section-heading {
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+
+  .dashboard-section-heading h2 {
+    margin-bottom: 2px;
+    font-size: 1rem;
+  }
+
+  .dashboard-primary-grid,
+  .dashboard-rankings,
+  .dashboard-lower-grid {
+    gap: 10px;
+  }
+
+  .dashboard-chart-card .dashboard-section-heading {
+    display: grid;
+  }
+
+  .dashboard-chart-total {
+    justify-self: start;
+    font-size: 1rem;
+  }
+
+  .dashboard-chart {
+    min-height: 155px;
+  }
+
+  .dashboard-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .dashboard-mini-stats > div {
+    gap: 3px;
+    padding: 9px;
+    border-radius: 10px;
+  }
+
+  .dashboard-mini-stats span {
+    font-size: .68rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-mini-stats strong {
+    font-size: .9rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-stock-card {
+    gap: 10px;
+  }
+
+  .dashboard-stock-group {
+    gap: 6px;
+  }
+
+  .dashboard-stock-group + .dashboard-stock-group {
+    padding-top: 9px;
+  }
+
+  .dashboard-stock-item {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 7px 8px;
+  }
+
+  .dashboard-stock-icon {
+    width: 27px;
+    height: 27px;
+    font-size: .75rem;
+  }
+
+  .dashboard-stock-copy strong {
+    font-size: .8rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-stock-copy span,
+  .dashboard-stock-qty span {
+    font-size: .68rem;
+  }
+
+  .dashboard-stock-qty strong {
+    font-size: .8rem;
+  }
+
+  .dashboard-ranking-list li {
+    grid-template-columns: 22px 32px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 7px 0;
+  }
+
+  .dashboard-rank-number {
+    font-size: .7rem;
+  }
+
+  .dashboard-rank-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: .72rem;
+  }
+
+  .dashboard-rank-copy strong {
+    font-size: .8rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-rank-copy small,
+  .dashboard-rank-value {
+    font-size: .68rem;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 12px;
+    justify-items: stretch;
+  }
+
+  .dashboard-donut {
+    width: 108px;
+    padding: 16px;
+  }
+
+  .dashboard-donut strong {
+    font-size: 1.18rem;
+  }
+
+  .dashboard-inventory-legend {
+    gap: 7px;
+  }
+
+  .dashboard-inventory-legend dt,
+  .dashboard-inventory-legend dd {
+    font-size: .76rem;
+  }
+
+  .dashboard-note {
+    margin-top: 9px;
+    font-size: .68rem;
+  }
+
+  .dashboard-activity-list li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .8rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-activity-copy small,
+  .dashboard-activity time {
+    font-size: .67rem;
+  }
+
+  .dashboard-activity time {
+    grid-column: 2;
+    max-width: none;
+    text-align: left;
+  }
+
+  .dashboard-action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .dashboard-action-card {
+    min-height: 72px;
+    padding: 9px 8px 9px 12px;
+  }
+
+  .dashboard-action-card strong {
+    font-size: .8rem;
+  }
+
+  .dashboard-action-card span {
+    font-size: .68rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 390px) {
+  .dashboard-header-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .dashboard-donut {
+    width: 92px;
+    padding: 14px;
+  }
+
+  .dashboard-ranking-list li {
+    grid-template-columns: 20px 30px minmax(0, 1fr);
+  }
+
+  .dashboard-rank-value {
+    grid-column: 3;
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+
+/* Mobile refinement v2 — flatter, denser, more app-like. */
+@media (max-width: 760px) {
+  .dashboard-shell {
+    gap: 8px;
+  }
+
+  .dashboard-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding: 9px 10px;
+    border-radius: 10px;
+    border-color: #eadfd5;
+    background: #fffdfa;
+    box-shadow: none;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.04rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-header-actions {
+    grid-template-columns: minmax(0, 1fr) 88px;
+    gap: 5px;
+  }
+
+  .dashboard-ai-button,
+  .dashboard-refresh {
+    min-height: 44px;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: .71rem;
+  }
+
+  .dashboard-period-bar {
+    gap: 5px;
+    padding: 5px 0 3px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dashboard-period-chips {
+    gap: 5px;
+    padding: 0 1px 1px;
+  }
+
+  .dashboard-period-chip,
+  .dashboard-period-chip:last-child:nth-child(odd) {
+    min-height: 34px;
+    padding: 5px 9px;
+    border-radius: 8px;
+    font-size: .69rem;
+    box-shadow: none;
+  }
+
+  .dashboard-range-label {
+    font-size: .65rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-kpi-grid {
+    gap: 5px;
+  }
+
+  .dashboard-kpi-card {
+    min-height: 84px;
+    gap: 3px;
+    padding: 8px 8px 7px;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .dashboard-kpi-card::before {
+    height: 3px;
+  }
+
+  .dashboard-kpi-card::after {
+    display: none;
+  }
+
+  .dashboard-kpi-card > span {
+    min-height: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: .64rem;
+    line-height: 1.12;
+  }
+
+  .dashboard-kpi-card > strong {
+    font-size: .91rem;
+    line-height: 1.08;
+  }
+
+  .dashboard-kpi-card > div {
+    gap: 3px;
+  }
+
+  .dashboard-comparison {
+    min-height: 19px;
+    padding: 1px 5px;
+    font-size: .61rem;
+  }
+
+  .dashboard-kpi-card small {
+    display: none;
+  }
+
+  .dashboard-card {
+    padding: 9px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .dashboard-section-heading {
+    margin-bottom: 7px;
+  }
+
+  .dashboard-section-heading h2 {
+    font-size: .91rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-section-heading .dashboard-kicker {
+    display: none;
+  }
+
+  .dashboard-text-link {
+    min-height: 44px;
+    font-size: .7rem;
+  }
+
+  .dashboard-primary-grid,
+  .dashboard-rankings,
+  .dashboard-lower-grid {
+    gap: 8px;
+  }
+
+  .dashboard-chart-card {
+    background: #fffdfa;
+  }
+
+  .dashboard-chart-total {
+    font-size: .9rem;
+  }
+
+  .dashboard-chart {
+    min-height: 138px;
+  }
+
+  .dashboard-mini-stats {
+    gap: 4px;
+  }
+
+  .dashboard-mini-stats > div {
+    gap: 2px;
+    padding: 7px 8px;
+    border: 0;
+    border-radius: 8px;
+    background: #faf6f2;
+  }
+
+  .dashboard-mini-stats span {
+    font-size: .62rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-mini-stats strong {
+    font-size: .82rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-stock-card {
+    gap: 7px;
+  }
+
+  .dashboard-stock-group {
+    gap: 4px;
+  }
+
+  .dashboard-stock-group + .dashboard-stock-group {
+    padding-top: 7px;
+  }
+
+  .dashboard-stock-group-title span {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 2px 6px;
+    font-size: .67rem;
+  }
+
+  .dashboard-stock-list {
+    gap: 4px;
+  }
+
+  .dashboard-stock-item {
+    grid-template-columns: 25px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 6px 4px;
+    border: 0;
+    border-bottom: 1px solid #eee4dc;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .dashboard-stock-item:last-child {
+    border-bottom: 0;
+  }
+
+  .dashboard-stock-icon {
+    width: 24px;
+    height: 24px;
+    font-size: .68rem;
+  }
+
+  .dashboard-stock-copy strong {
+    font-size: .74rem;
+  }
+
+  .dashboard-stock-copy span,
+  .dashboard-stock-qty span {
+    font-size: .62rem;
+  }
+
+  .dashboard-stock-qty strong {
+    font-size: .74rem;
+  }
+
+  .dashboard-stock-more summary {
+    min-height: 44px;
+    font-size: .7rem;
+  }
+
+  .dashboard-ranking-list li {
+    grid-template-columns: 18px 28px minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: 6px 0;
+  }
+
+  .dashboard-rank-number {
+    font-size: .63rem;
+  }
+
+  .dashboard-rank-avatar {
+    width: 27px;
+    height: 27px;
+    border-radius: 7px;
+    font-size: .65rem;
+  }
+
+  .dashboard-rank-copy strong {
+    font-size: .74rem;
+  }
+
+  .dashboard-rank-copy small,
+  .dashboard-rank-value {
+    font-size: .62rem;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .dashboard-donut {
+    width: 88px;
+    padding: 13px;
+  }
+
+  .dashboard-donut strong {
+    font-size: 1rem;
+  }
+
+  .dashboard-donut span {
+    font-size: .61rem;
+  }
+
+  .dashboard-inventory-legend {
+    gap: 5px;
+  }
+
+  .dashboard-inventory-legend dt,
+  .dashboard-inventory-legend dd {
+    font-size: .69rem;
+  }
+
+  .dashboard-inventory-legend small {
+    font-size: .61rem;
+  }
+
+  .dashboard-note {
+    margin-top: 6px;
+    font-size: .62rem;
+  }
+
+  .dashboard-activity-list li {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 6px;
+    padding: 6px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    font-size: .65rem;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .74rem;
+  }
+
+  .dashboard-activity-copy small,
+  .dashboard-activity time {
+    font-size: .61rem;
+  }
+
+  .dashboard-action-grid {
+    gap: 5px;
+  }
+
+  .dashboard-action-card {
+    min-height: 62px;
+    padding: 7px 7px 7px 10px;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .dashboard-action-card strong {
+    font-size: .73rem;
+  }
+
+  .dashboard-action-card span {
+    font-size: .61rem;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 390px) {
+  .dashboard-header-actions {
+    grid-template-columns: minmax(0, 1fr) 80px;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 82px minmax(0, 1fr);
+  }
+
+  .dashboard-donut {
+    width: 78px;
+    padding: 12px;
+  }
+}
+
+
+/* Desktop refinement v2 — reduce large empty space and tighten information density. */
+@media (min-width: 1025px) {
+  .page-content:has(> .dashboard-shell) {
+    padding: 16px 18px 24px;
+  }
+
+  .dashboard-shell {
+    gap: 8px;
+  }
+
+  .dashboard-header {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .dashboard-header h1 {
+    font-size: clamp(1.32rem, 1.8vw, 1.72rem);
+  }
+
+  .dashboard-subtitle {
+    font-size: .84rem;
+    line-height: 1.32;
+  }
+
+  .dashboard-ai-button,
+  .dashboard-refresh {
+    min-height: 38px;
+    padding: 7px 10px;
+  }
+
+  .dashboard-period-bar {
+    padding: 6px 8px;
+  }
+
+  .dashboard-period-chips {
+    gap: 6px;
+  }
+
+  .dashboard-period-chip {
+    min-height: 34px;
+    padding: 6px 10px;
+    font-size: .78rem;
+  }
+
+  .dashboard-range-label {
+    font-size: .78rem;
+  }
+
+  .dashboard-kpi-grid {
+    gap: 7px;
+  }
+
+  .dashboard-kpi-card {
+    min-height: 98px;
+    gap: 4px;
+    padding: 11px 12px;
+  }
+
+  .dashboard-kpi-card > span {
+    min-height: 1.95em;
+    font-size: .74rem;
+  }
+
+  .dashboard-kpi-card > strong {
+    font-size: clamp(1rem, 1.45vw, 1.3rem);
+  }
+
+  .dashboard-kpi-card > div {
+    gap: 4px;
+  }
+
+  .dashboard-comparison {
+    min-height: 22px;
+    padding: 2px 7px;
+    font-size: .69rem;
+  }
+
+  .dashboard-kpi-card small {
+    font-size: .68rem;
+  }
+
+  .dashboard-card {
+    padding: 12px;
+  }
+
+  .dashboard-section-heading {
+    margin-bottom: 8px;
+  }
+
+  .dashboard-section-heading h2 {
+    font-size: clamp(1rem, 1.3vw, 1.14rem);
+  }
+
+  .dashboard-primary-grid,
+  .dashboard-rankings,
+  .dashboard-lower-grid {
+    gap: 8px;
+  }
+
+  .dashboard-chart {
+    min-height: 185px;
+  }
+
+  .dashboard-mini-stats {
+    gap: 6px;
+  }
+
+  .dashboard-mini-stats > div {
+    gap: 3px;
+    padding: 8px 9px;
+  }
+
+  .dashboard-mini-stats span {
+    font-size: .75rem;
+  }
+
+  .dashboard-mini-stats strong {
+    font-size: .98rem;
+  }
+
+  .dashboard-stock-card {
+    gap: 10px;
+  }
+
+  .dashboard-stock-list {
+    gap: 5px;
+  }
+
+  .dashboard-stock-item {
+    padding: 7px 8px;
+  }
+
+  .dashboard-ranking-list li,
+  .dashboard-activity-list li {
+    padding-block: 6px;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .dashboard-donut {
+    width: 126px;
+    padding: 18px;
+  }
+
+  .dashboard-note {
+    margin-top: 8px;
+  }
+}
+
+
+/* Period summary: exactly four non-duplicate metrics in a compact 2 × 2 grid. */
+.dashboard-sales-summary--primary .dashboard-mini-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+
+/* Desktop stock warning: compact height to balance chart + period summary. */
+@media (min-width: 1025px) {
+  .dashboard-stock-card {
+    align-self: start;
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .dashboard-stock-card .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-stock-group {
+    gap: 4px;
+  }
+
+  .dashboard-stock-group + .dashboard-stock-group {
+    padding-top: 7px;
+  }
+
+  .dashboard-stock-list {
+    gap: 4px;
+  }
+
+  .dashboard-stock-item {
+    grid-template-columns: 27px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 6px 7px;
+  }
+
+  .dashboard-stock-icon {
+    width: 25px;
+    height: 25px;
+    font-size: .72rem;
+  }
+
+  .dashboard-stock-copy strong {
+    font-size: .76rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-stock-copy span,
+  .dashboard-stock-qty span {
+    font-size: .65rem;
+  }
+
+  .dashboard-stock-qty strong {
+    font-size: .78rem;
+  }
+
+  .dashboard-stock-more summary {
+    min-height: 34px;
+    font-size: .72rem;
+  }
+}
+
+
+/* Debt summary relocation: desktop fills the right-column gap; tablet/mobile keep original flow. */
+.dashboard-debt-summary--compact {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .dashboard-debt-summary--flow {
+    display: none;
+  }
+
+  .dashboard-primary-right {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+  }
+
+  .dashboard-debt-summary--compact {
+    display: grid;
+    gap: 5px;
+    padding: 9px 10px;
+    align-self: start;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-section-heading h2 {
+    margin-bottom: 0;
+    font-size: .92rem;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-kicker {
+    margin-bottom: 2px;
+    font-size: .63rem;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-text-link {
+    min-height: 32px;
+    font-size: .68rem;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats > div {
+    gap: 2px;
+    min-height: 48px;
+    padding: 6px 7px;
+    border-radius: 8px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats span {
+    font-size: .64rem;
+    line-height: 1.08;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats strong {
+    font-size: .78rem;
+    line-height: 1.08;
+  }
+}
+
+
+/* Desktop primary left order: period summary first, revenue chart below. */
+@media (min-width: 1025px) {
+  .dashboard-primary-left {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+  }
+
+  .dashboard-primary-left .dashboard-sales-summary--primary {
+    order: -1;
+  }
+}
+
+
+/* Desktop recent activity: compact card with internal scrolling instead of tall page growth. */
+@media (min-width: 1025px) {
+  .dashboard-activity {
+    align-self: start;
+    padding: 9px 10px;
+  }
+
+  .dashboard-activity .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-activity .dashboard-kicker {
+    margin-bottom: 2px;
+    font-size: .63rem;
+  }
+
+  .dashboard-activity .dashboard-section-heading h2 {
+    margin-bottom: 0;
+    font-size: .94rem;
+  }
+
+  .dashboard-activity-list {
+    max-height: 230px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .dashboard-activity-list li {
+    grid-template-columns: 27px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 5px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    font-size: .66rem;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .75rem;
+    line-height: 1.12;
+  }
+
+  .dashboard-activity-copy small {
+    margin-top: 1px;
+    font-size: .64rem;
+    line-height: 1.12;
+  }
+
+  .dashboard-activity time {
+    max-width: 104px;
+    font-size: .63rem;
+    line-height: 1.15;
+  }
+}
+
+
+/* Desktop ranking/activity balance: remove the blank gap under Top customers. */
+@media (min-width: 1025px) {
+  .dashboard-rankings > .dashboard-ranking-card:first-child .dashboard-ranking-list {
+    max-height: 124px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .dashboard-rankings > .dashboard-ranking-card:first-child .dashboard-ranking-list li {
+    padding-block: 6px;
+  }
+
+  .dashboard-activity-list {
+    max-height: 210px;
+  }
+
+  .dashboard-activity-list li {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 8px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 28px;
+    height: 28px;
+    font-size: .7rem;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .78rem;
+  }
+
+  .dashboard-activity-copy small {
+    font-size: .66rem;
+  }
+
+  .dashboard-activity time {
+    font-size: .65rem;
+  }
+}
+
+
+/* Mobile rankings/activity: short cards with touch-friendly internal scrolling. */
+@media (max-width: 760px) {
+  .dashboard-rankings {
+    gap: 7px;
+  }
+
+  .dashboard-ranking-card {
+    padding: 9px;
+  }
+
+  .dashboard-ranking-card .dashboard-section-heading {
+    margin-bottom: 5px;
+  }
+
+  .dashboard-ranking-card .dashboard-ranking-list {
+    max-height: 188px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+
+  .dashboard-ranking-list li {
+    min-height: 44px;
+    grid-template-columns: 20px 30px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 6px 0;
+  }
+
+  .dashboard-rank-avatar {
+    width: 29px;
+    height: 29px;
+  }
+
+  .dashboard-rank-copy strong {
+    font-size: .76rem;
+    line-height: 1.16;
+  }
+
+  .dashboard-rank-copy small,
+  .dashboard-rank-value {
+    font-size: .64rem;
+  }
+
+  .dashboard-lower-grid {
+    gap: 7px;
+  }
+
+  .dashboard-activity {
+    padding: 9px;
+  }
+
+  .dashboard-activity .dashboard-section-heading {
+    margin-bottom: 5px;
+  }
+
+  .dashboard-activity-list {
+    max-height: 224px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+
+  .dashboard-activity-list li {
+    min-height: 44px;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 7px;
+    padding: 7px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 29px;
+    height: 29px;
+    font-size: .7rem;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .76rem;
+    line-height: 1.16;
+  }
+
+  .dashboard-activity-copy small {
+    font-size: .64rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-activity time {
+    grid-column: 2;
+    max-width: none;
+    margin-top: -1px;
+    font-size: .63rem;
+    text-align: left;
+  }
+}
+
+
+/* Mobile parity with desktop: same information hierarchy, optimized as a single-column phone flow. */
+@media (max-width: 760px) {
+  .dashboard-debt-summary--flow {
+    display: none;
+  }
+
+  .dashboard-primary-left,
+  .dashboard-primary-right {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 7px;
+  }
+
+  .dashboard-primary-left .dashboard-sales-summary--primary {
+    order: -1;
+  }
+
+  .dashboard-debt-summary--compact {
+    display: grid;
+    gap: 5px;
+    padding: 8px 9px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-section-heading {
+    margin-bottom: 3px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-section-heading h2 {
+    margin-bottom: 0;
+    font-size: .86rem;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-kicker {
+    display: none;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-text-link {
+    min-height: 44px;
+    font-size: .68rem;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats > div {
+    min-height: 44px;
+    gap: 2px;
+    padding: 6px 7px;
+    border: 0;
+    border-radius: 7px;
+    background: #faf6f2;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats span {
+    font-size: .61rem;
+    line-height: 1.08;
+  }
+
+  .dashboard-debt-summary--compact .dashboard-mini-stats strong {
+    font-size: .76rem;
+    line-height: 1.08;
+  }
+
+  .dashboard-sales-summary--primary {
+    padding: 8px 9px;
+  }
+
+  .dashboard-sales-summary--primary .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-sales-summary--primary .dashboard-mini-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .dashboard-sales-summary--primary .dashboard-mini-stats > div {
+    min-height: 46px;
+    padding: 6px 7px;
+  }
+
+  .dashboard-chart-card {
+    padding: 8px 9px;
+  }
+
+  .dashboard-chart {
+    min-height: 132px;
+  }
+
+  .dashboard-stock-card {
+    padding: 8px 9px;
+  }
+
+  .dashboard-stock-card .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-stock-list {
+    gap: 3px;
+  }
+
+  .dashboard-stock-item {
+    min-height: 44px;
+    padding: 6px 4px;
+  }
+
+  .dashboard-stock-more summary {
+    min-height: 44px;
+  }
+
+  .dashboard-ranking-card,
+  .dashboard-inventory-summary,
+  .dashboard-activity {
+    padding: 8px 9px;
+  }
+
+  .dashboard-ranking-card .dashboard-section-heading,
+  .dashboard-inventory-summary .dashboard-section-heading,
+  .dashboard-activity .dashboard-section-heading {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-inventory-content {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .dashboard-donut {
+    width: 84px;
+    padding: 13px;
+  }
+
+  .dashboard-note {
+    margin-top: 5px;
+  }
+}
+
+
+/* Mobile long lists: keep page short while preserving touch readability. */
+@media (max-width: 760px) {
+  .dashboard-ranking-card .dashboard-ranking-list {
+    max-height: 190px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+
+  .dashboard-ranking-list li {
+    min-height: 44px;
+    grid-template-columns: 20px 30px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 6px 0;
+  }
+
+  .dashboard-rank-avatar {
+    width: 29px;
+    height: 29px;
+  }
+
+  .dashboard-rank-copy strong {
+    font-size: .76rem;
+    line-height: 1.16;
+  }
+
+  .dashboard-rank-copy small,
+  .dashboard-rank-value {
+    font-size: .64rem;
+  }
+
+  .dashboard-activity-list {
+    max-height: 220px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+
+  .dashboard-activity-list li {
+    min-height: 44px;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 7px;
+    padding: 7px 0;
+  }
+
+  .dashboard-activity-icon {
+    width: 29px;
+    height: 29px;
+    font-size: .7rem;
+  }
+
+  .dashboard-activity-copy strong {
+    font-size: .76rem;
+    line-height: 1.16;
+  }
+
+  .dashboard-activity-copy small {
+    font-size: .64rem;
+    line-height: 1.15;
+  }
+
+  .dashboard-activity time {
+    grid-column: 2;
+    max-width: none;
+    margin-top: -1px;
+    font-size: .63rem;
+    text-align: left;
+  }
+}
