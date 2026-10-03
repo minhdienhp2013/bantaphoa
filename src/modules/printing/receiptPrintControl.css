@@ -1,0 +1,136 @@
+.receipt-print-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.receipt-print-control--compact {
+  margin-top: 6px;
+}
+
+.receipt-print-control__paper {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.84rem;
+}
+
+.receipt-print-control__paper select {
+  min-height: 34px;
+  padding: 4px 28px 4px 8px;
+  border: 1px solid var(--ui-border, #d8d0c7);
+  border-radius: 8px;
+  background: var(--ui-surface, #fff);
+  color: var(--ui-text, #231f20);
+  font: inherit;
+}
+
+.receipt-print-control__button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid var(--brand-red, #a33b32);
+  border-radius: 9px;
+  background: var(--brand-red, #a33b32);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.receipt-print-control__button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.receipt-print-control__button:focus-visible,
+.receipt-print-control__paper select:focus-visible {
+  outline: 3px solid var(--focus-ring, rgba(163, 59, 50, 0.28));
+  outline-offset: 2px;
+}
+
+.receipt-print-control__error {
+  flex-basis: 100%;
+  font-size: 0.82rem;
+  color: #8b1e1e;
+}
+
+@media (max-width: 560px) {
+  .receipt-print-control {
+    gap: 6px;
+  }
+
+  .receipt-print-control__paper-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .receipt-print-control__button,
+  .receipt-print-control__paper select {
+    min-height: 40px;
+  }
+}
+ 
+.receipt-print-control__button--blue {
+  border-color: #1677ff;
+  background: #1677ff;
+  color: #fff;
+}
+
+.receipt-print-control__button--blue:hover {
+  border-color: #0958d9;
+  background: #0958d9;
+}
+
+.sales-detail-modal__actions--combined > .receipt-print-control {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.sales-detail-modal__actions--combined > .receipt-print-control .receipt-print-control__button {
+  width: 100%;
+  min-height: 44px;
+}
+
+.sales-detail-modal__actions.sales-danger-actions .receipt-print-control__button--blue {
+  border-color: #1677ff;
+  background: #1677ff;
+  color: #fff;
+}
+
+.sales-detail-modal__actions.sales-danger-actions .receipt-print-control__button--blue:hover {
+  border-color: #0958d9;
+  background: #0958d9;
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .sales-detail-modal__actions--combined {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .sales-detail-modal__actions--combined > .receipt-print-control {
+    width: 100%;
+  }
+
+  .sales-detail-modal__actions--combined > .receipt-print-control .receipt-print-control__button {
+    min-width: 0;
+    padding-inline: 6px;
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .sales-detail-modal__actions--combined {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .sales-detail-modal__actions--combined > .receipt-print-control {
+    grid-column: 1 / -1;
+  }
+}

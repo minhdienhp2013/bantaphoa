@@ -1,0 +1,622 @@
+.printing-workspace {
+  padding: clamp(16px, 2.5vw, 24px);
+}
+
+.printing-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(300px, 1fr);
+  gap: 16px;
+}
+
+.printing-panel {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e1e6ed;
+  border-radius: 13px;
+  background: #fbfcfe;
+}
+
+.printing-panel h3 {
+  margin: 0 0 12px;
+}
+
+.printing-panel--preview {
+  grid-column: 1 / -1;
+}
+
+.print-product-list {
+  display: grid;
+  gap: 8px;
+  max-height: 450px;
+  margin-top: 12px;
+  overflow: auto;
+  padding-right: 3px;
+}
+
+.print-product-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 84px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #e3e8ef;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.print-product-check {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.print-product-check input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.print-product-check span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.print-product-check strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.print-product-check small {
+  color: #6a7688;
+}
+
+.print-quantity {
+  display: grid;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #59667a;
+}
+
+.print-quantity input,
+.print-size-grid input {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #ccd5e1;
+  border-radius: 8px;
+  padding: 7px 8px;
+  background: #ffffff;
+}
+
+.print-size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.print-size-grid label {
+  display: grid;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #4d5a70;
+}
+
+.print-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 14px 0 0;
+  padding: 12px;
+  border: 1px solid #dfe5ed;
+  border-radius: 10px;
+}
+
+.print-options legend {
+  padding: 0 5px;
+  font-weight: 800;
+  color: #364156;
+}
+
+.print-options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+}
+
+.print-options input {
+  width: 17px;
+  height: 17px;
+}
+
+.print-preview-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.print-preview-heading p {
+  margin-bottom: 0;
+}
+
+.label-preview-shell {
+  overflow: auto;
+  max-width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+  background:
+    linear-gradient(45deg, #edf0f4 25%, transparent 25%),
+    linear-gradient(-45deg, #edf0f4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #edf0f4 75%),
+    linear-gradient(-45deg, transparent 75%, #edf0f4 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+}
+
+.label-preview-scale {
+  width: max-content;
+  min-width: 100%;
+}
+
+.label-preview-scale--row-pages {
+  min-width: 0;
+}
+
+.label-print-pages {
+  display: grid;
+  gap: 12px;
+  width: var(--page-width);
+  margin: 0;
+  padding: 0;
+}
+
+.label-print-page {
+  display: grid;
+  grid-template-columns: repeat(2, var(--label-width));
+  column-gap: var(--label-gap-x);
+  align-items: start;
+  width: var(--page-width);
+  height: var(--page-height);
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0 var(--label-margin);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(20, 35, 60, 0.15);
+}
+
+.label-print-surface {
+  display: grid;
+  grid-template-columns: repeat(var(--label-columns), var(--label-width));
+  gap: var(--label-gap-y) var(--label-gap-x);
+  width: var(--sheet-width);
+  min-height: var(--label-height);
+  padding: var(--label-margin);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(20, 35, 60, 0.15);
+}
+
+.product-label {
+  width: var(--label-width);
+  height: var(--label-height);
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+  gap: 0.8mm;
+  padding: 1.3mm;
+  border: 0.18mm dashed #c4cbd5;
+  color: #000000;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.product-label--empty {
+  padding: 0;
+  border-style: dashed;
+  background: #fafbfc;
+}
+
+.product-label__text {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3mm 1.5mm;
+  line-height: 1.05;
+}
+
+.product-label__store {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 2.2mm;
+  font-weight: 700;
+}
+
+.product-label__name {
+  min-width: 0;
+  flex: 1 1 20mm;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-size: clamp(7px, 2.6mm, 11px);
+  font-weight: 800;
+}
+
+.product-label__sku,
+.product-label__unit {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 2.1mm;
+}
+
+.product-label__price {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 2.8mm;
+  font-weight: 900;
+}
+
+.product-label__codes {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.2mm;
+}
+
+.product-label__barcode {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-barcode-shell {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.label-barcode {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 13mm;
+}
+
+.label-barcode--hidden {
+  display: none;
+}
+
+.label-qr {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(14mm, 100%);
+  height: min(14mm, 100%);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.label-qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Preset giấy 74 × 22 mm: mỗi physical page chứa đúng hai tem 35 × 22 mm. */
+.product-label--74x22 {
+  grid-template-columns: minmax(0, 1fr) var(--qr-size);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0.55mm;
+  width: 35mm;
+  height: 22mm;
+  min-width: 0;
+  min-height: 0;
+  padding: 1mm;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.product-label--74x22.product-label--no-qr {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.product-label__text--74x22 {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.25mm;
+  line-height: 1;
+}
+
+.product-label--74x22 .product-label__name {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  flex: 1 1 auto;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  line-height: 1.03;
+  font-weight: 800;
+}
+
+.product-label--74x22 .product-label__name--short {
+  font-size: 2.7mm;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.product-label--74x22 .product-label__name--medium {
+  font-size: 2.35mm;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.product-label--74x22 .product-label__name--long {
+  font-size: 2.05mm;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.product-label--74x22 .product-label__name--xlong {
+  font-size: 1.8mm;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.product-label--74x22 .product-label__price {
+  flex: 0 0 auto;
+  width: 100%;
+  font-size: 2.7mm;
+  line-height: 1;
+}
+
+.product-label--74x22 .product-label__sku,
+.product-label--74x22 .product-label__unit {
+  flex: 0 0 auto;
+  width: 100%;
+  font-size: 1.65mm;
+  line-height: 1.05;
+}
+
+.product-label--74x22 .product-label__store {
+  flex: 0 0 auto;
+  font-size: 1.55mm;
+  line-height: 1;
+}
+
+.product-label__qr-zone {
+  width: var(--qr-size);
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.product-label--74x22 .label-qr {
+  width: var(--qr-size);
+  height: var(--qr-size);
+  max-width: 19mm;
+  max-height: 19mm;
+  flex: 0 0 var(--qr-size);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-label__barcode--compact {
+  flex: 0 0 3.6mm;
+  width: 100%;
+  max-height: 3.6mm;
+}
+
+.product-label__barcode--compact .label-barcode {
+  max-height: 3.6mm;
+}
+
+.label-code-error {
+  display: grid;
+  place-items: center;
+  min-height: 8mm;
+  padding: 1mm;
+  color: #7d2020;
+  background: #fff1f1;
+  font-size: 2mm;
+  text-align: center;
+}
+
+.label-preview-empty {
+  grid-column: 1 / -1;
+  min-width: 240px;
+  padding: 24px;
+  color: #677386;
+  text-align: center;
+}
+
+@media (max-width: 920px) {
+  .printing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .printing-panel--preview {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .printing-workspace {
+    padding: 14px;
+  }
+
+  .printing-panel {
+    padding: 12px;
+  }
+
+  .print-size-grid,
+  .print-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .print-preview-heading {
+    display: grid;
+  }
+
+  .print-preview-heading .button {
+    width: 100%;
+  }
+
+  .label-preview-shell {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .print-size-grid,
+  .print-options {
+    grid-template-columns: 1fr;
+  }
+
+  .print-product-row {
+    grid-template-columns: minmax(0, 1fr) 72px;
+  }
+}
+
+@page {
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .label-print-surface,
+  .label-print-surface *,
+  .label-print-pages,
+  .label-print-pages * {
+    visibility: visible !important;
+  }
+
+  .label-print-pages {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    width: var(--page-width) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .label-print-page {
+    display: grid !important;
+    grid-template-columns: repeat(2, var(--label-width)) !important;
+    column-gap: var(--label-gap-x) !important;
+    width: var(--page-width) !important;
+    height: var(--page-height) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: var(--page-height) !important;
+    margin: 0 !important;
+    padding: 0 var(--label-margin) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .label-print-page:not(:last-child) {
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+
+  .label-print-page:last-child {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  .label-print-surface {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: grid !important;
+    width: var(--sheet-width) !important;
+    padding: var(--label-margin) !important;
+    gap: var(--label-gap-y) var(--label-gap-x) !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  .product-label {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-color: transparent !important;
+  }
+
+  .product-label--empty {
+    border-color: transparent !important;
+    background: #ffffff !important;
+  }
+}

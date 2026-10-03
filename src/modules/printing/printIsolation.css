@@ -1,0 +1,44 @@
+@media print {
+  .sidebar,
+  .topbar,
+  .qr-page > :not(.printing-workspace),
+  .printing-workspace > .qr-section-heading,
+  .printing-grid > :not(.printing-panel--preview),
+  .printing-panel--preview > :not(.label-preview-shell) {
+    display: none !important;
+  }
+
+  #root,
+  .workspace,
+  .workspace__main,
+  .page-content,
+  .qr-page,
+  .printing-workspace,
+  .printing-grid,
+  .printing-panel--preview,
+  .label-preview-shell,
+  .label-preview-scale {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .qr-page,
+  .printing-grid {
+    gap: 0 !important;
+  }
+
+  .label-preview-scale--row-pages {
+    width: var(--page-width) !important;
+  }
+}
